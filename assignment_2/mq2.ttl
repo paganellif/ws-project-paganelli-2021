@@ -1,0 +1,51 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt-1-1: <http://qudt.org/1.1/schema/qudt#> .
+@prefix qudt-unit-1-1: <http://qudt.org/1.1/vocab/unit#> .
+@prefix schema: <http://schema.org/>.
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix rdfp: <https://w3id.org/rdfp/>.
+
+@base <http://example.org/data/mq2> .
+
+<MQ2> a ssn:System ;
+  rdfs:comment "MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide."@en ;
+  rdfs:seeAlso <https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf> ;
+  ssn-system:hasOperatingRange <MQ2SensorOperatingRange>, <MQ2SensorOperatingPowerRange> ;
+  ssn-system:hasSystemProperty <MQ2ConcentrationScope> .
+
+<MQ2SensorOperatingPowerRange> a ssn-system:OperatingRange ;
+  rdfs:comment "5V power circuit voltage"@en ;
+  schema:value 5 ;
+  schema:unitCode qudt-unit-1-1:V .
+
+<MQ2ConcentrationScope> a schema:PropertyValue ;
+  rdfs:comment "Parts-per-million is the ratio of one gas to another. It can detect LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide concentrations anywhere from 200 to 10000ppm."@en ;
+  schema:minValue 200 ;
+  schema:maxValue 10000 ;
+  schema:unitCode qudt-unit-1-1:PPM .
+
+<MQ2SensorOperatingRange> a ssn-system:OperatingRange ;
+  rdfs:comment "The conditions in which the MQ2 gas sensor is expected to operate."@en ;
+  ssn-system:inCondition <NormalTemperatureCondition>, <NormalHumidityCondition>, <NormalOxygenCondition> .
+
+<NormalTemperatureCondition> a ssn-system:Condition , schema:PropertyValue ;
+  rdfs:comment "A temperature range of 18 to 22 Celsius."@en ;
+  schema:minValue 18.0 ;
+  schema:maxValue 22.0 ;
+  schema:unitCode qudt-unit-1-1:DegreeCelsius .
+
+<NormalHumidityCondition> a ssn-system:Condition , schema:PropertyValue ;
+  rdfs:comment "A relative humidity range of 60 to 70 %."@en ;
+  schema:minValue 60.0 ;
+  schema:maxValue 70.0 ;
+  schema:unitCode qudt-unit-1-1:Percent .
+
+<NormalOxygenCondition> a ssn-system:Condition , schema:PropertyValue ;
+  rdfs:comment "21% (standard condition) Oxygen concentration can affect sensitivity"@en ;
+  schema:value 21.0 ;
+  schema:unitCode qudt-unit-1-1:Percent .
+

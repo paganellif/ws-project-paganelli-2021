@@ -4,18 +4,43 @@
 @prefix qudt-1-1: <http://qudt.org/1.1/schema/qudt#> .
 @prefix qudt-unit-1-1: <http://qudt.org/1.1/vocab/unit#> .
 @prefix schema: <http://schema.org/>.
-@prefix ex: <http://example.org/>.
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
 @prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
 @prefix rdfp: <https://w3id.org/rdfp/>.
 
-@base <http://example.org/data/> .
+@base <http://example.org/data/dht11> .
 
-<DHT11/386> a ssn:System ;
-  rdfs:comment "DHT11 sensor #386 contains a humidity and a temperature sensor."@en ;
-  rdfs:seeAlso <https://www.mouser.it/datasheet/2/737/dht-932870.pdf> ;
-  ssn:hasSubSystem <DHT11/386#TemperatureSensor>, <DHT11/386#HumiditySensor> .
+<DHT11> a ssn:System ;
+  rdfs:comment "DHT11 sensor contains a humidity and a temperature sensor."@en ;
+  rdfs:seeAlso <https://www.adafruit.com/product/386> ;
+  ssn-system:hasSystemProperty <DHT11PowerConsumption> ;
+  ssn-system:hasOperatingRange <DHT11SensorOperatingPowerRange> ;
+  ssn:hasSubSystem <DHT11TemperatureSensor>, <DHT11HumiditySensor> .
+
+<DHT11SensorOperatingPowerRange> a ssn-system:OperatingRange ;
+  rdfs:comment "3 to 5V power"@en ;
+  schema:minValue 3 ;
+  schema:maxValue 5 ;
+  schema:unitCode qudt-unit-1-1:V .
+
+<DHT11PowerConsumption> a schema:PropertyValue ;
+  rdfs:comment "2.5mA max current use during conversion (while requesting data)"@en ;
+  schema:maxValue 2.5 ;
+  schema:unitCode qudt-unit-1-1:MilliA .
+
+################################################
+# TEMPERATURE SENSOR
+################################################
+<DHT11TemperatureSensor> a sosa:Sensor , ssn:System ;
+  rdfs:comment "The embedded temperature sensor, a specific instance of temperature sensor."@en ;
+  ssn-system:hasOperatingRange <DHT11TemperatureSensorOperatingRange> ;
+  ssn-system:hasSystemCapability <DHT11TemperatureSensorCapability> ;
+  ssn:implements <DHT11#Procedure> .
+
+<DHT11TemperatureSensorOperatingRange> a ssn-system:OperatingRange ;
+  rdfs:comment "The conditions in which the DHT11 temperature sensor is expected to operate."@en ;
+  ssn-system:inCondition <NormalTemperatureCondition> , <NormalHumidityCondition> .
 
 <NormalTemperatureCondition> a ssn-system:Condition , schema:PropertyValue ;
   rdfs:comment "A temperature range of 0 to 50 Celsius."@en ;
@@ -23,48 +48,18 @@
   schema:maxValue 50.0 ;
   schema:unitCode qudt-unit-1-1:DegreeCelsius .
 
-<NormalHumidityCondition> a ssn-system:Condition , schema:PropertyValue ;
-  rdfs:comment "A relative humidity range of 20 to 80 %."@en ;
-  schema:minValue 20.0 ;
-  schema:maxValue 80.0 ;
-  schema:unitCode qudt-unit-1-1:Percent .
-
-################################################
-# TEMPERATURE SENSOR
-################################################
-<DHT11/386#TemperatureSensor> a sosa:Sensor , ssn:System ;
-  rdfs:comment "The embedded temperature sensor, a specific instance of temperature sensor."@en ;
-  ssn-system:hasOperatingRange <DHT11/386#TemperatureSensorOperatingRange> ;
-  ssn-system:hasSystemCapability <DHT11/386#TemperatureSensorCapability> ;
-  ssn:implements <DHT11#Procedure> .
-
-<DHT11/386#TemperatureSensorOperatingRange> a ssn-system:OperatingRange ;
-  rdfs:comment "The conditions in which the DHT11 temperature sensor is expected to operate."@en ;
-  ssn-system:inCondition <NormalTemperatureCondition> , <NormalHumidityCondition> .
-
-<DHT11/386#TemperatureSensorCapability> a ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
+<DHT11TemperatureSensorCapability> a ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
   rdfs:comment "The capabilities of the temperature sensor in normal temperature and humidity conditions." ;
   ssn-system:inCondition <NormalTemperatureCondition> , <NormalHumidityCondition> ;
-  ssn-system:hasSystemProperty <DHT11/386#TemperatureSensorAccuracy> , <DHT11/386#TemperatureSensorSensitivity> , <DHT11/386#TemperatureSensorFrequency> .
+  ssn-system:hasSystemProperty <DHT11TemperatureSensorAccuracy>, <DHT11TemperatureSensorFrequency> .
 
-<DHT11/386#TemperatureSensorAccuracy> a ssn:Property , ssn-system:Accuracy , schema:PropertyValue ;
+<DHT11TemperatureSensorAccuracy> a ssn:Property , ssn-system:Accuracy , schema:PropertyValue ;
   rdfs:comment "The accuracy of the temperature sensor is +-2 °C in normal temperature and humidity conditions."@en ;
   schema:minValue -2 ;
   schema:maxValue 2 ;
   schema:unitCode qudt-unit-1-1:DegreeCelsius .
 
-<DHT11/386#TemperatureSensorSensitivity> a ssn:Property , ssn-system:Sensitivity , ssn-system:Resolution , schema:PropertyValue ;
-  rdfs:comment "The sensitivity and resolution of the temperature sensor is 0.1 °C in normal temperature and humidity conditions."@en ;
-  schema:value 0.1 ;
-  schema:unitCode qudt-unit-1-1:DegreeCelsius .
-
-<DHT11/386#TemperatureSensorPrecision> a ssn:Property , ssn-system:Precision , schema:PropertyValue ;
-  rdfs:comment "The precision (= repeatability) of the temperature sensor is +-0.2 °C in normal temperature and humidity conditions."@en ;
-  schema:minValue 0.2 ;
-  schema:maxValue 0.2 ;
-  schema:unitCode qudt-unit-1-1:DegreeCelsius .
-
-<DHT11/386#TemperatureSensorFrequency> a ssn:Property , ssn-system:Frequency , schema:PropertyValue ;
+<DHT11TemperatureSensorFrequency> a ssn:Property , ssn-system:Frequency , schema:PropertyValue ;
   rdfs:comment "No more than 1 Hz sampling rate (once every second)."@en ;
   schema:value 1 ;
   schema:unitCode qudt-unit-1-1:Second .
@@ -72,22 +67,32 @@
 ################################################
 # HUMIDITY SENSOR
 ################################################
-<DHT11/386#HumiditySensor> a sosa:Sensor , ssn:System ;
+<DHT11HumiditySensor> a sosa:Sensor , ssn:System ;
   rdfs:comment "The embedded humidity sensor, a specific instance of humidity sensor."@en ;
-  ssn-system:hasOperatingRange <DHT11/386#HumiditySensorOperatingRange> ;
+  ssn-system:hasOperatingRange <DHT11HumiditySensorOperatingRange> ;
   ssn:implements <DHT11#Procedure> .
 
-<DHT11/386#HumiditySensorOperatingRange> a ssn-system:OperatingRange ;
+<DHT11HumiditySensorOperatingRange> a ssn-system:OperatingRange ;
   rdfs:comment "The conditions in which the DHT11 humidity sensor is expected to operate."@en ;
   ssn-system:inCondition <NormalTemperatureCondition> , <NormalHumidityCondition> .
 
+<NormalHumidityCondition> a ssn-system:Condition , schema:PropertyValue ;
+  rdfs:comment "A relative humidity range of 20 to 80 %."@en ;
+  schema:minValue 20.0 ;
+  schema:maxValue 80.0 ;
+  schema:unitCode qudt-unit-1-1:Percent .
 
-<DHT11/386#HumiditySensorCapability> a ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
+<DHT11HumiditySensorCapability> a ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
   rdfs:comment "The capabilities of the humidity sensor in normal temperature and humidity conditions." ;
   ssn-system:inCondition <NormalTemperatureCondition> , <NormalHumidityCondition> ;
-  ssn-system:hasSystemProperty <DHT11/386#TemperatureSensorAccuracy> , <DHT11/386#TemperatureSensorSensitivity> , <DHT11/386#TemperatureSensorFrequency> .
+  ssn-system:hasSystemProperty <DHT11HumiditySensorAccuracy>, <DHT11HumiditySensorFrequency> .
 
-<DHT11/386#TemperatureSensorAccuracy> a ssn:Property , ssn-system:Accuracy , schema:PropertyValue ;
+<DHT11HumiditySensorAccuracy> a ssn:Property , ssn-system:Accuracy , schema:PropertyValue ;
   rdfs:comment "The accuracy of the humidity sensor is 5 % in normal temperature and humidity conditions."@en ;
   schema:value 5 ;
   schema:unitCode qudt-unit-1-1:Percent .
+
+<DHT11HumiditySensorFrequency> a ssn:Property , ssn-system:Frequency , schema:PropertyValue ;
+  rdfs:comment "No more than 1 Hz sampling rate (once every second)."@en ;
+  schema:value 1 ;
+  schema:unitCode qudt-unit-1-1:Second .
