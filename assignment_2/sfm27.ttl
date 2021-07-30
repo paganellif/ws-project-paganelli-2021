@@ -1,0 +1,29 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt-1-1: <http://qudt.org/1.1/schema/qudt#> .
+@prefix qudt-unit-1-1: <http://qudt.org/1.1/vocab/unit#> .
+@prefix schema: <http://schema.org/>.
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix rdfp: <https://w3id.org/rdfp/>.
+
+@base <http://example.org/data/sfm27> .
+
+<SFM27> a ssn:System ;
+  rdfs:comment "SFM-27 active buzzer."@en ;
+  rdfs:seeAlso <https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf> ;
+  ssn-system:hasOperatingRange <KY026UltravioletSensorOperatingRange>, <KY026DetectionAngleOperatingRange>, <SFM27SensorOperatingPowerRange> ;
+  ssn-system:hasSystemProperty <SFM27PowerConsumption> .
+
+<SFM27SensorOperatingPowerRange> a ssn-system:OperatingRange ;
+  rdfs:comment "3 to 24V power"@en ;
+  schema:minValue 3 ;
+  schema:maxValue 24 ;
+  schema:unitCode qudt-unit-1-1:V .
+
+<SFM27PowerConsumption> a schema:PropertyValue ;
+  rdfs:comment "Maximum Current: 12mA"@en ;
+  schema:maxValue 12 ;
+  schema:unitCode qudt-unit-1-1:MilliA .
