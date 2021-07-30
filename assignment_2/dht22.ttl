@@ -97,7 +97,6 @@
   schema:value 2 ;
   schema:unitCode qudt-unit-1-1:Second .
 
-
 <observation/1087> rdf:type sosa:Observation ;
   sosa:madeBySensor <DHT22/4578#TemperatureSensor> ;
   sosa:usedProcedure <DHT22#Procedure> ;
