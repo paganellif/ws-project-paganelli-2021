@@ -19,7 +19,7 @@
 
 <SFM27SensorOperatingPowerRange> a ssn-system:OperatingRange ;
   rdfs:comment "3 to 24V power"@en ;
-  schema:minValue 3 ;
+  schema:greaterOrEqual  3 ;
   schema:maxValue 24 ;
   schema:unitCode qudt-unit-1-1:V .
 

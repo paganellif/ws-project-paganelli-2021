@@ -19,15 +19,29 @@ xmlns:rdfp="https://w3id.org/rdfp/">
 <!--DHT11-->
 <rdfs:Class rdf:ID="DHT11">
     <rdfs:comment>DHT11 sensor contains a humidity and a temperature sensor</rdfs:comment>
-    <rdfs:seeAlso>https://www.adafruit.com/product/386<rdfs:seeAlso>
+    <rdfs:seeAlso>https://www.adafruit.com/product/386</rdfs:seeAlso>
     <rdfs:subClassOf rdf:resource="ssn:Sensor"/>
 </rdfs:Class>
 
 <!--MQ2-->
 <rdfs:Class rdf:ID="MQ2">
     <rdfs:comment>MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide</rdfs:comment>
-    <rdfs:seeAlso>https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf<rdfs:seeAlso>
+    <rdfs:seeAlso>https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf</rdfs:seeAlso>
     <rdfs:subClassOf rdf:resource="ssn:Sensor"/>
+</rdfs:Class>
+
+<!--KY026-->
+<rdfs:Class rdf:ID="KY026">
+    <rdfs:comment>MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide</rdfs:comment>
+    <rdfs:seeAlso>https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="ssn:Sensor"/>
+</rdfs:Class>
+
+<!--SFM27-->
+<rdfs:Class rdf:ID="SFM27">
+    <rdfs:comment>SFM-27 active buzzer</rdfs:comment>
+    <rdfs:seeAlso>https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="ssn:Actuator"/>
 </rdfs:Class>
 
 <!--Property definition-->
@@ -88,6 +102,29 @@ xmlns:rdfp="https://w3id.org/rdfp/">
     <rdfs:domain rdf:resource="#MQ2"/>
     <rdfs:range rdf:resource="rdfs:Literal"/>
     <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
+</rdf:Property>
+
+<!--KY026-->
+<rdf:Property rdf:ID="KY026UltravioletMeasurementRange">
+    <rdfs:comment>Infrared Wavelength Detection</rdfs:comment>
+    <rdfs:domain rdf:resource="#KY026"/>
+    <rdfs:range rdf:resource="rdfs:Literal"/>
+    <rdfs:subClassOf rdf:resource="ssn-system:MeasurementRange"/>
+</rdf:Property>
+
+<rdf:Property rdf:ID="KY026AngleMeasurementRange">
+    <rdfs:comment>Sensor Detection Angle</rdfs:comment>
+    <rdfs:domain rdf:resource="#KY026"/>
+    <rdfs:range rdf:resource="rdfs:Literal"/>
+    <rdfs:subClassOf rdf:resource="ssn-system:MeasurementRange"/>
+</rdf:Property>
+
+<!--SFM27-->
+<rdf:Property rdf:ID="SFM27SoundOutput">
+    <rdfs:comment>Sound Output</rdfs:comment>
+    <rdfs:domain rdf:resource="#SFM27"/>
+    <rdfs:range rdf:resource="rdfs:Literal"/>
+    <rdfs:subClassOf rdf:resource="sosa:ActuatableProperty"/>
 </rdf:Property>
 
 <!--RDF-->
@@ -154,5 +191,36 @@ xmlns:rdfp="https://w3id.org/rdfp/">
         <schema:unitCode>qudt-unit-1-1:Percent<\schema:unitCode>
     </res:MQ2OxygenCondition>
 </res:MQ2>
+
+<!--KY026-->
+<res:KY026 res:ID="KY0260000001">
+    <ssn-system:OperatingPowerRange>
+        <schema:minValue>3<\schema:minValue>
+        <schema:maxValue>5<\schema:maxValue>
+        <schema:unitCode>qudt-unit-1-1:V<\schema:unitCode>
+    </ssn-system:OperatingPowerRange>
+    <res:KY026UltravioletMeasurementRange>
+        <schema:minValue>760<\schema:minValue>
+        <schema:maxValue>1100<\schema:maxValue>
+        <schema:unitCode>qudt-unit-1-1:NanoM<\schema:unitCode>
+    </res:KY026UltravioletMeasurementRange>
+    <res:KY026AngleMeasurementRange>
+        <schema:minValue>60<\schema:minValue>
+        <schema:unitCode>qudt-unit-1-1:DEG<\schema:unitCode>
+    </res:KY026AngleMeasurementRange>
+</res:KY026>
+
+<!--SFM27-->
+<res:SFM27 res:ID="SFM270000001">
+    <ssn-system:OperatingPowerRange>
+        <schema:minValue>3<\schema:minValue>
+        <schema:maxValue>24<\schema:maxValue>
+        <schema:unitCode>qudt-unit-1-1:V<\schema:unitCode>
+    </ssn-system:OperatingPowerRange>
+    <res:SFM27SoundOutput>
+        <schema:greaterOrEqual>95<\schema:greaterOrEqual>
+        <schema:unitCode>qudt-unit-1-1:DeciB<\schema:unitCode>
+    </res:SFM27SoundOutput>
+</res:SFM27>
 
 </rdf:RDF>
