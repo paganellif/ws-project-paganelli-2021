@@ -11,69 +11,69 @@
     xmlns:ssn="http://www.w3.org/ns/ssn/"
     xmlns:ssn-system="http://www.w3.org/ns/ssn/systems/"
     xmlns:rdfp="https://w3id.org/rdfp/">
-    
+
     <!--RDFS-->
     <!--Class definition-->
-    
+
     <!--DHT11-->
     <rdfs:Class rdf:ID="DHT11">
         <rdfs:comment>DHT11 sensor contains a humidity and a temperature sensor</rdfs:comment>
         <rdfs:seeAlso>https://www.adafruit.com/product/386</rdfs:seeAlso>
         <rdfs:subClassOf rdf:resource="ssn:Sensor"/>
     </rdfs:Class>
-    
+
     <!--MQ2-->
     <rdfs:Class rdf:ID="MQ2">
         <rdfs:comment>MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide</rdfs:comment>
         <rdfs:seeAlso>https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf</rdfs:seeAlso>
         <rdfs:subClassOf rdf:resource="ssn:Sensor"/>
     </rdfs:Class>
-    
+
     <!--KY026-->
     <rdfs:Class rdf:ID="KY026">
         <rdfs:comment>MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide</rdfs:comment>
         <rdfs:seeAlso>https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf</rdfs:seeAlso>
         <rdfs:subClassOf rdf:resource="ssn:Sensor"/>
     </rdfs:Class>
-    
+
     <!--SFM27-->
     <rdfs:Class rdf:ID="SFM27">
         <rdfs:comment>SFM-27 active buzzer</rdfs:comment>
         <rdfs:seeAlso>https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf</rdfs:seeAlso>
         <rdfs:subClassOf rdf:resource="ssn:Actuator"/>
     </rdfs:Class>
-    
+
     <!--Property definition-->
-    
+
     <!--DHT11-->
-    <rdf:Property rdf:ID="DHT11TemperatureAccuracy">
+    <rdf:Property rdf:ID="DHT11TempAccuracy">
         <rdfs:comment>DHT11 temperature accuracy</rdfs:comment>
         <rdfs:domain rdf:resource="#DHT11"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="ssn-system:Accuracy"/>
     </rdf:Property>
-    
-    <rdf:Property rdf:ID="DHT11HumidityAccuracy">
+
+    <rdf:Property rdf:ID="DHT11HumAccuracy">
         <rdfs:comment>DHT11 humidity accuracy</rdfs:comment>
         <rdfs:domain rdf:resource="#DHT11"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="ssn-system:Accuracy"/>
     </rdf:Property>
-    
-    <rdf:Property rdf:ID="DHT11TemperatureCondition">
+
+    <rdf:Property rdf:ID="DHT11TempCondition">
         <rdfs:comment>DHT11 temperature condition</rdfs:comment>
         <rdfs:domain rdf:resource="#DHT11"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
-    
-    <rdf:Property rdf:ID="DHT11HumidityCondition">
+
+    <rdf:Property rdf:ID="DHT11HumCondition">
         <rdfs:comment>DHT11 humidity condition/rdfs:comment>
         <rdfs:domain rdf:resource="#DHT11"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
-    
+
     <!--MQ2-->
     <rdf:Property rdf:ID="MQ2GasMeasurementRange">
         <rdfs:comment>Parts-per-million is the ratio of one gas to another</rdfs:comment>
@@ -81,43 +81,43 @@
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="ssn-system:MeasurementRange"/>
     </rdf:Property>
-    
-    <rdf:Property rdf:ID="MQ2TemperatureCondition">
+
+    <rdf:Property rdf:ID="MQ2TempCondition">
         <rdfs:comment>MQ2 temperature condition</rdfs:comment>
         <rdfs:domain rdf:resource="#MQ2"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
-    
-    <rdf:Property rdf:ID="MQ2HumidityCondition">
+
+    <rdf:Property rdf:ID="MQ2HumCondition">
         <rdfs:comment>MQ2 humidity condition/rdfs:comment>
         <rdfs:domain rdf:resource="#MQ2"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
-    
+
     <rdf:Property rdf:ID="MQ2OxygenCondition">
         <rdfs:comment>MQ2 oxygen condition/rdfs:comment>
         <rdfs:domain rdf:resource="#MQ2"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
-    
+
     <!--KY026-->
-    <rdf:Property rdf:ID="KY026UltravioletMeasurementRange">
+    <rdf:Property rdf:ID="KY026UVMeasurementRange">
         <rdfs:comment>Infrared Wavelength Detection</rdfs:comment>
         <rdfs:domain rdf:resource="#KY026"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="ssn-system:MeasurementRange"/>
     </rdf:Property>
-    
+
     <rdf:Property rdf:ID="KY026AngleMeasurementRange">
         <rdfs:comment>Sensor Detection Angle</rdfs:comment>
         <rdfs:domain rdf:resource="#KY026"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="ssn-system:MeasurementRange"/>
     </rdf:Property>
-    
+
     <!--SFM27-->
     <rdf:Property rdf:ID="SFM27SoundOutput">
         <rdfs:comment>Sound Output</rdfs:comment>
@@ -125,9 +125,9 @@
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subClassOf rdf:resource="sosa:ActuatableProperty"/>
     </rdf:Property>
-    
+
     <!--RDF-->
-    
+
     <!--DHT11-->
     <res:DHT11 res:ID="DHT110000001">
         <ssn-system:OperatingPowerRange>
@@ -139,27 +139,27 @@
             <schema:value>1<\schema:value>
             <schema:unitCode>qudt-unit-1-1:Second<\schema:unitCode>
         </ssn-system:Frequency>
-        <res:DHT11TemperatureCondition>
+        <res:DHT11TempCondition>
             <schema:minValue>0<\schema:minValue>
             <schema:maxValue>50<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:DegreeCelsius<\schema:unitCode>
-        </res:DHT11TemperatureCondition>
-        <res:DHT11HumidityCondition>
+        </res:DHT11TempCondition>
+        <res:DHT11HumCondition>
             <schema:minValue>20<\schema:minValue>
             <schema:maxValue>80<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:Percent<\schema:unitCode>
-        </res:DHT11HumidityCondition>
-        <res:DHT11TemperatureAccuracy>
+        </res:DHT11HumCondition>
+        <res:DHT11TempAccuracy>
             <schema:minValue>-2<\schema:minValue>
             <schema:maxValue>2<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:DegreeCelsius<\schema:unitCode>
-        </res:DHT11TemperatureAccuracy>
-        <res:DHT11HumidityAccuracy>
+        </res:DHT11TempAccuracy>
+        <res:DHT11HumAccuracy>
             <schema:value>5<\schema:value>
             <schema:unitCode>qudt-unit-1-1:Percent<\schema:unitCode>
-        </res:DHT11HumidityAccuracy>
+        </res:DHT11HumAccuracy>
     </res:DHT11>
-    
+
     <!--MQ2-->
     <res:MQ2 res:ID="MQ20000001">
         <ssn-system:OperatingPowerRange>
@@ -175,22 +175,22 @@
             <schema:maxValue>10000<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:PPM<\schema:unitCode>
         </res:MQ2GasMeasurementRange>
-        <res:MQ2TemperatureCondition>
+        <res:MQ2TempCondition>
             <schema:minValue>18<\schema:minValue>
             <schema:maxValue>22<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:DegreeCelsius<\schema:unitCode>
-        </res:MQ2TemperatureCondition>
-        <res:MQ2HumidityCondition>
+        </res:MQ2TempCondition>
+        <res:MQ2HumCondition>
             <schema:minValue>60<\schema:minValue>
             <schema:maxValue>70<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:Percent<\schema:unitCode>
-        </res:MQ2HumidityCondition>
+        </res:MQ2HumCondition>
         <res:MQ2OxygenCondition>
             <schema:value>21<\schema:value>
             <schema:unitCode>qudt-unit-1-1:Percent<\schema:unitCode>
         </res:MQ2OxygenCondition>
     </res:MQ2>
-    
+
     <!--KY026-->
     <res:KY026 res:ID="KY0260000001">
         <ssn-system:OperatingPowerRange>
@@ -198,17 +198,17 @@
             <schema:maxValue>5<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:V<\schema:unitCode>
         </ssn-system:OperatingPowerRange>
-        <res:KY026UltravioletMeasurementRange>
+        <res:KY026UVMeasurementRange>
             <schema:minValue>760<\schema:minValue>
             <schema:maxValue>1100<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:NanoM<\schema:unitCode>
-        </res:KY026UltravioletMeasurementRange>
+        </res:KY026UVMeasurementRange>
         <res:KY026AngleMeasurementRange>
             <schema:minValue>60<\schema:minValue>
             <schema:unitCode>qudt-unit-1-1:DEG<\schema:unitCode>
         </res:KY026AngleMeasurementRange>
     </res:KY026>
-    
+
     <!--SFM27-->
     <res:SFM27 res:ID="SFM270000001">
         <ssn-system:OperatingPowerRange>
