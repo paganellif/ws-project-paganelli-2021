@@ -52,6 +52,13 @@
 
     <!--Property definition-->
 
+    <!--EdgeDevice-->
+    <rdf:Property rdf:ID="isRoutedBy">
+        <rdfs:comment>Router node that can route data to another node</rdfs:comment>
+        <rdfs:domain rdf:resource="sosa:Platform"/>
+        <rdfs:range rdf:resource="sosa:Platform"/>
+    </rdf:Property>
+
     <!--DHT11-->
     <rdf:Property rdf:ID="DHT11TempAccuracy">
         <rdfs:comment>DHT11 temperature accuracy</rdfs:comment>
@@ -247,5 +254,13 @@
             <geo:lat>55.701</geo:lat>
             <geo:long>12.552</geo:long>
         </geo:Point>
+        <res:isRoutedBy>
+            <rdf:Bag>
+                <!--List of router node that route data to the edge device ED0000001-->
+                <rdf:_1 rdf:resource="#RN0000001"/>
+                <rdf:_1 rdf:resource="#RN0000002"/>
+                <rdf:_1 rdf:resource="#RN0000003"/>
+		    </rdf:Bag>
+        </res:isRoutedBy>
     </res:EdgeDevice>
 </rdf:RDF>
