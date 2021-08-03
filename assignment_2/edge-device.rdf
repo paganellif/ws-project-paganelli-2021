@@ -6,6 +6,7 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:qudt-1-1="http://qudt.org/1.1/schema/qudt#"
     xmlns:qudt-unit-1-1="http://qudt.org/1.1/vocab/unit#"
+    xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
     xmlns:schema="http://schema.org/"
     xmlns:sosa="http://www.w3.org/ns/sosa/"
     xmlns:ssn="http://www.w3.org/ns/ssn/"
@@ -242,5 +243,9 @@
                 <rdf:_4 rdf:resource="#SFM270000001"/>
 		    </rdf:Bag>
         </sosa:hosts>
+        <geo:Point>
+            <geo:lat>55.701</geo:lat>
+            <geo:long>12.552</geo:long>
+        </geo:Point>
     </res:EdgeDevice>
 </rdf:RDF>
