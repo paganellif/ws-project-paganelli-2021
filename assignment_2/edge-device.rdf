@@ -15,6 +15,12 @@
     <!--RDFS-->
     <!--Class definition-->
 
+    <!--EdgeDevice-->
+    <rdfs:Class rdf:ID="EdgeDevice">
+        <rdfs:comment>Edge device node of the wireless sensor network</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="sosa:Platform"/>
+    </rdfs:Class>
+
     <!--DHT11-->
     <rdfs:Class rdf:ID="DHT11">
         <rdfs:comment>DHT11 sensor contains a humidity and a temperature sensor</rdfs:comment>
@@ -130,6 +136,7 @@
 
     <!--DHT11-->
     <res:DHT11 res:ID="DHT110000001">
+        <sosa:isHostedBy rdf:resource="#ED0000001"/>
         <ssn-system:OperatingPowerRange>
             <schema:minValue>3<\schema:minValue>
             <schema:maxValue>5<\schema:maxValue>
@@ -162,6 +169,7 @@
 
     <!--MQ2-->
     <res:MQ2 res:ID="MQ20000001">
+        <sosa:isHostedBy rdf:resource="#ED0000001"/>
         <ssn-system:OperatingPowerRange>
             <schema:value>5<\schema:value>
             <schema:unitCode>qudt-unit-1-1:V<\schema:unitCode>
@@ -193,6 +201,7 @@
 
     <!--KY026-->
     <res:KY026 res:ID="KY0260000001">
+        <sosa:isHostedBy rdf:resource="#ED0000001"/>
         <ssn-system:OperatingPowerRange>
             <schema:minValue>3<\schema:minValue>
             <schema:maxValue>5<\schema:maxValue>
@@ -211,6 +220,7 @@
 
     <!--SFM27-->
     <res:SFM27 res:ID="SFM270000001">
+        <sosa:isHostedBy rdf:resource="#ED0000001"/>
         <ssn-system:OperatingPowerRange>
             <schema:minValue>3<\schema:minValue>
             <schema:maxValue>24<\schema:maxValue>
@@ -222,4 +232,15 @@
         </res:SFM27SoundOutput>
     </res:SFM27>
 
+    <!--EdgeDevice-->
+    <res:EdgeDevice res:ID="ED0000001">
+        <sosa:hosts>
+            <rdf:Bag>
+                <rdf:_1 rdf:resource="#DHT110000001"/>
+                <rdf:_2 rdf:resource="#MQ20000001"/>
+                <rdf:_3 rdf:resource="#KY0260000001"/>
+                <rdf:_4 rdf:resource="#SFM270000001"/>
+		    </rdf:Bag>
+        </sosa:hosts>
+    </res:EdgeDevice>
 </rdf:RDF>
