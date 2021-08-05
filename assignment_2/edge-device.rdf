@@ -64,28 +64,28 @@
         <rdfs:comment>DHT11 temperature accuracy</rdfs:comment>
         <rdfs:domain rdf:resource="#DHT11"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="ssn-system:Accuracy"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:Accuracy"/>
     </rdf:Property>
 
     <rdf:Property rdf:ID="DHT11HumAccuracy">
         <rdfs:comment>DHT11 humidity accuracy</rdfs:comment>
         <rdfs:domain rdf:resource="#DHT11"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="ssn-system:Accuracy"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:Accuracy"/>
     </rdf:Property>
 
     <rdf:Property rdf:ID="DHT11TempCondition">
         <rdfs:comment>DHT11 temperature condition</rdfs:comment>
         <rdfs:domain rdf:resource="#DHT11"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
 
     <rdf:Property rdf:ID="DHT11HumCondition">
         <rdfs:comment>DHT11 humidity condition/rdfs:comment>
         <rdfs:domain rdf:resource="#DHT11"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
 
     <!--MQ2-->
@@ -93,28 +93,28 @@
         <rdfs:comment>Parts-per-million is the ratio of one gas to another</rdfs:comment>
         <rdfs:domain rdf:resource="#MQ2"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="ssn-system:MeasurementRange"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:MeasurementRange"/>
     </rdf:Property>
 
     <rdf:Property rdf:ID="MQ2TempCondition">
         <rdfs:comment>MQ2 temperature condition</rdfs:comment>
         <rdfs:domain rdf:resource="#MQ2"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
 
     <rdf:Property rdf:ID="MQ2HumCondition">
         <rdfs:comment>MQ2 humidity condition/rdfs:comment>
         <rdfs:domain rdf:resource="#MQ2"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
 
     <rdf:Property rdf:ID="MQ2OxygenCondition">
         <rdfs:comment>MQ2 oxygen condition/rdfs:comment>
         <rdfs:domain rdf:resource="#MQ2"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="ssn-system:Condition"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
 
     <!--KY026-->
@@ -122,14 +122,14 @@
         <rdfs:comment>Infrared Wavelength Detection</rdfs:comment>
         <rdfs:domain rdf:resource="#KY026"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="ssn-system:MeasurementRange"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:MeasurementRange"/>
     </rdf:Property>
 
     <rdf:Property rdf:ID="KY026AngleMeasurementRange">
         <rdfs:comment>Sensor Detection Angle</rdfs:comment>
         <rdfs:domain rdf:resource="#KY026"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="ssn-system:MeasurementRange"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:MeasurementRange"/>
     </rdf:Property>
 
     <!--SFM27-->
@@ -137,7 +137,7 @@
         <rdfs:comment>Sound Output</rdfs:comment>
         <rdfs:domain rdf:resource="#SFM27"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subClassOf rdf:resource="sosa:ActuatableProperty"/>
+        <rdfs:subPropertyOf rdf:resource="sosa:ActuatableProperty"/>
     </rdf:Property>
 
     <!--RDF-->
