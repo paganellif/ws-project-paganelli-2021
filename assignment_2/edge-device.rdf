@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:dht11="http://example.org/dht11#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:qudt-1-1="http://qudt.org/1.1/schema/qudt#"
@@ -11,7 +10,6 @@
     xmlns:sosa="http://www.w3.org/ns/sosa/"
     xmlns:ssn="http://www.w3.org/ns/ssn/"
     xmlns:ssn-system="http://www.w3.org/ns/ssn/systems/"
-    xmlns:rdfp="https://w3id.org/rdfp/">
 
     <!--RDFS-->
     <!--Class definition-->
@@ -38,8 +36,8 @@
 
     <!--KY026-->
     <rdfs:Class rdf:ID="KY026">
-        <rdfs:comment>MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide</rdfs:comment>
-        <rdfs:seeAlso>https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf</rdfs:seeAlso>
+        <rdfs:comment>KY-026 Flame Sensor Module</rdfs:comment>
+        <rdfs:seeAlso>https://datasheetspdf.com/pdf/1402037/Joy-IT/KY-026/1</rdfs:seeAlso>
         <rdfs:subClassOf rdf:resource="ssn:Sensor"/>
     </rdfs:Class>
 
@@ -55,7 +53,7 @@
     <!--EdgeDevice-->
     <rdf:Property rdf:ID="isRoutedBy">
         <rdfs:comment>Router node that can route data to another node</rdfs:comment>
-        <rdfs:domain rdf:resource="sosa:Platform"/>
+        <rdfs:domain rdf:resource="ssn:System"/>
         <rdfs:range rdf:resource="sosa:Platform"/>
     </rdf:Property>
 

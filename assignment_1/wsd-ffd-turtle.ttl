@@ -1,0 +1,34 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+
+<http://wsn-ffd.org/DHT11> a rdfs:Class ;
+    rdfs:comment "DHT11 sensor contains a humidity and a temperature sensor" ;
+    rdfs:seeAlso "https://www.adafruit.com/product/386" ;
+    rdfs:subClassOf ssn:Sensor .
+
+<http://wsn-ffd.org/EdgeDevice> a rdfs:Class ;
+    rdfs:comment "Edge device node of the wireless sensor network" ;
+    rdfs:subClassOf sosa:Platform .
+
+<http://wsn-ffd.org/KY026> a rdfs:Class ;
+    rdfs:comment "KY-026 Flame Sensor Module" ;
+    rdfs:seeAlso "https://datasheetspdf.com/pdf/1402037/Joy-IT/KY-026/1" ;
+    rdfs:subClassOf ssn:Sensor .
+
+<http://wsn-ffd.org/MQ2> a rdfs:Class ;
+    rdfs:comment "MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide" ;
+    rdfs:seeAlso "https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf" ;
+    rdfs:subClassOf ssn:Sensor .
+
+<http://wsn-ffd.org/SFM27> a rdfs:Class ;
+    rdfs:comment "SFM-27 active buzzer" ;
+    rdfs:seeAlso "https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf" ;
+    rdfs:subClassOf ssn:Actuator .
+
+<http://wsn-ffd.org/isRoutedBy> a rdf:Property ;
+    rdfs:comment "Router node that can route data to another node" ;
+    rdfs:domain ssn:System ;
+    rdfs:range sosa:Platform .
+

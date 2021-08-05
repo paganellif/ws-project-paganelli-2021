@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SFM27">
+    <rdfs:seeAlso>https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Actuator"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>SFM-27 active buzzer</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/KY026">
+    <rdfs:comment>KY-026 Flame Sensor Module</rdfs:comment>
+    <rdfs:seeAlso>https://datasheetspdf.com/pdf/1402037/Joy-IT/KY-026/1</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/DHT11">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
+    <rdfs:seeAlso>https://www.adafruit.com/product/386</rdfs:seeAlso>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>DHT11 sensor contains a humidity and a temperature sensor</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/MQ2">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
+    <rdfs:comment>MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide</rdfs:comment>
+    <rdfs:seeAlso>https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf</rdfs:seeAlso>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/EdgeDevice">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>Edge device node of the wireless sensor network</rdfs:comment>
+  </rdf:Description>
+</rdf:RDF>
