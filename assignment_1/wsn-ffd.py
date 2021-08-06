@@ -93,6 +93,13 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((hum_condition, RDFS.range, RDFS.Literal))
     wsd_ffd_rdf.add((hum_condition, RDFS.subPropertyOf, SSN_SYSTEM.Condition))
 
+    gas_measurement = URIRef(value='GasMeasurement', base=base_ontology)
+    wsd_ffd_rdf.add((gas_measurement, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((gas_measurement, RDFS.comment, Literal('Sensor/Actuator operating humidity condition')))
+    wsd_ffd_rdf.add((gas_measurement, RDFS.domain, SSN.System))
+    wsd_ffd_rdf.add((gas_measurement, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((gas_measurement, RDFS.subPropertyOf, SSN_SYSTEM.MeasurementRange))
+
     dht11_temp_accuracy = URIRef(value='DHT11TempAccuracy', base=base_ontology)
     wsd_ffd_rdf.add((dht11_temp_accuracy, RDF.type, RDF.Property))
     wsd_ffd_rdf.add((dht11_temp_accuracy, RDFS.comment, Literal('DHT11 temperature accuracy')))

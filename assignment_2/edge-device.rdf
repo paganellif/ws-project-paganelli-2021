@@ -87,9 +87,9 @@
     </rdf:Property>
 
     <!--MQ2-->
-    <rdf:Property rdf:ID="MQ2GasMeasurementRange">
+    <rdf:Property rdf:ID="GasMeasurementRange">
         <rdfs:comment>Parts-per-million is the ratio of one gas to another</rdfs:comment>
-        <rdfs:domain rdf:resource="#MQ2"/>
+        <rdfs:domain rdf:resource="ssn:System"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subPropertyOf rdf:resource="ssn-system:MeasurementRange"/>
     </rdf:Property>
@@ -170,11 +170,11 @@
             <schema:value>1<\schema:value>
             <schema:unitCode>qudt-unit-1-1:Second<\schema:unitCode>
         </ssn-system:Frequency>
-        <res:MQ2GasMeasurementRange>
+        <res:GasMeasurementRange>
             <schema:minValue>200<\schema:minValue>
             <schema:maxValue>10000<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:PPM<\schema:unitCode>
-        </res:MQ2GasMeasurementRange>
+        </res:GasMeasurementRange>
         <res:TempCondition>
             <schema:minValue>18<\schema:minValue>
             <schema:maxValue>22<\schema:maxValue>
