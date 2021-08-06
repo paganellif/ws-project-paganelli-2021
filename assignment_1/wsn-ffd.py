@@ -79,6 +79,35 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((is_routed_by, RDFS.domain, SSN.System))
     wsd_ffd_rdf.add((is_routed_by, RDFS.range, SOSA.Platform))
 
+    temp_condition = URIRef(value='TempCondition', base=base_ontology)
+    wsd_ffd_rdf.add((temp_condition, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((temp_condition, RDFS.comment, Literal('Sensor/Actuator operating temperature condition')))
+    wsd_ffd_rdf.add((temp_condition, RDFS.domain, SSN.System))
+    wsd_ffd_rdf.add((temp_condition, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((temp_condition, RDFS.subPropertyOf, SSN_SYSTEM.Condition))
+
+    hum_condition = URIRef(value='HumCondition', base=base_ontology)
+    wsd_ffd_rdf.add((hum_condition, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((hum_condition, RDFS.comment, Literal('Sensor/Actuator operating humidity condition')))
+    wsd_ffd_rdf.add((hum_condition, RDFS.domain, SSN.System))
+    wsd_ffd_rdf.add((hum_condition, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((hum_condition, RDFS.subPropertyOf, SSN_SYSTEM.Condition))
+
+    dht11_temp_accuracy = URIRef(value='DHT11TempAccuracy', base=base_ontology)
+    wsd_ffd_rdf.add((dht11_temp_accuracy, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((dht11_temp_accuracy, RDFS.comment, Literal('DHT11 temperature accuracy')))
+    wsd_ffd_rdf.add((dht11_temp_accuracy, RDFS.domain, dht11))
+    wsd_ffd_rdf.add((dht11_temp_accuracy, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((dht11_temp_accuracy, RDFS.subPropertyOf, SSN_SYSTEM.Accuracy))
+
+    dht11_hum_accuracy = URIRef(value='DHT11HumAccuracy', base=base_ontology)
+    wsd_ffd_rdf.add((dht11_hum_accuracy, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((dht11_hum_accuracy, RDFS.comment, Literal('DHT11 humidity accuracy')))
+    wsd_ffd_rdf.add((dht11_hum_accuracy, RDFS.domain, dht11))
+    wsd_ffd_rdf.add((dht11_hum_accuracy, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((dht11_hum_accuracy, RDFS.subPropertyOf, SSN_SYSTEM.Accuracy))
+
+
     ##############################
     # RDF Serialization
     ##############################

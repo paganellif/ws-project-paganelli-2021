@@ -50,6 +50,20 @@
 
     <!--Property definition-->
 
+    <rdf:Property rdf:ID="TempCondition">
+        <rdfs:comment>Sensor/actuator operating temperature condition</rdfs:comment>
+        <rdfs:domain rdf:resource="ssn:System"/>
+        <rdfs:range rdf:resource="rdfs:Literal"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
+    </rdf:Property>
+
+    <rdf:Property rdf:ID="HumCondition">
+        <rdfs:comment>Sensor/actuator operating humidity condition</rdfs:comment>
+        <rdfs:domain rdf:resource="ssn:System"/>
+        <rdfs:range rdf:resource="rdfs:Literal"/>
+        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
+    </rdf:Property>
+
     <!--EdgeDevice-->
     <rdf:Property rdf:ID="isRoutedBy">
         <rdfs:comment>Router node that can route data to another node</rdfs:comment>
@@ -72,40 +86,12 @@
         <rdfs:subPropertyOf rdf:resource="ssn-system:Accuracy"/>
     </rdf:Property>
 
-    <rdf:Property rdf:ID="DHT11TempCondition">
-        <rdfs:comment>DHT11 temperature condition</rdfs:comment>
-        <rdfs:domain rdf:resource="#DHT11"/>
-        <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
-    </rdf:Property>
-
-    <rdf:Property rdf:ID="DHT11HumCondition">
-        <rdfs:comment>DHT11 humidity condition/rdfs:comment>
-        <rdfs:domain rdf:resource="#DHT11"/>
-        <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
-    </rdf:Property>
-
     <!--MQ2-->
     <rdf:Property rdf:ID="MQ2GasMeasurementRange">
         <rdfs:comment>Parts-per-million is the ratio of one gas to another</rdfs:comment>
         <rdfs:domain rdf:resource="#MQ2"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
         <rdfs:subPropertyOf rdf:resource="ssn-system:MeasurementRange"/>
-    </rdf:Property>
-
-    <rdf:Property rdf:ID="MQ2TempCondition">
-        <rdfs:comment>MQ2 temperature condition</rdfs:comment>
-        <rdfs:domain rdf:resource="#MQ2"/>
-        <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
-    </rdf:Property>
-
-    <rdf:Property rdf:ID="MQ2HumCondition">
-        <rdfs:comment>MQ2 humidity condition/rdfs:comment>
-        <rdfs:domain rdf:resource="#MQ2"/>
-        <rdfs:range rdf:resource="rdfs:Literal"/>
-        <rdfs:subPropertyOf rdf:resource="ssn-system:Condition"/>
     </rdf:Property>
 
     <rdf:Property rdf:ID="MQ2OxygenCondition">
@@ -152,16 +138,16 @@
             <schema:value>1<\schema:value>
             <schema:unitCode>qudt-unit-1-1:Second<\schema:unitCode>
         </ssn-system:Frequency>
-        <res:DHT11TempCondition>
+        <res:TempCondition>
             <schema:minValue>0<\schema:minValue>
             <schema:maxValue>50<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:DegreeCelsius<\schema:unitCode>
-        </res:DHT11TempCondition>
-        <res:DHT11HumCondition>
+        </res:TempCondition>
+        <res:HumCondition>
             <schema:minValue>20<\schema:minValue>
             <schema:maxValue>80<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:Percent<\schema:unitCode>
-        </res:DHT11HumCondition>
+        </res:HumCondition>
         <res:DHT11TempAccuracy>
             <schema:minValue>-2<\schema:minValue>
             <schema:maxValue>2<\schema:maxValue>
@@ -189,16 +175,16 @@
             <schema:maxValue>10000<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:PPM<\schema:unitCode>
         </res:MQ2GasMeasurementRange>
-        <res:MQ2TempCondition>
+        <res:TempCondition>
             <schema:minValue>18<\schema:minValue>
             <schema:maxValue>22<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:DegreeCelsius<\schema:unitCode>
-        </res:MQ2TempCondition>
-        <res:MQ2HumCondition>
+        </res:TempCondition>
+        <res:HumCondition>
             <schema:minValue>60<\schema:minValue>
             <schema:maxValue>70<\schema:maxValue>
             <schema:unitCode>qudt-unit-1-1:Percent<\schema:unitCode>
-        </res:MQ2HumCondition>
+        </res:HumCondition>
         <res:MQ2OxygenCondition>
             <schema:value>21<\schema:value>
             <schema:unitCode>qudt-unit-1-1:Percent<\schema:unitCode>
