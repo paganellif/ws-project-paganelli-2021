@@ -1,4 +1,7 @@
-from rdflib import Namespace, Graph, URIRef, RDF, RDFS, Literal, Bag, BNode
+from rdflib import Graph
+from rdflib.container import Bag
+from rdflib.term import BNode, URIRef, Literal
+from rdflib.namespace import Namespace, RDFS, RDF
 import os
 
 if __name__ == '__main__':
@@ -171,18 +174,136 @@ if __name__ == '__main__':
     # RDF
     ##############################
     # Instances definition
+    edge_device_instance = URIRef(value='ED0000001', base=base_ontology)
+    router_instance = URIRef(value='RN0000001', base=base_ontology)
+    dht11_instance = URIRef(value='DHT110000001', base=base_ontology)
+    ky026_instance = URIRef(value='KY0260000001', base=base_ontology)
+    mq2_instance = URIRef(value='MQ20000001', base=base_ontology)
+    sfm27_instance = URIRef(value='SFM270000001', base=base_ontology)
+
+    # DHT11 instance
+    wsd_ffd_rdf.add((dht11_instance, RDF.type, dht11))
+    wsd_ffd_rdf.add((dht11_instance, SOSA.isHostedBy, edge_device_instance))
+
+    dht11_power_range = BNode()
+    wsd_ffd_rdf.add((dht11_power_range, SCHEMA.minValue, Literal(3)))
+    wsd_ffd_rdf.add((dht11_power_range, SCHEMA.maxValue, Literal(5)))
+    wsd_ffd_rdf.add((dht11_power_range, SCHEMA.unitCode, QUDT_UNIT.V))
+    wsd_ffd_rdf.add((dht11_instance, SSN_SYSTEM.OperatingPowerRange, dht11_power_range))
+
+    dht11_frequency = BNode()
+    wsd_ffd_rdf.add((dht11_frequency, SCHEMA.value, Literal(1)))
+    wsd_ffd_rdf.add((dht11_frequency, SCHEMA.unitCode, QUDT_UNIT.Second))
+    wsd_ffd_rdf.add((dht11_instance, SSN_SYSTEM.Frequency, dht11_frequency))
+
+    dht11_temp_acc = BNode()
+    wsd_ffd_rdf.add((dht11_temp_acc, SCHEMA.minValue, Literal(2)))
+    wsd_ffd_rdf.add((dht11_temp_acc, SCHEMA.maxValue, Literal(-2)))
+    wsd_ffd_rdf.add((dht11_temp_acc, SCHEMA.unitCode, QUDT_UNIT.DegreeCelsius))
+    wsd_ffd_rdf.add((dht11_instance, temp_accuracy, dht11_temp_acc))
+
+    dht11_temp_cond = BNode()
+    wsd_ffd_rdf.add((dht11_temp_cond, SCHEMA.minValue, Literal(0)))
+    wsd_ffd_rdf.add((dht11_temp_cond, SCHEMA.maxValue, Literal(50)))
+    wsd_ffd_rdf.add((dht11_temp_cond, SCHEMA.unitCode, QUDT_UNIT.DegreeCelsius))
+    wsd_ffd_rdf.add((dht11_instance, temp_condition, dht11_temp_cond))
+
+    dht11_hum_acc = BNode()
+    wsd_ffd_rdf.add((dht11_hum_acc, SCHEMA.value, Literal(5)))
+    wsd_ffd_rdf.add((dht11_hum_acc, SCHEMA.unitCode, QUDT_UNIT.Percent))
+    wsd_ffd_rdf.add((dht11_instance, hum_accuracy, dht11_hum_acc))
+
+    dht11_hum_cond = BNode()
+    wsd_ffd_rdf.add((dht11_hum_cond, SCHEMA.minValue, Literal(20)))
+    wsd_ffd_rdf.add((dht11_hum_cond, SCHEMA.maxValue, Literal(80)))
+    wsd_ffd_rdf.add((dht11_hum_cond, SCHEMA.unitCode, QUDT_UNIT.Percent))
+    wsd_ffd_rdf.add((dht11_instance, hum_condition, dht11_hum_cond))
+
+    # MQ2 instance
+    wsd_ffd_rdf.add((mq2_instance, RDF.type, mq2))
+    wsd_ffd_rdf.add((mq2_instance, SOSA.isHostedBy, edge_device_instance))
+
+    mq2_power_range = BNode()
+    wsd_ffd_rdf.add((mq2_power_range, SCHEMA.minValue, Literal(5)))
+    wsd_ffd_rdf.add((mq2_power_range, SCHEMA.maxValue, Literal(5)))
+    wsd_ffd_rdf.add((mq2_power_range, SCHEMA.unitCode, QUDT_UNIT.V))
+    wsd_ffd_rdf.add((mq2_instance, SSN_SYSTEM.OperatingPowerRange, mq2_power_range))
+
+    mq2_frequency = BNode()
+    wsd_ffd_rdf.add((mq2_frequency, SCHEMA.value, Literal(1)))
+    wsd_ffd_rdf.add((mq2_frequency, SCHEMA.unitCode, QUDT_UNIT.Second))
+    wsd_ffd_rdf.add((mq2_instance, SSN_SYSTEM.Frequency, mq2_frequency))
+
+    mq2_gas_measurement = BNode()
+    wsd_ffd_rdf.add((mq2_gas_measurement, SCHEMA.minValue, Literal(200)))
+    wsd_ffd_rdf.add((mq2_gas_measurement, SCHEMA.maxValue, Literal(10000)))
+    wsd_ffd_rdf.add((mq2_gas_measurement, SCHEMA.unitCode, QUDT_UNIT.PPM))
+    wsd_ffd_rdf.add((mq2_instance, gas_measurement, mq2_gas_measurement))
+
+    mq2_oxy_cond = BNode()
+    wsd_ffd_rdf.add((mq2_oxy_cond, SCHEMA.value, Literal(21)))
+    wsd_ffd_rdf.add((mq2_oxy_cond, SCHEMA.unitCode, QUDT_UNIT.Percent))
+    wsd_ffd_rdf.add((mq2_instance, oxygen_condition, mq2_oxy_cond))
+
+    mq2_temp_cond = BNode()
+    wsd_ffd_rdf.add((mq2_temp_cond, SCHEMA.minValue, Literal(18)))
+    wsd_ffd_rdf.add((mq2_temp_cond, SCHEMA.maxValue, Literal(22)))
+    wsd_ffd_rdf.add((mq2_temp_cond, SCHEMA.unitCode, QUDT_UNIT.DegreeCelsius))
+    wsd_ffd_rdf.add((mq2_instance, temp_condition, mq2_temp_cond))
+
+    mq2_hum_cond = BNode()
+    wsd_ffd_rdf.add((mq2_hum_cond, SCHEMA.minValue, Literal(60)))
+    wsd_ffd_rdf.add((mq2_hum_cond, SCHEMA.maxValue, Literal(70)))
+    wsd_ffd_rdf.add((mq2_hum_cond, SCHEMA.unitCode, QUDT_UNIT.Percent))
+    wsd_ffd_rdf.add((mq2_instance, hum_condition, mq2_hum_cond))
+
+    # KY026 instance
+    wsd_ffd_rdf.add((ky026_instance, RDF.type, mq2))
+    wsd_ffd_rdf.add((ky026_instance, SOSA.isHostedBy, edge_device_instance))
+
+    ky026_power_range = BNode()
+    wsd_ffd_rdf.add((ky026_power_range, SCHEMA.minValue, Literal(3)))
+    wsd_ffd_rdf.add((ky026_power_range, SCHEMA.maxValue, Literal(5)))
+    wsd_ffd_rdf.add((ky026_power_range, SCHEMA.unitCode, QUDT_UNIT.V))
+    wsd_ffd_rdf.add((ky026_instance, SSN_SYSTEM.OperatingPowerRange, ky026_power_range))
+
+    ky026_uv_meas = BNode()
+    wsd_ffd_rdf.add((ky026_uv_meas, SCHEMA.minValue, Literal(760)))
+    wsd_ffd_rdf.add((ky026_uv_meas, SCHEMA.maxValue, Literal(1100)))
+    wsd_ffd_rdf.add((ky026_uv_meas, SCHEMA.unitCode, QUDT_UNIT.NanoM))
+    wsd_ffd_rdf.add((ky026_instance, uv_measurement, ky026_uv_meas))
+
+    ky026_angle_op_range = BNode()
+    wsd_ffd_rdf.add((ky026_angle_op_range, SCHEMA.value, Literal(60)))
+    wsd_ffd_rdf.add((ky026_angle_op_range, SCHEMA.unitCode, QUDT_UNIT.DEG))
+    wsd_ffd_rdf.add((ky026_instance, angle_operating_range, ky026_angle_op_range))
+
+    # SFM27 instance
+    wsd_ffd_rdf.add((sfm27_instance, RDF.type, mq2))
+    wsd_ffd_rdf.add((sfm27_instance, SOSA.isHostedBy, edge_device_instance))
+
+    sfm27_power_range = BNode()
+    wsd_ffd_rdf.add((sfm27_power_range, SCHEMA.minValue, Literal(3)))
+    wsd_ffd_rdf.add((sfm27_power_range, SCHEMA.maxValue, Literal(24)))
+    wsd_ffd_rdf.add((sfm27_power_range, SCHEMA.unitCode, QUDT_UNIT.V))
+    wsd_ffd_rdf.add((sfm27_instance, SSN_SYSTEM.OperatingPowerRange, sfm27_power_range))
+
+    sfm27_sound_out = BNode()
+    wsd_ffd_rdf.add((sfm27_sound_out, SCHEMA.greaterOrEqual, Literal(95)))
+    wsd_ffd_rdf.add((sfm27_sound_out, SCHEMA.unitCode, QUDT_UNIT.DeciB))
+    wsd_ffd_rdf.add((sfm27_instance, sound_output, sfm27_sound_out))
 
     # EdgeDevice instance
-    edge_device_instance = URIRef(value='ED0000001', base=base_ontology)
     wsd_ffd_rdf.add((edge_device_instance, RDF.type, edge_device))
     wsd_ffd_rdf.add((edge_device_instance, GEO.lat, Literal(55.701)))
     wsd_ffd_rdf.add((edge_device_instance, GEO.long, Literal(12.552)))
-    #wsd_ffd_rdf.add((edge_device_instance, SOSA.hosts,
-    #                 Bag(wsd_ffd_rdf, BNode(), [dht11_instance, mq2_instance, ky026_instance, sfm27_instance])
-    #                 ))
-    #wsd_ffd_rdf.add((edge_device_instance, is_routed_by,
-    #                 Bag(wsd_ffd_rdf, BNode(), [router_instance])
-    #                 ))
+    wsd_ffd_rdf.add((edge_device_instance, SOSA.hosts,
+                     Bag(wsd_ffd_rdf, BNode(),
+                         [dht11_instance, mq2_instance, ky026_instance, sfm27_instance]).uri
+                     ))
+    wsd_ffd_rdf.add((edge_device_instance, is_routed_by,
+                     Bag(wsd_ffd_rdf, BNode(), [router_instance]).uri
+                     ))
 
     ##############################
     # RDF Serialization

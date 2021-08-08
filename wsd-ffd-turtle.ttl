@@ -1,7 +1,9 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix ns1: <http://wsn-ffd.org/> .
+@prefix qudt-unit-1-1: <http://qudt.org/1.1/vocab/unit#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
 @prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
@@ -36,10 +38,6 @@ ns1:AngleOperatingRange a rdf:Property ;
     rdfs:domain ns1:KY026 ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf ssn-system:OperatingRange .
-
-ns1:ED0000001 a ns1:EdgeDevice ;
-    geo:lat 5.5701e+01 ;
-    geo:long 1.2552e+01 .
 
 ns1:GasMeasurement a rdf:Property ;
     rdfs:comment "Parts-per-million is the ratio of one gas to another" ;
@@ -110,4 +108,72 @@ ns1:isRoutedBy a rdf:Property ;
     rdfs:comment "Router node that can route data to another node" ;
     rdfs:domain ssn:System ;
     rdfs:range sosa:Platform .
+
+ns1:DHT110000001 a ns1:DHT11 ;
+    ns1:HumAccuracy [ schema:unitCode qudt-unit-1-1:Percent ;
+            schema:value 5 ] ;
+    ns1:HumCondition [ schema:maxValue 80 ;
+            schema:minValue 20 ;
+            schema:unitCode qudt-unit-1-1:Percent ] ;
+    ns1:TempAccuracy [ schema:maxValue -2 ;
+            schema:minValue 2 ;
+            schema:unitCode qudt-unit-1-1:DegreeCelsius ] ;
+    ns1:TempCondition [ schema:maxValue 50 ;
+            schema:minValue 0 ;
+            schema:unitCode qudt-unit-1-1:DegreeCelsius ] ;
+    sosa:isHostedBy ns1:ED0000001 ;
+    ssn-system:Frequency [ schema:unitCode qudt-unit-1-1:Second ;
+            schema:value 1 ] ;
+    ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
+            schema:minValue 3 ;
+            schema:unitCode qudt-unit-1-1:V ] .
+
+ns1:KY0260000001 a ns1:MQ2 ;
+    ns1:AngleOperatingRange [ schema:unitCode qudt-unit-1-1:DEG ;
+            schema:value 60 ] ;
+    ns1:UVMeasurement [ schema:maxValue 1100 ;
+            schema:minValue 760 ;
+            schema:unitCode qudt-unit-1-1:NanoM ] ;
+    sosa:isHostedBy ns1:ED0000001 ;
+    ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
+            schema:minValue 3 ;
+            schema:unitCode qudt-unit-1-1:V ] .
+
+ns1:MQ20000001 a ns1:MQ2 ;
+    ns1:GasMeasurement [ schema:maxValue 10000 ;
+            schema:minValue 200 ;
+            schema:unitCode qudt-unit-1-1:PPM ] ;
+    ns1:HumCondition [ schema:maxValue 70 ;
+            schema:minValue 60 ;
+            schema:unitCode qudt-unit-1-1:Percent ] ;
+    ns1:OxygenCondition [ schema:unitCode qudt-unit-1-1:Percent ;
+            schema:value 21 ] ;
+    ns1:TempCondition [ schema:maxValue 22 ;
+            schema:minValue 18 ;
+            schema:unitCode qudt-unit-1-1:DegreeCelsius ] ;
+    sosa:isHostedBy ns1:ED0000001 ;
+    ssn-system:Frequency [ schema:unitCode qudt-unit-1-1:Second ;
+            schema:value 1 ] ;
+    ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
+            schema:minValue 5 ;
+            schema:unitCode qudt-unit-1-1:V ] .
+
+ns1:SFM270000001 a ns1:MQ2 ;
+    ns1:SoundOutput [ schema:greaterOrEqual 95 ;
+            schema:unitCode qudt-unit-1-1:DeciB ] ;
+    sosa:isHostedBy ns1:ED0000001 ;
+    ssn-system:OperatingPowerRange [ schema:maxValue 24 ;
+            schema:minValue 3 ;
+            schema:unitCode qudt-unit-1-1:V ] .
+
+ns1:ED0000001 a ns1:EdgeDevice ;
+    ns1:isRoutedBy [ a rdf:Bag ;
+            rdf:_1 ns1:RN0000001 ] ;
+    geo:lat 5.5701e+01 ;
+    geo:long 1.2552e+01 ;
+    sosa:hosts [ a rdf:Bag ;
+            rdf:_1 ns1:DHT110000001 ;
+            rdf:_2 ns1:MQ20000001 ;
+            rdf:_3 ns1:KY0260000001 ;
+            rdf:_4 ns1:SFM270000001 ] .
 
