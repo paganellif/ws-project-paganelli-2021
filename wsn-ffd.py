@@ -73,6 +73,7 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((sfm27, RDFS.subClassOf, SSN.Actuator))
 
     # Property Definition
+    # Common properties
     is_routed_by = URIRef(value='isRoutedBy', base=base_ontology)
     wsd_ffd_rdf.add((is_routed_by, RDF.type, RDF.Property))
     wsd_ffd_rdf.add((is_routed_by, RDFS.comment, Literal('Router node that can route data to another node')))
@@ -93,27 +94,72 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((hum_condition, RDFS.range, RDFS.Literal))
     wsd_ffd_rdf.add((hum_condition, RDFS.subPropertyOf, SSN_SYSTEM.Condition))
 
+    # mq2 properties
     gas_measurement = URIRef(value='GasMeasurement', base=base_ontology)
     wsd_ffd_rdf.add((gas_measurement, RDF.type, RDF.Property))
-    wsd_ffd_rdf.add((gas_measurement, RDFS.comment, Literal('Sensor/Actuator operating humidity condition')))
-    wsd_ffd_rdf.add((gas_measurement, RDFS.domain, SSN.System))
+    wsd_ffd_rdf.add((gas_measurement, RDFS.comment, Literal('Parts-per-million is the ratio of one gas to another')))
+    wsd_ffd_rdf.add((gas_measurement, RDFS.domain, mq2))
     wsd_ffd_rdf.add((gas_measurement, RDFS.range, RDFS.Literal))
     wsd_ffd_rdf.add((gas_measurement, RDFS.subPropertyOf, SSN_SYSTEM.MeasurementRange))
 
-    dht11_temp_accuracy = URIRef(value='DHT11TempAccuracy', base=base_ontology)
-    wsd_ffd_rdf.add((dht11_temp_accuracy, RDF.type, RDF.Property))
-    wsd_ffd_rdf.add((dht11_temp_accuracy, RDFS.comment, Literal('DHT11 temperature accuracy')))
-    wsd_ffd_rdf.add((dht11_temp_accuracy, RDFS.domain, dht11))
-    wsd_ffd_rdf.add((dht11_temp_accuracy, RDFS.range, RDFS.Literal))
-    wsd_ffd_rdf.add((dht11_temp_accuracy, RDFS.subPropertyOf, SSN_SYSTEM.Accuracy))
+    oxygen_condition = URIRef(value='OxygenCondition', base=base_ontology)
+    wsd_ffd_rdf.add((oxygen_condition, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((oxygen_condition, RDFS.comment, Literal('Sensor/Actuator operating oxygen condition')))
+    wsd_ffd_rdf.add((oxygen_condition, RDFS.domain, mq2))
+    wsd_ffd_rdf.add((oxygen_condition, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((oxygen_condition, RDFS.subPropertyOf, SSN_SYSTEM.Condition))
 
-    dht11_hum_accuracy = URIRef(value='DHT11HumAccuracy', base=base_ontology)
-    wsd_ffd_rdf.add((dht11_hum_accuracy, RDF.type, RDF.Property))
-    wsd_ffd_rdf.add((dht11_hum_accuracy, RDFS.comment, Literal('DHT11 humidity accuracy')))
-    wsd_ffd_rdf.add((dht11_hum_accuracy, RDFS.domain, dht11))
-    wsd_ffd_rdf.add((dht11_hum_accuracy, RDFS.range, RDFS.Literal))
-    wsd_ffd_rdf.add((dht11_hum_accuracy, RDFS.subPropertyOf, SSN_SYSTEM.Accuracy))
+    # dht11 properties
+    temp_measurement = URIRef(value='TempMeasurement', base=base_ontology)
+    wsd_ffd_rdf.add((temp_measurement, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((temp_measurement, RDFS.comment, Literal('Temperature measurement')))
+    wsd_ffd_rdf.add((temp_measurement, RDFS.domain, dht11))
+    wsd_ffd_rdf.add((temp_measurement, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((temp_measurement, RDFS.subPropertyOf, SSN_SYSTEM.MeasurementRange))
 
+    temp_accuracy = URIRef(value='TempAccuracy', base=base_ontology)
+    wsd_ffd_rdf.add((temp_accuracy, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((temp_accuracy, RDFS.comment, Literal('Temperature accuracy')))
+    wsd_ffd_rdf.add((temp_accuracy, RDFS.domain, dht11))
+    wsd_ffd_rdf.add((temp_accuracy, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((temp_accuracy, RDFS.subPropertyOf, SSN_SYSTEM.Accuracy))
+
+    hum_measurement = URIRef(value='HumMeasurement', base=base_ontology)
+    wsd_ffd_rdf.add((hum_measurement, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((hum_measurement, RDFS.comment, Literal('Humidity measurement')))
+    wsd_ffd_rdf.add((hum_measurement, RDFS.domain, dht11))
+    wsd_ffd_rdf.add((hum_measurement, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((hum_measurement, RDFS.subPropertyOf, SSN_SYSTEM.MeasurementRange))
+
+    hum_accuracy = URIRef(value='HumAccuracy', base=base_ontology)
+    wsd_ffd_rdf.add((hum_accuracy, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((hum_accuracy, RDFS.comment, Literal('Humidity accuracy')))
+    wsd_ffd_rdf.add((hum_accuracy, RDFS.domain, dht11))
+    wsd_ffd_rdf.add((hum_accuracy, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((hum_accuracy, RDFS.subPropertyOf, SSN_SYSTEM.Accuracy))
+
+    # ky026 properties
+    uv_measurement = URIRef(value='UVMeasurement', base=base_ontology)
+    wsd_ffd_rdf.add((uv_measurement, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((uv_measurement, RDFS.comment, Literal('Infrared Wavelength Detection')))
+    wsd_ffd_rdf.add((uv_measurement, RDFS.domain, ky026))
+    wsd_ffd_rdf.add((uv_measurement, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((uv_measurement, RDFS.subPropertyOf, SSN_SYSTEM.MeasurementRange))
+
+    angle_operating_range = URIRef(value='AngleOperatingRange', base=base_ontology)
+    wsd_ffd_rdf.add((angle_operating_range, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((angle_operating_range, RDFS.comment, Literal('Sensor Detection Angle')))
+    wsd_ffd_rdf.add((angle_operating_range, RDFS.domain, ky026))
+    wsd_ffd_rdf.add((angle_operating_range, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((angle_operating_range, RDFS.subPropertyOf, SSN_SYSTEM.OperatingRange))
+
+    # sfm27 properties
+    sound_output = URIRef(value='SoundOutput', base=base_ontology)
+    wsd_ffd_rdf.add((sound_output, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((sound_output, RDFS.comment, Literal('Sensor Sound Output')))
+    wsd_ffd_rdf.add((sound_output, RDFS.domain, sfm27))
+    wsd_ffd_rdf.add((sound_output, RDFS.range, RDFS.Literal))
+    wsd_ffd_rdf.add((sound_output, RDFS.subPropertyOf, SOSA.ActuableProperty))
 
     ##############################
     # RDF Serialization
