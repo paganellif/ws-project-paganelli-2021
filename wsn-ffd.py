@@ -119,26 +119,12 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((oxygen_condition, RDFS.subPropertyOf, SSN_SYSTEM.Condition))
 
     # dht11 properties
-    temp_measurement = URIRef(value='TempMeasurement', base=base_ontology)
-    wsd_ffd_rdf.add((temp_measurement, RDF.type, RDF.Property))
-    wsd_ffd_rdf.add((temp_measurement, RDFS.comment, Literal('Temperature measurement')))
-    wsd_ffd_rdf.add((temp_measurement, RDFS.domain, dht11))
-    wsd_ffd_rdf.add((temp_measurement, RDFS.range, RDFS.Literal))
-    wsd_ffd_rdf.add((temp_measurement, RDFS.subPropertyOf, SSN_SYSTEM.MeasurementRange))
-
     temp_accuracy = URIRef(value='TempAccuracy', base=base_ontology)
     wsd_ffd_rdf.add((temp_accuracy, RDF.type, RDF.Property))
     wsd_ffd_rdf.add((temp_accuracy, RDFS.comment, Literal('Temperature accuracy')))
     wsd_ffd_rdf.add((temp_accuracy, RDFS.domain, dht11))
     wsd_ffd_rdf.add((temp_accuracy, RDFS.range, RDFS.Literal))
     wsd_ffd_rdf.add((temp_accuracy, RDFS.subPropertyOf, SSN_SYSTEM.Accuracy))
-
-    hum_measurement = URIRef(value='HumMeasurement', base=base_ontology)
-    wsd_ffd_rdf.add((hum_measurement, RDF.type, RDF.Property))
-    wsd_ffd_rdf.add((hum_measurement, RDFS.comment, Literal('Humidity measurement')))
-    wsd_ffd_rdf.add((hum_measurement, RDFS.domain, dht11))
-    wsd_ffd_rdf.add((hum_measurement, RDFS.range, RDFS.Literal))
-    wsd_ffd_rdf.add((hum_measurement, RDFS.subPropertyOf, SSN_SYSTEM.MeasurementRange))
 
     hum_accuracy = URIRef(value='HumAccuracy', base=base_ontology)
     wsd_ffd_rdf.add((hum_accuracy, RDF.type, RDF.Property))
