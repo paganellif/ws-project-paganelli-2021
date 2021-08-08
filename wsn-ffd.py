@@ -1,4 +1,4 @@
-from rdflib import Namespace, Graph, URIRef, RDF, RDFS, Literal
+from rdflib import Namespace, Graph, URIRef, RDF, RDFS, Literal, Bag, BNode
 import os
 
 if __name__ == '__main__':
@@ -80,6 +80,12 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((is_routed_by, RDFS.domain, SSN.System))
     wsd_ffd_rdf.add((is_routed_by, RDFS.range, SOSA.Platform))
 
+    device_serial_num = URIRef(value='SerialNum', base=base_ontology)
+    wsd_ffd_rdf.add((device_serial_num, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((device_serial_num, RDFS.comment, Literal('Node Serial Number Identifier')))
+    wsd_ffd_rdf.add((device_serial_num, RDFS.domain, SSN.System))
+    wsd_ffd_rdf.add((device_serial_num, RDFS.range, RDFS.Literal))
+
     temp_condition = URIRef(value='TempCondition', base=base_ontology)
     wsd_ffd_rdf.add((temp_condition, RDF.type, RDF.Property))
     wsd_ffd_rdf.add((temp_condition, RDFS.comment, Literal('Sensor/Actuator operating temperature condition')))
@@ -160,6 +166,23 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((sound_output, RDFS.domain, sfm27))
     wsd_ffd_rdf.add((sound_output, RDFS.range, RDFS.Literal))
     wsd_ffd_rdf.add((sound_output, RDFS.subPropertyOf, SOSA.ActuableProperty))
+
+    ##############################
+    # RDF
+    ##############################
+    # Instances definition
+
+    # EdgeDevice instance
+    edge_device_instance = URIRef(value='ED0000001', base=base_ontology)
+    wsd_ffd_rdf.add((edge_device_instance, RDF.type, edge_device))
+    wsd_ffd_rdf.add((edge_device_instance, GEO.lat, Literal(55.701)))
+    wsd_ffd_rdf.add((edge_device_instance, GEO.long, Literal(12.552)))
+    #wsd_ffd_rdf.add((edge_device_instance, SOSA.hosts,
+    #                 Bag(wsd_ffd_rdf, BNode(), [dht11_instance, mq2_instance, ky026_instance, sfm27_instance])
+    #                 ))
+    #wsd_ffd_rdf.add((edge_device_instance, is_routed_by,
+    #                 Bag(wsd_ffd_rdf, BNode(), [router_instance])
+    #                 ))
 
     ##############################
     # RDF Serialization
