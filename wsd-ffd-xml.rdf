@@ -8,33 +8,15 @@
    xmlns:sosa="http://www.w3.org/ns/sosa/"
    xmlns:ssn-system="http://www.w3.org/ns/ssn/systems/"
 >
-  <rdf:Description rdf:about="http://wsn-ffd.org/OxygenCondition">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment>Sensor/Actuator operating oxygen condition</rdfs:comment>
-    <rdfs:domain rdf:resource="http://wsn-ffd.org/MQ2"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Condition"/>
+  <rdf:Description rdf:about="http://wsn-ffd.org/JID">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>Jabber Identifier - Identifier of the agent in the form username@server</rdfs:comment>
+    <rdfs:seeAlso>https://en.wikipedia.org/wiki/JID_(Jabber)</rdfs:seeAlso>
   </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/DHT110000001">
-    <rdf:type rdf:resource="http://wsn-ffd.org/DHT11"/>
-    <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
-    <ssn-system:OperatingPowerRange rdf:nodeID="N763fec91443a4f8ba1d6ff5171408a67"/>
-    <ssn-system:Frequency rdf:nodeID="N8052088f48994402be61193468645d33"/>
-    <ns1:TempAccuracy rdf:nodeID="N53be2bf385954c6a8c982a4f14695f7c"/>
-    <ns1:TempCondition rdf:nodeID="N871e7422058f43baac065c39b139e2e5"/>
-    <ns1:HumAccuracy rdf:nodeID="N67095958d90f46ef881363feaeaa1574"/>
-    <ns1:HumCondition rdf:nodeID="N28738a66cd4c44d8b8a6252b19a77499"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N67095958d90f46ef881363feaeaa1574">
-    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:value>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/KY0260000001">
-    <rdf:type rdf:resource="http://wsn-ffd.org/MQ2"/>
-    <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
-    <ssn-system:OperatingPowerRange rdf:nodeID="N0785766aa30f4b22bdf8e7d2c62ebdf4"/>
-    <ns1:UVMeasurement rdf:nodeID="Nea14340c222b42738c6787577d1cd5b8"/>
-    <ns1:AngleOperatingRange rdf:nodeID="Nda66f552d42145368c507fae6b7c8293"/>
+  <rdf:Description rdf:nodeID="Nf08ac848b34b4a2796dc6c946fdaf625">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://wsn-ffd.org/TempAccuracy">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
@@ -43,53 +25,12 @@
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Accuracy"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/SFM270000001">
-    <rdf:type rdf:resource="http://wsn-ffd.org/MQ2"/>
-    <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
-    <ssn-system:OperatingPowerRange rdf:nodeID="N6806e646136348569529e3c14430f3d6"/>
-    <ns1:SoundOutput rdf:nodeID="N812a4996853a4360b72d94e325d1c2e2"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N321b94aba2e8426293e000317277ece8">
-    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</schema:minValue>
-    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10000</schema:maxValue>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#PPM"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/TempCondition">
+  <rdf:Description rdf:about="http://wsn-ffd.org/AngleOperatingRange">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment>Sensor/Actuator operating temperature condition</rdfs:comment>
-    <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
+    <rdfs:comment>Sensor Detection Angle</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/KY026"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Condition"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6806e646136348569529e3c14430f3d6">
-    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:minValue>
-    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</schema:maxValue>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/KY026">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:comment>KY-026 Flame Sensor Module</rdfs:comment>
-    <rdfs:seeAlso>https://datasheetspdf.com/pdf/1402037/Joy-IT/KY-026/1</rdfs:seeAlso>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/SoundOutput">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment>Sensor Sound Output</rdfs:comment>
-    <rdfs:domain rdf:resource="http://wsn-ffd.org/SFM27"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/ActuableProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N763fec91443a4f8ba1d6ff5171408a67">
-    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:minValue>
-    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:maxValue>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Naec1810fb78345bfaa3a761431df364c">
-    <rdf:_1 rdf:resource="http://wsn-ffd.org/DHT110000001"/>
-    <rdf:_2 rdf:resource="http://wsn-ffd.org/MQ20000001"/>
-    <rdf:_3 rdf:resource="http://wsn-ffd.org/KY0260000001"/>
-    <rdf:_4 rdf:resource="http://wsn-ffd.org/SFM270000001"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/OperatingRange"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://wsn-ffd.org/GasMeasurement">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
@@ -98,63 +39,98 @@
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/MeasurementRange"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nea14340c222b42738c6787577d1cd5b8">
-    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">760</schema:minValue>
-    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1100</schema:maxValue>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#NanoM"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/HumCondition">
+  <rdf:Description rdf:about="http://wsn-ffd.org/HumAccuracy">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment>Sensor/Actuator operating humidity condition</rdfs:comment>
+    <rdfs:comment>Humidity accuracy</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/DHT11"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Accuracy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/KY026">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>KY-026 Flame Sensor Module</rdfs:comment>
+    <rdfs:seeAlso>https://datasheetspdf.com/pdf/1402037/Joy-IT/KY-026/1</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SerialNum">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Node Serial Number Identifier</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Condition"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N8886e7f7a0c840b1a3bd3f395f7c1115">
-    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:value>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Second"/>
+  <rdf:Description rdf:nodeID="Nebf7cebcf523488a9ea1614959f1a4b1">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/OxygenCondition">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Sensor/Actuator operating oxygen condition</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/MQ2"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Condition"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://wsn-ffd.org/MQ20000001">
     <rdf:type rdf:resource="http://wsn-ffd.org/MQ2"/>
     <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
-    <ssn-system:OperatingPowerRange rdf:nodeID="N3a6203bc45b24e5983fb438d7b973d33"/>
-    <ssn-system:Frequency rdf:nodeID="N8886e7f7a0c840b1a3bd3f395f7c1115"/>
-    <ns1:GasMeasurement rdf:nodeID="N321b94aba2e8426293e000317277ece8"/>
-    <ns1:OxygenCondition rdf:nodeID="N1dfff6baa07e4bdab5f48fb6bd598c3c"/>
-    <ns1:TempCondition rdf:nodeID="N42f0f93a5f924765945cb3142c962550"/>
-    <ns1:HumCondition rdf:nodeID="N729c193ec5204240970dad7e97d85799"/>
+    <ssn-system:OperatingPowerRange rdf:nodeID="Nb42af0a5305a4db28166b2b3a678bfa5"/>
+    <ssn-system:Frequency rdf:nodeID="N60f3f8ae7c454104a795de5dfc9f3cb5"/>
+    <ns1:GasMeasurement rdf:nodeID="N5efc0b93fac54aec806d193341ae613d"/>
+    <ns1:OxygenCondition rdf:nodeID="Nd1d1c81723c1467ca4fd4f39f24adf18"/>
+    <ns1:TempCondition rdf:nodeID="N419c4445f56d4267933e6990451e61df"/>
+    <ns1:HumCondition rdf:nodeID="N0c163e60f58b434db0adfbf16430ea3b"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N871e7422058f43baac065c39b139e2e5">
-    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</schema:minValue>
-    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</schema:maxValue>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DegreeCelsius"/>
+  <rdf:Description rdf:nodeID="Nc1886619a28a4310b8f8e373e6e2f70b">
+    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</schema:value>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DEG"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N8052088f48994402be61193468645d33">
-    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:value>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Second"/>
+  <rdf:Description rdf:about="http://wsn-ffd.org/DHT110000001">
+    <rdf:type rdf:resource="http://wsn-ffd.org/DHT11"/>
+    <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
+    <ssn-system:OperatingPowerRange rdf:nodeID="Nebf7cebcf523488a9ea1614959f1a4b1"/>
+    <ssn-system:Frequency rdf:nodeID="N286c5e1739034ca69fb0833110f0d617"/>
+    <ns1:TempAccuracy rdf:nodeID="Ndcc469f3a1c6401c8c9a5980125a1b5c"/>
+    <ns1:TempCondition rdf:nodeID="Nac33eae4fd2842e4a09deb5c8f92b1b2"/>
+    <ns1:HumAccuracy rdf:nodeID="N5302f5ce262c486585b29a7d3d24f8a0"/>
+    <ns1:HumCondition rdf:nodeID="Na432a1963c054caeb5766bcf92882379"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/DHT11">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:comment>DHT11 sensor contains a humidity and a temperature sensor</rdfs:comment>
-    <rdfs:seeAlso>https://www.adafruit.com/product/386</rdfs:seeAlso>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
+  <rdf:Description rdf:about="http://wsn-ffd.org/KY0260000001">
+    <rdf:type rdf:resource="http://wsn-ffd.org/MQ2"/>
+    <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
+    <ssn-system:OperatingPowerRange rdf:nodeID="Nf08ac848b34b4a2796dc6c946fdaf625"/>
+    <ns1:UVMeasurement rdf:nodeID="N7d93118e7ef14ed6af2b033f7c1f1cfe"/>
+    <ns1:AngleOperatingRange rdf:nodeID="Nc1886619a28a4310b8f8e373e6e2f70b"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/EdgeDevice">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:comment>Edge device node of the wireless sensor network</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  <rdf:Description rdf:nodeID="N5302f5ce262c486585b29a7d3d24f8a0">
+    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:value>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/AngleOperatingRange">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment>Sensor Detection Angle</rdfs:comment>
-    <rdfs:domain rdf:resource="http://wsn-ffd.org/KY026"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/OperatingRange"/>
+  <rdf:Description rdf:nodeID="N7d93118e7ef14ed6af2b033f7c1f1cfe">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">760</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1100</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#NanoM"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N3a6203bc45b24e5983fb438d7b973d33">
-    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:minValue>
-    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:maxValue>
+  <rdf:Description rdf:nodeID="N605e613dcff24649afd47e6121fbb070">
+    <rdf:_1 rdf:resource="http://wsn-ffd.org/DHT110000001"/>
+    <rdf:_2 rdf:resource="http://wsn-ffd.org/MQ20000001"/>
+    <rdf:_3 rdf:resource="http://wsn-ffd.org/KY0260000001"/>
+    <rdf:_4 rdf:resource="http://wsn-ffd.org/SFM270000001"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7273307c815f48a89df4987bcad83b06">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</schema:maxValue>
     <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SFM27">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>SFM-27 active buzzer</rdfs:comment>
+    <rdfs:seeAlso>https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Actuator"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N409930cbe402471fa7c69b45221df302">
+    <schema:greaterOrEqual rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</schema:greaterOrEqual>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DeciB"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://wsn-ffd.org/UVMeasurement">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
@@ -163,56 +139,47 @@
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/MeasurementRange"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/SFM27">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:comment>SFM-27 active buzzer</rdfs:comment>
-    <rdfs:seeAlso>https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf</rdfs:seeAlso>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Actuator"/>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SFM270000001">
+    <rdf:type rdf:resource="http://wsn-ffd.org/MQ2"/>
+    <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
+    <ssn-system:OperatingPowerRange rdf:nodeID="N7273307c815f48a89df4987bcad83b06"/>
+    <ns1:SoundOutput rdf:nodeID="N409930cbe402471fa7c69b45221df302"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/TempMeasurement">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment>Temperature measurement</rdfs:comment>
-    <rdfs:domain rdf:resource="http://wsn-ffd.org/DHT11"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/MeasurementRange"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N729c193ec5204240970dad7e97d85799">
-    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</schema:minValue>
-    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</schema:maxValue>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nda66f552d42145368c507fae6b7c8293">
-    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</schema:value>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DEG"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/HumMeasurement">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment>Humidity measurement</rdfs:comment>
-    <rdfs:domain rdf:resource="http://wsn-ffd.org/DHT11"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/MeasurementRange"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N28738a66cd4c44d8b8a6252b19a77499">
-    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</schema:minValue>
-    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</schema:maxValue>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/HumAccuracy">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment>Humidity accuracy</rdfs:comment>
-    <rdfs:domain rdf:resource="http://wsn-ffd.org/DHT11"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Accuracy"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0785766aa30f4b22bdf8e7d2c62ebdf4">
-    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:minValue>
-    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:maxValue>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N53be2bf385954c6a8c982a4f14695f7c">
+  <rdf:Description rdf:nodeID="Ndcc469f3a1c6401c8c9a5980125a1b5c">
     <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</schema:minValue>
     <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2</schema:maxValue>
     <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DegreeCelsius"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SoundOutput">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Sensor Sound Output</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/SFM27"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/ActuableProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/EdgeDevice">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>Edge device node of the wireless sensor network</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5efc0b93fac54aec806d193341ae613d">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10000</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#PPM"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd1d1c81723c1467ca4fd4f39f24adf18">
+    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</schema:value>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb42af0a5305a4db28166b2b3a678bfa5">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na432a1963c054caeb5766bcf92882379">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://wsn-ffd.org/MQ2">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -220,16 +187,11 @@
     <rdfs:seeAlso>https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf</rdfs:seeAlso>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/ED0000001">
-    <rdf:type rdf:resource="http://wsn-ffd.org/EdgeDevice"/>
-    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55.701</geo:lat>
-    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.552</geo:long>
-    <sosa:hosts rdf:nodeID="Naec1810fb78345bfaa3a761431df364c"/>
-    <ns1:isRoutedBy rdf:nodeID="N55835459eeda45efb0d8bef6efa9a368"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N812a4996853a4360b72d94e325d1c2e2">
-    <schema:greaterOrEqual rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</schema:greaterOrEqual>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DeciB"/>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SensorAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>MAS Sensor Agent</rdfs:comment>
+    <rdfs:seeAlso>https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/WSN/sensoragent.py</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://wsn-ffd.org/Agent"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://wsn-ffd.org/isRoutedBy">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
@@ -237,23 +199,62 @@
     <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
     <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N1dfff6baa07e4bdab5f48fb6bd598c3c">
-    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</schema:value>
+  <rdf:Description rdf:about="http://wsn-ffd.org/DHT11">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>DHT11 sensor contains a humidity and a temperature sensor</rdfs:comment>
+    <rdfs:seeAlso>https://www.adafruit.com/product/386</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/TempCondition">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Sensor/Actuator operating temperature condition</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Condition"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N60f3f8ae7c454104a795de5dfc9f3cb5">
+    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:value>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Second"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndc25f9b2c8b5456eab08cb299c2a0190">
+    <rdf:_1 rdf:resource="http://wsn-ffd.org/RN0000001"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/HumCondition">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Sensor/Actuator operating humidity condition</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Condition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/Agent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>MAS Base Agent</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nac33eae4fd2842e4a09deb5c8f92b1b2">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DegreeCelsius"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/ED0000001">
+    <rdf:type rdf:resource="http://wsn-ffd.org/EdgeDevice"/>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55.701</geo:lat>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.552</geo:long>
+    <sosa:hosts rdf:nodeID="N605e613dcff24649afd47e6121fbb070"/>
+    <ns1:isRoutedBy rdf:nodeID="Ndc25f9b2c8b5456eab08cb299c2a0190"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0c163e60f58b434db0adfbf16430ea3b">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</schema:maxValue>
     <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N42f0f93a5f924765945cb3142c962550">
+  <rdf:Description rdf:nodeID="N419c4445f56d4267933e6990451e61df">
     <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</schema:minValue>
     <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</schema:maxValue>
     <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DegreeCelsius"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://wsn-ffd.org/SerialNum">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment>Node Serial Number Identifier</rdfs:comment>
-    <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N55835459eeda45efb0d8bef6efa9a368">
-    <rdf:_1 rdf:resource="http://wsn-ffd.org/RN0000001"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  <rdf:Description rdf:nodeID="N286c5e1739034ca69fb0833110f0d617">
+    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:value>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Second"/>
   </rdf:Description>
 </rdf:RDF>

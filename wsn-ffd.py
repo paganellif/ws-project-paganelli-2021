@@ -75,6 +75,24 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((sfm27, RDFS.seeAlso, Literal('https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf')))
     wsd_ffd_rdf.add((sfm27, RDFS.subClassOf, SSN.Actuator))
 
+    # Agent
+    agent = URIRef(value='Agent', base=base_ontology)
+    wsd_ffd_rdf.add((agent, RDF.type, RDFS.Class))
+    wsd_ffd_rdf.add((agent, RDFS.comment, Literal('MAS Base Agent')))
+
+    # SensorAgent
+    sensor_agent = URIRef(value='SensorAgent', base=base_ontology)
+    wsd_ffd_rdf.add((sensor_agent, RDF.type, RDFS.Class))
+    wsd_ffd_rdf.add((sensor_agent, RDFS.comment, Literal('MAS Sensor Agent')))
+    wsd_ffd_rdf.add((sensor_agent, RDFS.seeAlso, Literal('https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/WSN/sensoragent.py')))
+    wsd_ffd_rdf.add((sensor_agent, RDFS.subClassOf, agent))
+
+    # JID
+    jid = URIRef(value='JID', base=base_ontology)
+    wsd_ffd_rdf.add((jid, RDF.type, RDFS.Class))
+    wsd_ffd_rdf.add((jid, RDFS.comment, Literal('Jabber Identifier - Identifier of the agent in the form username@server')))
+    wsd_ffd_rdf.add((jid, RDFS.seeAlso, Literal('https://en.wikipedia.org/wiki/JID_(Jabber)')))
+
     # Property Definition
     # Common properties
     is_routed_by = URIRef(value='isRoutedBy', base=base_ontology)

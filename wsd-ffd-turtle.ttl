@@ -9,6 +9,9 @@
 @prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+ns1:Agent a rdfs:Class ;
+    rdfs:comment "MAS Base Agent" .
+
 ns1:DHT11 a rdfs:Class ;
     rdfs:comment "DHT11 sensor contains a humidity and a temperature sensor" ;
     rdfs:seeAlso "https://www.adafruit.com/product/386" ;
@@ -17,6 +20,10 @@ ns1:DHT11 a rdfs:Class ;
 ns1:EdgeDevice a rdfs:Class ;
     rdfs:comment "Edge device node of the wireless sensor network" ;
     rdfs:subClassOf sosa:Platform .
+
+ns1:JID a rdfs:Class ;
+    rdfs:comment "Jabber Identifier - Identifier of the agent in the form username@server" ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/JID_(Jabber)" .
 
 ns1:KY026 a rdfs:Class ;
     rdfs:comment "KY-026 Flame Sensor Module" ;
@@ -32,6 +39,11 @@ ns1:SFM27 a rdfs:Class ;
     rdfs:comment "SFM-27 active buzzer" ;
     rdfs:seeAlso "https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf" ;
     rdfs:subClassOf ssn:Actuator .
+
+ns1:SensorAgent a rdfs:Class ;
+    rdfs:comment "MAS Sensor Agent" ;
+    rdfs:seeAlso "https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/WSN/sensoragent.py" ;
+    rdfs:subClassOf ns1:Agent .
 
 ns1:AngleOperatingRange a rdf:Property ;
     rdfs:comment "Sensor Detection Angle" ;
@@ -56,12 +68,6 @@ ns1:HumCondition a rdf:Property ;
     rdfs:domain ssn:System ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf ssn-system:Condition .
-
-ns1:HumMeasurement a rdf:Property ;
-    rdfs:comment "Humidity measurement" ;
-    rdfs:domain ns1:DHT11 ;
-    rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf ssn-system:MeasurementRange .
 
 ns1:OxygenCondition a rdf:Property ;
     rdfs:comment "Sensor/Actuator operating oxygen condition" ;
@@ -91,12 +97,6 @@ ns1:TempCondition a rdf:Property ;
     rdfs:domain ssn:System ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf ssn-system:Condition .
-
-ns1:TempMeasurement a rdf:Property ;
-    rdfs:comment "Temperature measurement" ;
-    rdfs:domain ns1:DHT11 ;
-    rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf ssn-system:MeasurementRange .
 
 ns1:UVMeasurement a rdf:Property ;
     rdfs:comment "Infrared Wavelength Detection" ;
