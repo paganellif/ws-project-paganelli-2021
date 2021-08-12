@@ -90,11 +90,11 @@ if __name__ == '__main__':
     # JID
     jid = URIRef(value='JID', base=base_ontology)
     wsd_ffd_rdf.add((jid, RDF.type, RDFS.Class))
-    wsd_ffd_rdf.add((jid, RDFS.comment, Literal('Jabber Identifier - Identifier of the agent in the form username@server')))
+    wsd_ffd_rdf.add((jid, RDFS.comment, Literal('Jabber Identifier')))
     wsd_ffd_rdf.add((jid, RDFS.seeAlso, Literal('https://en.wikipedia.org/wiki/JID_(Jabber)')))
 
     # Property Definition
-    # Common properties
+    # WSN Common properties
     is_routed_by = URIRef(value='isRoutedBy', base=base_ontology)
     wsd_ffd_rdf.add((is_routed_by, RDF.type, RDF.Property))
     wsd_ffd_rdf.add((is_routed_by, RDFS.comment, Literal('Router node that can route data to another node')))
@@ -173,6 +173,13 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((sound_output, RDFS.domain, sfm27))
     wsd_ffd_rdf.add((sound_output, RDFS.range, RDFS.Literal))
     wsd_ffd_rdf.add((sound_output, RDFS.subPropertyOf, SOSA.ActuableProperty))
+
+    # agent properties
+    has_jid = URIRef(value='hasJID', base=base_ontology)
+    wsd_ffd_rdf.add((has_jid, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((has_jid, RDFS.comment, Literal('Identifier of the agent in the form username@server')))
+    wsd_ffd_rdf.add((has_jid, RDFS.domain, agent))
+    wsd_ffd_rdf.add((has_jid, RDFS.range, jid))
 
     ##############################
     # RDF

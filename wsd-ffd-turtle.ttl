@@ -22,7 +22,7 @@ ns1:EdgeDevice a rdfs:Class ;
     rdfs:subClassOf sosa:Platform .
 
 ns1:JID a rdfs:Class ;
-    rdfs:comment "Jabber Identifier - Identifier of the agent in the form username@server" ;
+    rdfs:comment "Jabber Identifier" ;
     rdfs:seeAlso "https://en.wikipedia.org/wiki/JID_(Jabber)" .
 
 ns1:KY026 a rdfs:Class ;
@@ -103,6 +103,11 @@ ns1:UVMeasurement a rdf:Property ;
     rdfs:domain ns1:KY026 ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf ssn-system:MeasurementRange .
+
+ns1:hasJID a rdf:Property ;
+    rdfs:comment "Identifier of the agent in the form username@server" ;
+    rdfs:domain ns1:Agent ;
+    rdfs:range ns1:JID .
 
 ns1:isRoutedBy a rdf:Property ;
     rdfs:comment "Router node that can route data to another node" ;
