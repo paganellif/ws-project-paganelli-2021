@@ -99,12 +99,6 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((trigger_agent, RDFS.seeAlso, Literal('https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/triggeragent.py')))
     wsd_ffd_rdf.add((trigger_agent, RDFS.subClassOf, agent))
 
-    # JID
-    jid = URIRef(value='JID', base=base_ontology)
-    wsd_ffd_rdf.add((jid, RDF.type, RDFS.Class))
-    wsd_ffd_rdf.add((jid, RDFS.comment, Literal('Jabber Identifier')))
-    wsd_ffd_rdf.add((jid, RDFS.seeAlso, Literal('https://en.wikipedia.org/wiki/JID_(Jabber)')))
-
     # Property Definition
     # WSN Properties
     is_routed_by = URIRef(value='isRoutedBy', base=base_ontology)
@@ -196,14 +190,20 @@ if __name__ == '__main__':
     hosts_agent_container = URIRef(value='hostsAgentContainer', base=base_ontology)
     wsd_ffd_rdf.add((hosts_agent_container, RDF.type, RDF.Property))
     wsd_ffd_rdf.add((hosts_agent_container, RDFS.comment, Literal('Agent container hosted by a WSN Node')))
-    wsd_ffd_rdf.add((hosts_agent_container, RDFS.domain, edge_device))
+    wsd_ffd_rdf.add((hosts_agent_container, RDFS.domain, SOSA.Platform))
     wsd_ffd_rdf.add((hosts_agent_container, RDFS.range, agent_container))
 
     has_jid = URIRef(value='hasJID', base=base_ontology)
     wsd_ffd_rdf.add((has_jid, RDF.type, RDF.Property))
     wsd_ffd_rdf.add((has_jid, RDFS.comment, Literal('Identifier of the agent in the form username@server')))
     wsd_ffd_rdf.add((has_jid, RDFS.domain, agent))
-    wsd_ffd_rdf.add((has_jid, RDFS.range, jid))
+    wsd_ffd_rdf.add((has_jid, RDFS.range, RDFS.Literal))
+
+    has_neighbour = URIRef(value='hasNeighbour', base=base_ontology)
+    wsd_ffd_rdf.add((has_neighbour, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((has_neighbour, RDFS.comment, Literal('Neighbour Agent')))
+    wsd_ffd_rdf.add((has_neighbour, RDFS.domain, agent))
+    wsd_ffd_rdf.add((has_neighbour, RDFS.range, agent))
 
     ##############################
     # RDF
