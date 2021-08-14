@@ -10,7 +10,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ns1:Agent a rdfs:Class ;
-    rdfs:comment "MAS Base Agent" .
+    rdfs:comment "Agent Execution Environment",
+        "MAS Base Agent" .
+
+ns1:AgentContainer a rdfs:Class .
 
 ns1:DHT11 a rdfs:Class ;
     rdfs:comment "DHT11 sensor contains a humidity and a temperature sensor" ;
@@ -104,10 +107,20 @@ ns1:UVMeasurement a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf ssn-system:MeasurementRange .
 
+ns1:contains a rdf:Property ;
+    rdfs:comment "List of agents contained by the container" ;
+    rdfs:domain ns1:AgentContainer ;
+    rdfs:range ns1:Agent .
+
 ns1:hasJID a rdf:Property ;
     rdfs:comment "Identifier of the agent in the form username@server" ;
     rdfs:domain ns1:Agent ;
     rdfs:range ns1:JID .
+
+ns1:hostsAgentContainer a rdf:Property ;
+    rdfs:comment "Agent container hosted by a WSN Node" ;
+    rdfs:domain ns1:EdgeDevice ;
+    rdfs:range ns1:AgentContainer .
 
 ns1:isRoutedBy a rdf:Property ;
     rdfs:comment "Router node that can route data to another node" ;
