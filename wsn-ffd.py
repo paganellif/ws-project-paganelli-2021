@@ -205,6 +205,12 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((has_neighbour, RDFS.domain, agent))
     wsd_ffd_rdf.add((has_neighbour, RDFS.range, agent))
 
+    is_alive = URIRef(value='isAlive', base=base_ontology)
+    wsd_ffd_rdf.add((is_alive, RDF.type, RDF.Property))
+    wsd_ffd_rdf.add((is_alive, RDFS.comment, Literal('Checks if the agent is alive')))
+    wsd_ffd_rdf.add((is_alive, RDFS.domain, agent))
+    wsd_ffd_rdf.add((is_alive, RDFS.range, RDFS.Literal))
+
     ##############################
     # RDF
     ##############################

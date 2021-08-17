@@ -24,10 +24,6 @@ ns1:EdgeDevice a rdfs:Class ;
     rdfs:comment "Edge device node of the wireless sensor network" ;
     rdfs:subClassOf sosa:Platform .
 
-ns1:JID a rdfs:Class ;
-    rdfs:comment "Jabber Identifier" ;
-    rdfs:seeAlso "https://en.wikipedia.org/wiki/JID_(Jabber)" .
-
 ns1:KY026 a rdfs:Class ;
     rdfs:comment "KY-026 Flame Sensor Module" ;
     rdfs:seeAlso "https://datasheetspdf.com/pdf/1402037/Joy-IT/KY-026/1" ;
@@ -46,6 +42,11 @@ ns1:SFM27 a rdfs:Class ;
 ns1:SensorAgent a rdfs:Class ;
     rdfs:comment "MAS Sensor Agent" ;
     rdfs:seeAlso "https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/WSN/sensoragent.py" ;
+    rdfs:subClassOf ns1:Agent .
+
+ns1:TriggerAgent a rdfs:Class ;
+    rdfs:comment "MAS Trigger Agent" ;
+    rdfs:seeAlso "https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/triggeragent.py" ;
     rdfs:subClassOf ns1:Agent .
 
 ns1:AngleOperatingRange a rdf:Property ;
@@ -115,12 +116,22 @@ ns1:contains a rdf:Property ;
 ns1:hasJID a rdf:Property ;
     rdfs:comment "Identifier of the agent in the form username@server" ;
     rdfs:domain ns1:Agent ;
-    rdfs:range ns1:JID .
+    rdfs:range rdfs:Literal .
+
+ns1:hasNeighbour a rdf:Property ;
+    rdfs:comment "Neighbour Agent" ;
+    rdfs:domain ns1:Agent ;
+    rdfs:range ns1:Agent .
 
 ns1:hostsAgentContainer a rdf:Property ;
     rdfs:comment "Agent container hosted by a WSN Node" ;
-    rdfs:domain ns1:EdgeDevice ;
+    rdfs:domain sosa:Platform ;
     rdfs:range ns1:AgentContainer .
+
+ns1:isAlive a rdf:Property ;
+    rdfs:comment "Checks if the agent is alive" ;
+    rdfs:domain ns1:Agent ;
+    rdfs:range rdfs:Literal .
 
 ns1:isRoutedBy a rdf:Property ;
     rdfs:comment "Router node that can route data to another node" ;
