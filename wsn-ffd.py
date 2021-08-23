@@ -352,3 +352,11 @@ if __name__ == '__main__':
     wsd_ffd_rdf.serialize(destination=os.getcwd()+'/wsd-ffd-xml.rdf', format='xml')
     wsd_ffd_rdf.serialize(destination=os.getcwd()+'/wsd-ffd-pretty-xml.rdf', format='pretty-xml')
     wsd_ffd_rdf.serialize(destination=os.getcwd()+'/wsd-ffd-turtle.ttl', format='turtle')
+
+    ##############################
+    # SPARQL Query
+    ##############################
+
+    # TODO loading graph from file
+    # TODO sparql query definition
+    # TODO sparql query execution
