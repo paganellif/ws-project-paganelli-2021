@@ -299,7 +299,7 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((mq2_instance, hum_condition, mq2_hum_cond))
 
     # KY026 instance
-    wsd_ffd_rdf.add((ky026_instance, RDF.type, mq2))
+    wsd_ffd_rdf.add((ky026_instance, RDF.type, ky026))
     wsd_ffd_rdf.add((ky026_instance, SOSA.isHostedBy, edge_device_instance))
 
     ky026_power_range = BNode()
@@ -320,7 +320,7 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((ky026_instance, angle_operating_range, ky026_angle_op_range))
 
     # SFM27 instance
-    wsd_ffd_rdf.add((sfm27_instance, RDF.type, mq2))
+    wsd_ffd_rdf.add((sfm27_instance, RDF.type, sfm27))
     wsd_ffd_rdf.add((sfm27_instance, SOSA.isHostedBy, edge_device_instance))
 
     sfm27_power_range = BNode()
