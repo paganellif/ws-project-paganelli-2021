@@ -10,7 +10,7 @@ if __name__ == '__main__':
     # Graph Definition
     ##############################
     wsd_ffd_rdf: Graph = Graph()
-    base_ontology: str = 'http://wsn-ffd.org/'
+    base_ontology: str = 'https://wsn-ffd-rdf.org/'
 
     ##############################
     # Binding Namespaces
@@ -357,6 +357,5 @@ if __name__ == '__main__':
     # SPARQL Query
     ##############################
 
-    # TODO loading graph from file
-    # TODO sparql query definition
-    # TODO sparql query execution
+    # TODO sparql query definition over wsd_ffd_rdf graph
+    # TODO sparql query execution over wsd_ffd_rdf graph
