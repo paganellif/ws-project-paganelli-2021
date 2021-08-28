@@ -4,9 +4,9 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
+    <rdfs:comment>MAS DBManager Agent</rdfs:comment>
     <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
@@ -16,16 +16,16 @@
     <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS DBManager Agent</rdfs:comment>
+    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
     <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/wsn-mas-ontology">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:versionInfo>1.0</owl:versionInfo>
-    <owl:imports rdf:resource="https://gitlab.com/paganelli.f/ws-project-paganelli-2021/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/canRoute">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>List of nodes to which this node is able to route information</rdfs:comment>
+    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/isRoutedBy"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/CoordinatorNode">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -34,7 +34,13 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/RouterNode">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/EdgeDevice"/>
     <rdfs:comment>Router node of the wireless sensor network</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/wsn-mas-ontology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionInfo>1.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
   </rdf:Description>
 </rdf:RDF>

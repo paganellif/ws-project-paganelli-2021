@@ -103,7 +103,7 @@ if __name__ == '__main__':
     # WSN Properties
     is_routed_by = URIRef(value='isRoutedBy', base=base_ontology)
     wsd_ffd_rdf.add((is_routed_by, RDF.type, RDF.Property))
-    wsd_ffd_rdf.add((is_routed_by, RDFS.comment, Literal('Router node that can route data to another node')))
+    wsd_ffd_rdf.add((is_routed_by, RDFS.comment, Literal('Router node able to route information to this node')))
     wsd_ffd_rdf.add((is_routed_by, RDFS.domain, SSN.System))
     wsd_ffd_rdf.add((is_routed_by, RDFS.range, SOSA.Platform))
 

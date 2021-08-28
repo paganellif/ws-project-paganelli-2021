@@ -36,6 +36,7 @@ if __name__ == '__main__':
     # WSN
     router_node = URIRef(value='RouterNode', base=base_owl_ontology)
     wsd_ffd_owl.add((router_node, RDF.type, OWL.Class))
+    wsd_ffd_owl.add((router_node, OWL.disjointWith, URIRef(value='EdgeDevice', base=base_rdf_ontology)))
     wsd_ffd_owl.add((router_node, RDFS.comment, Literal('Router node of the wireless sensor network')))
     wsd_ffd_owl.add((router_node, RDFS.subClassOf, SOSA.Platform))
 
@@ -79,6 +80,10 @@ if __name__ == '__main__':
     # definire altre proprietà per gli agenti
     # aggiungere proprietà alle classi rdf??
     # fare esempi di proprietà inverse di alcune proprietà definite nel precedente RDF owl:inverseOf
+    can_route = URIRef(value='canRoute', base=base_owl_ontology)
+    wsd_ffd_owl.add((can_route, RDF.type, OWL.ObjectProperty))
+    wsd_ffd_owl.add((can_route, RDFS.comment, Literal('List of nodes to which this node is able to route information')))
+    wsd_ffd_owl.add((can_route, OWL.inverseOf, URIRef(value='isRoutedBy', base=base_rdf_ontology)))
 
     ##############################
     # Instance Definition
