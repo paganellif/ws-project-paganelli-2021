@@ -1,0 +1,6 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://wsn-ffd-owl.org/wsn-mas-ontology> a owl:Ontology ;
+    owl:imports "https://gitlab.com/paganelli.f/ws-project-paganelli-2021/-/raw/develop/wsd-ffd-pretty-xml.rdf" ;
+    owl:versionInfo "1.0" .
+
