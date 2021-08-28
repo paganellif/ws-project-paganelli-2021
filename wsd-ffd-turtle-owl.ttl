@@ -11,6 +11,11 @@
     rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py> ;
     rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> .
 
+<https://wsn-ffd-owl.org/FrontEndAgent> a owl:Class ;
+    rdfs:comment "MAS FrontEnd Agent" ;
+    rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py> ;
+    rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> .
+
 <https://wsn-ffd-owl.org/StatisticsAgent> a owl:Class ;
     rdfs:comment "MAS Statistics Agent" ;
     rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py> ;

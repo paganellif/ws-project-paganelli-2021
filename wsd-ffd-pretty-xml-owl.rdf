@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
   xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
+  <owl:Class rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
+    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
+  </owl:Class>
   <owl:Class rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
     <rdfs:comment>MAS Statistics Agent</rdfs:comment>
     <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
@@ -14,14 +19,14 @@
     <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </owl:Class>
-  <owl:Class rdf:about="https://wsn-ffd-owl.org/CoordinatorNode">
-    <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
-  </owl:Class>
   <owl:Ontology rdf:about="https://wsn-ffd-owl.org/wsn-mas-ontology">
     <owl:versionInfo>1.0</owl:versionInfo>
     <owl:imports rdf:resource="https://gitlab.com/paganelli.f/ws-project-paganelli-2021/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
   </owl:Ontology>
+  <owl:Class rdf:about="https://wsn-ffd-owl.org/CoordinatorNode">
+    <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
+  </owl:Class>
   <owl:Class rdf:about="https://wsn-ffd-owl.org/RouterNode">
     <rdfs:comment>Router node of the wireless sensor network</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>

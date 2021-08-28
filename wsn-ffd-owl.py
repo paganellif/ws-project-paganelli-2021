@@ -58,6 +58,15 @@ if __name__ == '__main__':
     wsd_ffd_owl.add((dbmanager_agent, RDFS.seeAlso, URIRef(value='https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py')))
     wsd_ffd_owl.add((dbmanager_agent, RDFS.subClassOf, URIRef(value='Agent', base=base_rdf_ontology)))
 
+    frontend_agent = URIRef(value='FrontEndAgent', base=base_owl_ontology)
+    wsd_ffd_owl.add((frontend_agent, RDF.type, OWL.Class))
+    wsd_ffd_owl.add((frontend_agent, RDFS.comment, Literal('MAS FrontEnd Agent')))
+    wsd_ffd_owl.add((frontend_agent, RDFS.seeAlso, URIRef(
+        value='https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py')))
+    wsd_ffd_owl.add((frontend_agent, RDFS.subClassOf, URIRef(value='Agent', base=base_rdf_ontology)))
+
+
+
     # definire/estendere agenti
 
     ##############################
