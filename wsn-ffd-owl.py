@@ -1,6 +1,6 @@
 from rdflib import Graph
-from rdflib.term import URIRef, Literal, BNode
-from rdflib.namespace import Namespace, RDF
+from rdflib.term import URIRef, Literal
+from rdflib.namespace import Namespace, RDF, RDFS
 import os
 
 if __name__ == '__main__':
@@ -17,6 +17,9 @@ if __name__ == '__main__':
     OWL: Namespace = Namespace('http://www.w3.org/2002/07/owl#')
     wsd_ffd_owl.bind('owl', OWL)
 
+    SOSA: Namespace = Namespace('http://www.w3.org/ns/sosa/')
+    wsd_ffd_owl.bind('sosa', SOSA)
+
     # owl:imports 'https://wsn-ffd-rdf.org/' --> in realtà metto il link alla ontologia sul repo gitlab
     my_ontology_uri = 'https://gitlab.com/paganelli.f/ws-project-paganelli-2021/-/raw/develop/wsd-ffd-pretty-xml.rdf'
 
@@ -28,6 +31,10 @@ if __name__ == '__main__':
     ##############################
     # Class Definition
     ##############################
+    router_node_1 = URIRef(value='RouterNode', base=base_ontology)
+    wsd_ffd_owl.add((router_node_1, RDF.type, OWL.Class))
+    wsd_ffd_owl.add((router_node_1, RDFS.comment, Literal('Router node of the wireless sensor network')))
+    wsd_ffd_owl.add((router_node_1, RDFS.subClassOf, SOSA.Platform))
 
     # definire router e coordinator nodes
     # definire/estendere agenti
