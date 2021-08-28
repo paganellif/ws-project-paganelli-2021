@@ -25,10 +25,29 @@ if __name__ == '__main__':
     wsd_ffd_owl.add((ontology, OWL.versionInfo, Literal('1.0')))
     wsd_ffd_owl.add((ontology, OWL.imports, URIRef(value=my_ontology_uri)))
 
+    ##############################
+    # Class Definition
+    ##############################
 
-    # fare esempi di proprietà inverse di alcune proprietà definite nel precedente RDF
-    # owl:inverseOf
+    # definire router e coordinator nodes
+    # definire/estendere agenti
 
+    ##############################
+    # Property Definition
+    ##############################
+
+    # definire proprietà per nodo router e coordinator
+    # definire altre proprietà per gli agenti
+    # aggiungere proprietà alle classi rdf??
+    # fare esempi di proprietà inverse di alcune proprietà definite nel precedente RDF owl:inverseOf
+
+    ##############################
+    # Instance Definition
+    ##############################
+
+    # definire alcune istanze di router, altre istanze di edgenode ed un coordinator
+    # e alcune istanze di agenti/containerAgent, ...
+    # costruendo la rete wsn-mas finale
 
     ##############################
     # RDF Serialization
