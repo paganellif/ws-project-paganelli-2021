@@ -5,6 +5,6 @@
 >
   <owl:Ontology rdf:about="https://wsn-ffd-owl.org/wsn-mas-ontology">
     <owl:versionInfo>1.0</owl:versionInfo>
-    <owl:imports>https://gitlab.com/paganelli.f/ws-project-paganelli-2021/-/raw/develop/wsd-ffd-pretty-xml.rdf</owl:imports>
+    <owl:imports rdf:resource="https://gitlab.com/paganelli.f/ws-project-paganelli-2021/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
   </owl:Ontology>
 </rdf:RDF>
