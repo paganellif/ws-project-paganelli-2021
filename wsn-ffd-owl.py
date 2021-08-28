@@ -9,7 +9,8 @@ if __name__ == '__main__':
     # Graph Definition
     ##############################
     wsd_ffd_owl: Graph = Graph()
-    base_ontology: str = 'https://wsn-ffd-owl.org/'
+    base_rdf_ontology: str = 'https://wsn-ffd-rdf.org/'
+    base_owl_ontology: str = 'https://wsn-ffd-owl.org/'
 
     ##############################
     # Binding/Import Namespaces
@@ -21,22 +22,42 @@ if __name__ == '__main__':
     wsd_ffd_owl.bind('sosa', SOSA)
 
     # owl:imports 'https://wsn-ffd-rdf.org/' --> in realtà metto il link alla ontologia sul repo gitlab
-    my_ontology_uri = 'https://gitlab.com/paganelli.f/ws-project-paganelli-2021/-/raw/develop/wsd-ffd-pretty-xml.rdf'
+    base_rdf_ontology_uri = 'https://gitlab.com/paganelli.f/ws-project-paganelli-2021/-/raw/develop/wsd-ffd-pretty-xml.rdf'
 
-    ontology = URIRef(value='wsn-mas-ontology', base=base_ontology)
+    ontology = URIRef(value='wsn-mas-ontology', base=base_owl_ontology)
     wsd_ffd_owl.add((ontology, RDF.type, OWL.Ontology))
     wsd_ffd_owl.add((ontology, OWL.versionInfo, Literal('1.0')))
-    wsd_ffd_owl.add((ontology, OWL.imports, URIRef(value=my_ontology_uri)))
+    wsd_ffd_owl.add((ontology, OWL.imports, URIRef(value=base_rdf_ontology_uri)))
 
     ##############################
     # Class Definition
     ##############################
-    router_node_1 = URIRef(value='RouterNode', base=base_ontology)
-    wsd_ffd_owl.add((router_node_1, RDF.type, OWL.Class))
-    wsd_ffd_owl.add((router_node_1, RDFS.comment, Literal('Router node of the wireless sensor network')))
-    wsd_ffd_owl.add((router_node_1, RDFS.subClassOf, SOSA.Platform))
+    # WSN
+    router_node = URIRef(value='RouterNode', base=base_owl_ontology)
+    wsd_ffd_owl.add((router_node, RDF.type, OWL.Class))
+    wsd_ffd_owl.add((router_node, RDFS.comment, Literal('Router node of the wireless sensor network')))
+    wsd_ffd_owl.add((router_node, RDFS.subClassOf, SOSA.Platform))
 
-    # definire router e coordinator nodes
+    coordinator_node = URIRef(value='CoordinatorNode', base=base_owl_ontology)
+    wsd_ffd_owl.add((coordinator_node, RDF.type, OWL.Class))
+    wsd_ffd_owl.add((coordinator_node, RDFS.comment,
+                     Literal('Coordinator/Gateway node of the wireless sensor network'))
+                    )
+    wsd_ffd_owl.add((coordinator_node, RDFS.subClassOf, router_node))
+
+    # MAS
+    statistics_agent = URIRef(value='StatisticsAgent', base=base_owl_ontology)
+    wsd_ffd_owl.add((statistics_agent, RDF.type, OWL.Class))
+    wsd_ffd_owl.add((statistics_agent, RDFS.comment, Literal('MAS Statistics Agent')))
+    wsd_ffd_owl.add((statistics_agent, RDFS.seeAlso, URIRef(value='https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py')))
+    wsd_ffd_owl.add((statistics_agent, RDFS.subClassOf, URIRef(value='Agent', base=base_rdf_ontology)))
+
+    dbmanager_agent = URIRef(value='DBManagerAgent', base=base_owl_ontology)
+    wsd_ffd_owl.add((dbmanager_agent, RDF.type, OWL.Class))
+    wsd_ffd_owl.add((dbmanager_agent, RDFS.comment, Literal('MAS DBManager Agent')))
+    wsd_ffd_owl.add((dbmanager_agent, RDFS.seeAlso, URIRef(value='https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py')))
+    wsd_ffd_owl.add((dbmanager_agent, RDFS.subClassOf, URIRef(value='Agent', base=base_rdf_ontology)))
+
     # definire/estendere agenti
 
     ##############################
