@@ -11,6 +11,7 @@ if __name__ == '__main__':
     wsd_ffd_owl: Graph = Graph()
     base_rdf_ontology: str = 'https://wsn-ffd-rdf.org/'
     base_owl_ontology: str = 'https://wsn-ffd-owl.org/'
+    gitlab_repo_base_uri: str = 'https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/'
 
     ##############################
     # Binding/Import Namespaces
@@ -22,7 +23,7 @@ if __name__ == '__main__':
     wsd_ffd_owl.bind('sosa', SOSA)
 
     # owl:imports 'https://wsn-ffd-rdf.org/' --> in realtà metto il link alla ontologia sul repo gitlab
-    base_rdf_ontology_uri = 'https://gitlab.com/paganelli.f/ws-project-paganelli-2021/-/raw/develop/wsd-ffd-pretty-xml.rdf'
+    base_rdf_ontology_uri = gitlab_repo_base_uri+'raw/develop/wsd-ffd-pretty-xml.rdf'
 
     ontology = URIRef(value='wsn-mas-ontology', base=base_owl_ontology)
     wsd_ffd_owl.add((ontology, RDF.type, OWL.Ontology))
@@ -49,25 +50,26 @@ if __name__ == '__main__':
     statistics_agent = URIRef(value='StatisticsAgent', base=base_owl_ontology)
     wsd_ffd_owl.add((statistics_agent, RDF.type, OWL.Class))
     wsd_ffd_owl.add((statistics_agent, RDFS.comment, Literal('MAS Statistics Agent')))
-    wsd_ffd_owl.add((statistics_agent, RDFS.seeAlso, URIRef(value='https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py')))
+    wsd_ffd_owl.add((statistics_agent, RDFS.seeAlso,
+                     URIRef(value=gitlab_repo_base_uri+'blob/master/processing/statisticsagent.py'))
+                    )
     wsd_ffd_owl.add((statistics_agent, RDFS.subClassOf, URIRef(value='Agent', base=base_rdf_ontology)))
 
     dbmanager_agent = URIRef(value='DBManagerAgent', base=base_owl_ontology)
     wsd_ffd_owl.add((dbmanager_agent, RDF.type, OWL.Class))
     wsd_ffd_owl.add((dbmanager_agent, RDFS.comment, Literal('MAS DBManager Agent')))
-    wsd_ffd_owl.add((dbmanager_agent, RDFS.seeAlso, URIRef(value='https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py')))
+    wsd_ffd_owl.add((dbmanager_agent, RDFS.seeAlso,
+                     URIRef(value=gitlab_repo_base_uri+'blob/master/processing/dbmanageragent.py'))
+                    )
     wsd_ffd_owl.add((dbmanager_agent, RDFS.subClassOf, URIRef(value='Agent', base=base_rdf_ontology)))
 
     frontend_agent = URIRef(value='FrontEndAgent', base=base_owl_ontology)
     wsd_ffd_owl.add((frontend_agent, RDF.type, OWL.Class))
     wsd_ffd_owl.add((frontend_agent, RDFS.comment, Literal('MAS FrontEnd Agent')))
-    wsd_ffd_owl.add((frontend_agent, RDFS.seeAlso, URIRef(
-        value='https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py')))
+    wsd_ffd_owl.add((frontend_agent, RDFS.seeAlso,
+                     URIRef(value=gitlab_repo_base_uri+'blob/master/processing/dbmanageragent.py'))
+                    )
     wsd_ffd_owl.add((frontend_agent, RDFS.subClassOf, URIRef(value='Agent', base=base_rdf_ontology)))
-
-
-
-    # definire/estendere agenti
 
     ##############################
     # Property Definition
