@@ -4,33 +4,25 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS DBManager Agent</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/canRoute">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>List of nodes to which this node is able to route information</rdfs:comment>
+    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/isRoutedBy"/>
+    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/hostsAgentContainer"/>
+    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/isHostedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>WSN Node that hosts this Agent Container</rdfs:comment>
+    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:comment>MAS Statistics Agent</rdfs:comment>
     <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/canRoute">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>List of nodes to which this node is able to route information</rdfs:comment>
-    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/isRoutedBy"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/CoordinatorNode">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/RouterNode">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -42,5 +34,22 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:versionInfo>1.0</owl:versionInfo>
     <owl:imports rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/CoordinatorNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>MAS DBManager Agent</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
 </rdf:RDF>

@@ -79,11 +79,20 @@ if __name__ == '__main__':
     # definire proprietà per nodo router e coordinator
     # definire altre proprietà per gli agenti
     # aggiungere proprietà alle classi rdf??
-    # fare esempi di proprietà inverse di alcune proprietà definite nel precedente RDF owl:inverseOf
+
     can_route = URIRef(value='canRoute', base=base_owl_ontology)
     wsd_ffd_owl.add((can_route, RDF.type, OWL.ObjectProperty))
     wsd_ffd_owl.add((can_route, RDFS.comment, Literal('List of nodes to which this node is able to route information')))
     wsd_ffd_owl.add((can_route, OWL.inverseOf, URIRef(value='isRoutedBy', base=base_rdf_ontology)))
+    wsd_ffd_owl.add((can_route, RDFS.domain, router_node))
+    wsd_ffd_owl.add((can_route, RDFS.range, SOSA.Platform))
+
+    is_hosted_by = URIRef(value='isHostedBy', base=base_owl_ontology)
+    wsd_ffd_owl.add((is_hosted_by, RDF.type, OWL.ObjectProperty))
+    wsd_ffd_owl.add((is_hosted_by, RDFS.comment, Literal('WSN Node that hosts this Agent Container')))
+    wsd_ffd_owl.add((can_route, OWL.inverseOf, URIRef(value='hostsAgentContainer', base=base_rdf_ontology)))
+    wsd_ffd_owl.add((is_hosted_by, RDFS.domain, URIRef(value='AgentContainer', base=base_rdf_ontology)))
+    wsd_ffd_owl.add((is_hosted_by, RDFS.range, SOSA.Platform))
 
     ##############################
     # Instance Definition
