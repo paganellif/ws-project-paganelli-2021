@@ -90,9 +90,16 @@ if __name__ == '__main__':
     is_hosted_by = URIRef(value='isHostedBy', base=base_owl_ontology)
     wsd_ffd_owl.add((is_hosted_by, RDF.type, OWL.ObjectProperty))
     wsd_ffd_owl.add((is_hosted_by, RDFS.comment, Literal('WSN Node that hosts this Agent Container')))
-    wsd_ffd_owl.add((can_route, OWL.inverseOf, URIRef(value='hostsAgentContainer', base=base_rdf_ontology)))
+    wsd_ffd_owl.add((is_hosted_by, OWL.inverseOf, URIRef(value='hostsAgentContainer', base=base_rdf_ontology)))
     wsd_ffd_owl.add((is_hosted_by, RDFS.domain, URIRef(value='AgentContainer', base=base_rdf_ontology)))
     wsd_ffd_owl.add((is_hosted_by, RDFS.range, SOSA.Platform))
+
+    collect_metrics_from = URIRef(value='collectMetricsFrom', base=base_owl_ontology)
+    wsd_ffd_owl.add((collect_metrics_from, RDF.type, OWL.ObjectProperty))
+    wsd_ffd_owl.add((collect_metrics_from, RDFS.comment,
+                     Literal('Sensor Agents from which the DBManager Agent collects the detected data')))
+    wsd_ffd_owl.add((collect_metrics_from, RDFS.domain, dbmanager_agent))
+    wsd_ffd_owl.add((collect_metrics_from, RDFS.range, URIRef(value='SensorAgent', base=base_rdf_ontology)))
 
     ##############################
     # Instance Definition

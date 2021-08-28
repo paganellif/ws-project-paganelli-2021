@@ -8,21 +8,27 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:comment>List of nodes to which this node is able to route information</rdfs:comment>
     <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/isRoutedBy"/>
-    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/hostsAgentContainer"/>
     <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
     <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>MAS DBManager Agent</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/isHostedBy">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:comment>WSN Node that hosts this Agent Container</rdfs:comment>
+    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/hostsAgentContainer"/>
     <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
     <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS Statistics Agent</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/RouterNode">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -40,16 +46,16 @@
     <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/collectMetricsFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Sensor Agents from which the DBManager Agent collects the detected data</rdfs:comment>
+    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS DBManager Agent</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+    <rdfs:comment>MAS Statistics Agent</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
 </rdf:RDF>

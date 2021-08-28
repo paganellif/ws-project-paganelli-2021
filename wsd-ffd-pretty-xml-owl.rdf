@@ -7,20 +7,20 @@
   <owl:ObjectProperty rdf:about="https://wsn-ffd-owl.org/canRoute">
     <rdfs:comment>List of nodes to which this node is able to route information</rdfs:comment>
     <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/isRoutedBy"/>
-    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/hostsAgentContainer"/>
     <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
     <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
   </owl:ObjectProperty>
+  <owl:Class rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
+    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
+  </owl:Class>
   <owl:ObjectProperty rdf:about="https://wsn-ffd-owl.org/isHostedBy">
     <rdfs:comment>WSN Node that hosts this Agent Container</rdfs:comment>
+    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/hostsAgentContainer"/>
     <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
     <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
   </owl:ObjectProperty>
-  <owl:Class rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
-    <rdfs:comment>MAS Statistics Agent</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </owl:Class>
   <owl:Ontology rdf:about="https://wsn-ffd-owl.org/wsn-mas-ontology">
     <owl:versionInfo>1.0</owl:versionInfo>
     <owl:imports rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
@@ -29,9 +29,14 @@
     <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
   </owl:Class>
-  <owl:Class rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
-    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+  <owl:ObjectProperty rdf:about="https://wsn-ffd-owl.org/collectMetricsFrom">
+    <rdfs:comment>Sensor Agents from which the DBManager Agent collects the detected data</rdfs:comment>
+    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
+    <rdfs:comment>MAS Statistics Agent</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </owl:Class>
   <owl:Class rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
