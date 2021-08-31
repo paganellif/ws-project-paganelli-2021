@@ -1,5 +1,5 @@
 from rdflib import Graph
-from rdflib.term import URIRef, Literal
+from rdflib.term import URIRef, Literal, BNode
 from rdflib.namespace import Namespace, RDF, RDFS
 import os
 
@@ -9,9 +9,11 @@ if __name__ == '__main__':
     # Graph Definition
     ##############################
     wsd_ffd_owl: Graph = Graph()
+    gitlab_repo_base_uri: str = 'https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/'
+    # owl:imports 'https://wsn-ffd-rdf.org/' --> in realtà metto il link alla ontologia sul repo gitlab
+    base_rdf_ontology_uri: str = gitlab_repo_base_uri + 'raw/develop/wsd-ffd-pretty-xml.rdf'
     base_rdf_ontology: str = 'https://wsn-ffd-rdf.org/'
     base_owl_ontology: str = 'https://wsn-ffd-owl.org/'
-    gitlab_repo_base_uri: str = 'https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/'
 
     ##############################
     # Binding/Import Namespaces
@@ -21,9 +23,6 @@ if __name__ == '__main__':
 
     SOSA: Namespace = Namespace('http://www.w3.org/ns/sosa/')
     wsd_ffd_owl.bind('sosa', SOSA)
-
-    # owl:imports 'https://wsn-ffd-rdf.org/' --> in realtà metto il link alla ontologia sul repo gitlab
-    base_rdf_ontology_uri = gitlab_repo_base_uri+'raw/develop/wsd-ffd-pretty-xml.rdf'
 
     ontology = URIRef(value='wsn-mas-ontology', base=base_owl_ontology)
     wsd_ffd_owl.add((ontology, RDF.type, OWL.Ontology))
@@ -68,7 +67,7 @@ if __name__ == '__main__':
     wsd_ffd_owl.add((frontend_agent, RDF.type, OWL.Class))
     wsd_ffd_owl.add((frontend_agent, RDFS.comment, Literal('MAS FrontEnd Agent')))
     wsd_ffd_owl.add((frontend_agent, RDFS.seeAlso,
-                     URIRef(value=gitlab_repo_base_uri+'blob/master/processing/dbmanageragent.py'))
+                     URIRef(value=gitlab_repo_base_uri+'blob/master/processing/frontendagent.py'))
                     )
     wsd_ffd_owl.add((frontend_agent, RDFS.subClassOf, URIRef(value='Agent', base=base_rdf_ontology)))
 
@@ -99,7 +98,23 @@ if __name__ == '__main__':
     wsd_ffd_owl.add((collect_metrics_from, RDFS.comment,
                      Literal('Sensor Agents from which the DBManager Agent collects the detected data')))
     wsd_ffd_owl.add((collect_metrics_from, RDFS.domain, dbmanager_agent))
-    wsd_ffd_owl.add((collect_metrics_from, RDFS.range, URIRef(value='SensorAgent', base=base_rdf_ontology)))
+    wsd_ffd_owl.add((collect_metrics_from, RDFS.range, URIRef(value='#SensorAgent', base=base_rdf_ontology)))
+
+    metrics_collected_by = URIRef(value='metricsCollectedBy', base=base_owl_ontology)
+    wsd_ffd_owl.add((metrics_collected_by, RDF.type, OWL.ObjectProperty))
+    wsd_ffd_owl.add((metrics_collected_by, RDFS.comment,
+                     Literal('DBManager Agent that collects the data detected from this Sensor Agent')))
+    wsd_ffd_owl.add((metrics_collected_by, RDFS.domain, URIRef(value='#SensorAgent', base=base_rdf_ontology)))
+    wsd_ffd_owl.add((metrics_collected_by, RDFS.range, dbmanager_agent))
+    wsd_ffd_owl.add((metrics_collected_by, OWL.inverseOf, URIRef(value='#collectMetricsFrom', base=base_owl_ontology)))
+
+    max_cardinality_restriction = BNode()
+    wsd_ffd_owl.add((max_cardinality_restriction, RDF.type, OWL.Restriction))
+    wsd_ffd_owl.add((max_cardinality_restriction, OWL.maxCardinality, Literal(1)))
+    wsd_ffd_owl.add((max_cardinality_restriction, OWL.onProperty,
+                     URIRef(value='#metricsCollectedBy', base=base_owl_ontology)))
+
+    wsd_ffd_owl.add((URIRef(value='SensorAgent', base=base_rdf_ontology), RDFS.subClassOf, max_cardinality_restriction))
 
     ##############################
     # Instance Definition
