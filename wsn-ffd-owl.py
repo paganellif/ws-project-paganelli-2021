@@ -24,6 +24,15 @@ if __name__ == '__main__':
     SOSA: Namespace = Namespace('http://www.w3.org/ns/sosa/')
     wsd_ffd_owl.bind('sosa', SOSA)
 
+    SSN: Namespace = Namespace('http://www.w3.org/ns/ssn/')
+    wsd_ffd_owl.bind('ssn', SSN)
+
+    SCHEMA: Namespace = Namespace('http://schema.org/')
+    wsd_ffd_owl.bind('schema', SCHEMA)
+
+    QUDT_UNIT: Namespace = Namespace('http://qudt.org/1.1/vocab/unit#')
+    wsd_ffd_owl.bind('qudt-unit-1-1', QUDT_UNIT)
+
     ontology = URIRef(value='wsn-mas-ontology', base=base_owl_ontology)
     wsd_ffd_owl.add((ontology, RDF.type, OWL.Ontology))
     wsd_ffd_owl.add((ontology, OWL.versionInfo, Literal('1.0')))
@@ -80,13 +89,35 @@ if __name__ == '__main__':
                     )
     wsd_ffd_owl.add((frontend_agent, RDFS.subClassOf, URIRef(value='Agent', base=base_rdf_ontology)))
 
+    # Sensor Procedure a.k.a. Agents Strategies
+    strategy = URIRef(value='Strategy', base=base_owl_ontology)
+    wsd_ffd_owl.add((strategy, RDFS.subClassOf, SOSA.Procedure))
+
+    trigger_strategy = URIRef(value='TriggerStrategy', base=base_owl_ontology)
+    wsd_ffd_owl.add((trigger_strategy, RDFS.subClassOf, strategy))
+    trigger_strategy_output_restriction = BNode()
+    wsd_ffd_owl.add((trigger_strategy_output_restriction, RDF.type, OWL.Restriction))
+    wsd_ffd_owl.add((trigger_strategy_output_restriction, RDFS.comment,
+                     Literal('Strategy implemented by a TriggerAgent to trigger a SensorAgent')))
+    wsd_ffd_owl.add((trigger_strategy_output_restriction, SCHEMA.unitCode, QUDT_UNIT.Bit))
+    wsd_ffd_owl.add((trigger_strategy_output_restriction, OWL.onProperty, SSN.hasOutput))
+    wsd_ffd_owl.add((trigger_strategy, RDFS.subClassOf, trigger_strategy_output_restriction))
+
     ##############################
     # Property Definition
     ##############################
 
-    # definire proprietà per nodo router e coordinator
-    # definire altre proprietà per gli agenti
-    # aggiungere proprietà alle classi rdf??
+    triggers = URIRef(value='triggers', base=base_owl_ontology)
+    wsd_ffd_owl.add((triggers, RDF.type, OWL.ObjectProperty))
+    wsd_ffd_owl.add((triggers, RDFS.comment, Literal('SensorAgents that can be triggered by this TriggerAgent')))
+    wsd_ffd_owl.add((triggers, RDFS.domain, URIRef(value='TriggerAgent', base=base_rdf_ontology)))
+    wsd_ffd_owl.add((triggers, RDFS.range, URIRef(value='SensorAgent', base=base_rdf_ontology)))
+
+    implements_strategy = URIRef(value='implementsStrategy', base=base_owl_ontology)
+    wsd_ffd_owl.add((implements_strategy, RDF.type, OWL.ObjectProperty))
+    wsd_ffd_owl.add((implements_strategy, RDFS.subPropertyOf, SSN.implements))
+    wsd_ffd_owl.add((implements_strategy, RDFS.domain, strategy))
+    wsd_ffd_owl.add((implements_strategy, RDFS.range, URIRef(value='Agent', base=base_rdf_ontology)))
 
     can_route = URIRef(value='canRoute', base=base_owl_ontology)
     wsd_ffd_owl.add((can_route, RDF.type, OWL.ObjectProperty))
