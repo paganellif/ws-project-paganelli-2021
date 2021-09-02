@@ -7,16 +7,6 @@
     rdfs:comment "Coordinator/Gateway node of the wireless sensor network" ;
     rdfs:subClassOf <https://wsn-ffd-owl.org/RouterNode> .
 
-<https://wsn-ffd-owl.org/FrontEndAgent> a owl:Class ;
-    rdfs:comment "MAS FrontEnd Agent" ;
-    rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/frontendagent.py> ;
-    rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> .
-
-<https://wsn-ffd-owl.org/StatisticsAgent> a owl:Class ;
-    rdfs:comment "MAS Statistics Agent" ;
-    rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py> ;
-    rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> .
-
 <https://wsn-ffd-owl.org/canRoute> a owl:ObjectProperty ;
     rdfs:comment "List of nodes to which this node is able to route information" ;
     rdfs:domain <https://wsn-ffd-owl.org/RouterNode> ;
@@ -44,6 +34,27 @@
     owl:imports <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf> ;
     owl:versionInfo "1.0" .
 
+<https://wsn-ffd-owl.org/FrontEndAgent> a owl:Class ;
+    rdfs:comment "MAS FrontEnd Agent" ;
+    rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/frontendagent.py> ;
+    rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> ;
+    owl:disjointWith <https://wsn-ffd-owl.org/DBManagerAgent>,
+        <https://wsn-ffd-owl.org/StatisticsAgent>,
+        <https://wsn-ffd-rdf.org/SensorAgent> .
+
+<https://wsn-ffd-owl.org/RouterNode> a owl:Class ;
+    rdfs:comment "Router node of the wireless sensor network" ;
+    rdfs:subClassOf sosa:Platform ;
+    owl:disjointWith <https://wsn-ffd-rdf.org/EdgeDevice> .
+
+<https://wsn-ffd-owl.org/StatisticsAgent> a owl:Class ;
+    rdfs:comment "MAS Statistics Agent" ;
+    rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py> ;
+    rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> ;
+    owl:disjointWith <https://wsn-ffd-owl.org/DBManagerAgent>,
+        <https://wsn-ffd-owl.org/FrontEndAgent>,
+        <https://wsn-ffd-rdf.org/SensorAgent> .
+
 <https://wsn-ffd-rdf.org/SensorAgent> rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://wsn-ffd-owl.org/#metricsCollectedBy> ] .
@@ -51,10 +62,8 @@
 <https://wsn-ffd-owl.org/DBManagerAgent> a owl:Class ;
     rdfs:comment "MAS DBManager Agent" ;
     rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py> ;
-    rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> .
-
-<https://wsn-ffd-owl.org/RouterNode> a owl:Class ;
-    rdfs:comment "Router node of the wireless sensor network" ;
-    rdfs:subClassOf sosa:Platform ;
-    owl:disjointWith <https://wsn-ffd-rdf.org/EdgeDevice> .
+    rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> ;
+    owl:disjointWith <https://wsn-ffd-owl.org/FrontEndAgent>,
+        <https://wsn-ffd-owl.org/StatisticsAgent>,
+        <https://wsn-ffd-rdf.org/SensorAgent> .
 

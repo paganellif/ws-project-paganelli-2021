@@ -50,6 +50,9 @@ if __name__ == '__main__':
     statistics_agent = URIRef(value='StatisticsAgent', base=base_owl_ontology)
     wsd_ffd_owl.add((statistics_agent, RDF.type, OWL.Class))
     wsd_ffd_owl.add((statistics_agent, RDFS.comment, Literal('MAS Statistics Agent')))
+    wsd_ffd_owl.add((statistics_agent, OWL.disjointWith, URIRef(value='DBManagerAgent', base=base_owl_ontology)))
+    wsd_ffd_owl.add((statistics_agent, OWL.disjointWith, URIRef(value='FrontEndAgent', base=base_owl_ontology)))
+    wsd_ffd_owl.add((statistics_agent, OWL.disjointWith, URIRef(value='SensorAgent', base=base_rdf_ontology)))
     wsd_ffd_owl.add((statistics_agent, RDFS.seeAlso,
                      URIRef(value=gitlab_repo_base_uri+'blob/master/processing/statisticsagent.py'))
                     )
@@ -58,6 +61,9 @@ if __name__ == '__main__':
     dbmanager_agent = URIRef(value='DBManagerAgent', base=base_owl_ontology)
     wsd_ffd_owl.add((dbmanager_agent, RDF.type, OWL.Class))
     wsd_ffd_owl.add((dbmanager_agent, RDFS.comment, Literal('MAS DBManager Agent')))
+    wsd_ffd_owl.add((dbmanager_agent, OWL.disjointWith, URIRef(value='FrontEndAgent', base=base_owl_ontology)))
+    wsd_ffd_owl.add((dbmanager_agent, OWL.disjointWith, URIRef(value='StatisticsAgent', base=base_owl_ontology)))
+    wsd_ffd_owl.add((dbmanager_agent, OWL.disjointWith, URIRef(value='SensorAgent', base=base_rdf_ontology)))
     wsd_ffd_owl.add((dbmanager_agent, RDFS.seeAlso,
                      URIRef(value=gitlab_repo_base_uri+'blob/master/processing/dbmanageragent.py'))
                     )
@@ -66,6 +72,9 @@ if __name__ == '__main__':
     frontend_agent = URIRef(value='FrontEndAgent', base=base_owl_ontology)
     wsd_ffd_owl.add((frontend_agent, RDF.type, OWL.Class))
     wsd_ffd_owl.add((frontend_agent, RDFS.comment, Literal('MAS FrontEnd Agent')))
+    wsd_ffd_owl.add((frontend_agent, OWL.disjointWith, URIRef(value='DBManagerAgent', base=base_owl_ontology)))
+    wsd_ffd_owl.add((frontend_agent, OWL.disjointWith, URIRef(value='StatisticsAgent', base=base_owl_ontology)))
+    wsd_ffd_owl.add((frontend_agent, OWL.disjointWith, URIRef(value='SensorAgent', base=base_rdf_ontology)))
     wsd_ffd_owl.add((frontend_agent, RDFS.seeAlso,
                      URIRef(value=gitlab_repo_base_uri+'blob/master/processing/frontendagent.py'))
                     )

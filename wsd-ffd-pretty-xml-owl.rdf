@@ -4,35 +4,25 @@
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 >
-  <owl:Ontology rdf:about="https://wsn-ffd-owl.org/wsn-mas-ontology">
-    <owl:versionInfo>1.0</owl:versionInfo>
-    <owl:imports rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
-  </owl:Ontology>
-  <owl:ObjectProperty rdf:about="https://wsn-ffd-owl.org/metricsCollectedBy">
-    <rdfs:comment>DBManager Agent that collects the data detected from this Sensor Agent</rdfs:comment>
-    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/#SensorAgent"/>
-    <rdfs:range rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
-    <owl:inverseOf rdf:resource="https://wsn-ffd-owl.org/#collectMetricsFrom"/>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
-    <rdfs:comment>MAS Statistics Agent</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </owl:Class>
   <owl:Class rdf:about="https://wsn-ffd-owl.org/CoordinatorNode">
     <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
   </owl:Class>
-  <owl:Class rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
-    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/frontendagent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </owl:Class>
+  <owl:Ontology rdf:about="https://wsn-ffd-owl.org/wsn-mas-ontology">
+    <owl:versionInfo>1.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
+  </owl:Ontology>
   <owl:ObjectProperty rdf:about="https://wsn-ffd-owl.org/isHostedBy">
     <rdfs:comment>WSN Node that hosts this Agent Container</rdfs:comment>
     <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/hostsAgentContainer"/>
     <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
     <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://wsn-ffd-owl.org/metricsCollectedBy">
+    <rdfs:comment>DBManager Agent that collects the data detected from this Sensor Agent</rdfs:comment>
+    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/#SensorAgent"/>
+    <rdfs:range rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <owl:inverseOf rdf:resource="https://wsn-ffd-owl.org/#collectMetricsFrom"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="https://wsn-ffd-owl.org/canRoute">
     <rdfs:comment>List of nodes to which this node is able to route information</rdfs:comment>
@@ -45,22 +35,42 @@
     <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
     <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/#SensorAgent"/>
   </owl:ObjectProperty>
-  <rdf:Description rdf:about="https://wsn-ffd-rdf.org/SensorAgent">
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N316b6aafb10144ba95d014a21a20e781">
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxCardinality>
-        <owl:onProperty rdf:resource="https://wsn-ffd-owl.org/#metricsCollectedBy"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </rdf:Description>
   <owl:Class rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
     <rdfs:comment>MAS DBManager Agent</rdfs:comment>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/FrontEndAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/StatisticsAgent"/>
+    <owl:disjointWith>
+      <rdf:Description rdf:about="https://wsn-ffd-rdf.org/SensorAgent">
+        <rdfs:subClassOf>
+          <owl:Restriction rdf:nodeID="Nd73776b80df749baaeabfa1dc2dc9da8">
+            <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxCardinality>
+            <owl:onProperty rdf:resource="https://wsn-ffd-owl.org/#metricsCollectedBy"/>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+      </rdf:Description>
+    </owl:disjointWith>
     <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
+    <rdfs:comment>MAS Statistics Agent</rdfs:comment>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/FrontEndAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </owl:Class>
   <owl:Class rdf:about="https://wsn-ffd-owl.org/RouterNode">
     <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/EdgeDevice"/>
     <rdfs:comment>Router node of the wireless sensor network</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
+    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/StatisticsAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/frontendagent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </owl:Class>
 </rdf:RDF>
