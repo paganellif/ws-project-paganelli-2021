@@ -168,33 +168,41 @@ if __name__ == '__main__':
     # costruendo la rete wsn-mas finale
     coordinator_node_instance = URIRef(value='CN0000001', base=base_owl_ontology)
     wsd_ffd_owl.add((coordinator_node_instance, RDF.type, OWL.CoordinatorNode))
-    wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT234GJ&55500001')))
+    wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT234GJ55500001')))
 
     router2_node_instance = URIRef(value='RN0000002', base=base_owl_ontology)
-    wsd_ffd_owl.add((coordinator_node_instance, RDF.type, OWL.RouterNode))
-    wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI&67800001')))
+    wsd_ffd_owl.add((router2_node_instance, RDF.type, OWL.RouterNode))
+    wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI67800001')))
 
     router3_node_instance = URIRef(value='RN0000003', base=base_owl_ontology)
-    wsd_ffd_owl.add((coordinator_node_instance, RDF.type, OWL.RouterNode))
-    wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI&67900001')))
+    wsd_ffd_owl.add((router3_node_instance, RDF.type, OWL.RouterNode))
+    wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI67900001')))
 
     router4_node_instance = URIRef(value='RN0000004', base=base_owl_ontology)
-    wsd_ffd_owl.add((coordinator_node_instance, RDF.type, OWL.RouterNode))
-    wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI&68000001')))
+    wsd_ffd_owl.add((router4_node_instance, RDF.type, OWL.RouterNode))
+    wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI68000001')))
 
 
     # WSN TOPOLOGY
-    wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.isRoutedBy, router2_node_instance))
-    wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.isRoutedBy, router3_node_instance))
+    wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000002', base=base_owl_ontology)))
+    wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000003', base=base_owl_ontology)))
 
-    wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.isRoutedBy, router4_node_instance))
-    wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.isRoutedBy, router3_node_instance))
+    wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000003', base=base_owl_ontology)))
+    wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000004', base=base_owl_ontology)))
 
-    wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy, router2_node_instance))
-    wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy, router4_node_instance))
+    wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000002', base=base_owl_ontology)))
+    wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000004', base=base_owl_ontology)))
 
-    wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy, router2_node_instance))
-    wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy, router3_node_instance))
+    wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000002', base=base_owl_ontology)))
+    wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000003', base=base_owl_ontology)))
 
     ##############################
     # RDF Serialization
