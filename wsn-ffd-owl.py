@@ -182,6 +182,29 @@ if __name__ == '__main__':
     wsd_ffd_owl.add((router4_node_instance, RDF.type, OWL.RouterNode))
     wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI68000001')))
 
+    edge2_node_instance = URIRef(value='ED0000002', base=base_rdf_ontology)
+    wsd_ffd_owl.add((edge2_node_instance, RDF.type, OWL.EdgeDevice))
+    wsd_ffd_owl.add((edge2_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1100001')))
+
+    edge3_node_instance = URIRef(value='ED0000003', base=base_rdf_ontology)
+    wsd_ffd_owl.add((edge3_node_instance, RDF.type, OWL.EdgeDevice))
+    wsd_ffd_owl.add((edge3_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1200001')))
+
+    edge4_node_instance = URIRef(value='ED0000004', base=base_rdf_ontology)
+    wsd_ffd_owl.add((edge4_node_instance, RDF.type, OWL.EdgeDevice))
+    wsd_ffd_owl.add((edge4_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1300001')))
+
+    edge5_node_instance = URIRef(value='ED0000005', base=base_rdf_ontology)
+    wsd_ffd_owl.add((edge5_node_instance, RDF.type, OWL.EdgeDevice))
+    wsd_ffd_owl.add((edge5_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1400001')))
+
+    edge6_node_instance = URIRef(value='ED0000006', base=base_rdf_ontology)
+    wsd_ffd_owl.add((edge6_node_instance, RDF.type, OWL.EdgeDevice))
+    wsd_ffd_owl.add((edge6_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1500001')))
+
+    edge7_node_instance = URIRef(value='ED0000007', base=base_rdf_ontology)
+    wsd_ffd_owl.add((edge7_node_instance, RDF.type, OWL.EdgeDevice))
+    wsd_ffd_owl.add((edge7_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1600001')))
 
     # WSN TOPOLOGY
     wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
