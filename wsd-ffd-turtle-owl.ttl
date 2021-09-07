@@ -4,7 +4,17 @@
 @prefix schema: <http://schema.org/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix wsn-ffd-rdf: <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://wsn-ffd-owl.org/CN0000001> a owl:CoordinatorNode,
+        owl:RouterNode ;
+    wsn-ffd-rdf:SerialNum "IT234GJ&55500001",
+        "IT456UI&67800001",
+        "IT456UI&67900001",
+        "IT456UI&68000001" ;
+    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/RN0000002>,
+        <https://wsn-ffd-owl.org/RN0000003> .
 
 <https://wsn-ffd-owl.org/CoordinatorNode> a owl:Class ;
     rdfs:comment "Coordinator/Gateway node of the wireless sensor network" ;
@@ -50,7 +60,7 @@
     rdfs:range <https://wsn-ffd-rdf.org/SensorAgent> .
 
 <https://wsn-ffd-owl.org/wsn-mas-ontology> a owl:Ontology ;
-    owl:imports <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf> ;
+    owl:imports wsn-ffd-rdf: ;
     owl:versionInfo "1.0" .
 
 <https://wsn-ffd-owl.org/FrontEndAgent> a owl:Class ;
@@ -60,6 +70,9 @@
     owl:disjointWith <https://wsn-ffd-owl.org/DBManagerAgent>,
         <https://wsn-ffd-owl.org/StatisticsAgent>,
         <https://wsn-ffd-rdf.org/SensorAgent> .
+
+<https://wsn-ffd-owl.org/RN0000004> wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/RN0000002>,
+        <https://wsn-ffd-owl.org/RN0000003> .
 
 <https://wsn-ffd-owl.org/RouterNode> a owl:Class ;
     rdfs:comment "Router node of the wireless sensor network" ;
@@ -75,6 +88,12 @@
         <https://wsn-ffd-rdf.org/SensorAgent> .
 
 <https://wsn-ffd-owl.org/Strategy> rdfs:subClassOf sosa:Procedure .
+
+<https://wsn-ffd-owl.org/RN0000002> wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/RN0000003>,
+        <https://wsn-ffd-owl.org/RN0000004> .
+
+<https://wsn-ffd-owl.org/RN0000003> wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/RN0000002>,
+        <https://wsn-ffd-owl.org/RN0000004> .
 
 <https://wsn-ffd-owl.org/DBManagerAgent> a owl:Class ;
     rdfs:comment "MAS DBManager Agent" ;

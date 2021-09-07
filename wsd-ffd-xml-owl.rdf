@@ -4,6 +4,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:schema="http://schema.org/"
+   xmlns:wsn-ffd-rdf="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"
 >
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/metricsCollectedBy">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -12,62 +13,11 @@
     <rdfs:range rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
     <owl:inverseOf rdf:resource="https://wsn-ffd-owl.org/#collectMetricsFrom"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/isHostedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>WSN Node that hosts this Agent Container</rdfs:comment>
-    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/hostsAgentContainer"/>
-    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
-    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/wsn-mas-ontology">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:versionInfo>1.0</owl:versionInfo>
-    <owl:imports rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RouterNode">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/EdgeDevice"/>
-    <rdfs:comment>Router node of the wireless sensor network</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf30788fb55824fea8bbba784472cc2e8">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <rdfs:comment>Strategy implemented by a TriggerAgent to trigger a SensorAgent</rdfs:comment>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Bit"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasOutput"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/triggers">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>SensorAgents that can be triggered by this TriggerAgent</rdfs:comment>
-    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
-    <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS DBManager Agent</rdfs:comment>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/FrontEndAgent"/>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/StatisticsAgent"/>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/canRoute">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>List of nodes to which this node is able to route information</rdfs:comment>
-    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/isRoutedBy"/>
-    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
-    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
-  </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/implementsStrategy">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/implements"/>
     <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/Strategy"/>
     <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/CoordinatorNode">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -78,15 +28,31 @@
     <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/frontendagent.py"/>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/collectMetricsFrom">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Sensor Agents from which the DBManager Agent collects the detected data</rdfs:comment>
-    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
-    <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/#SensorAgent"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>MAS DBManager Agent</rdfs:comment>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/FrontEndAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/StatisticsAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TriggerStrategy">
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/Strategy"/>
-    <rdfs:subClassOf rdf:nodeID="Nf30788fb55824fea8bbba784472cc2e8"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/CN0000001">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#CoordinatorNode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#RouterNode"/>
+    <wsn-ffd-rdf:SerialNum>IT234GJ&amp;55500001</wsn-ffd-rdf:SerialNum>
+    <wsn-ffd-rdf:SerialNum>IT456UI&amp;67800001</wsn-ffd-rdf:SerialNum>
+    <wsn-ffd-rdf:SerialNum>IT456UI&amp;67900001</wsn-ffd-rdf:SerialNum>
+    <wsn-ffd-rdf:SerialNum>IT456UI&amp;68000001</wsn-ffd-rdf:SerialNum>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/RN0000002"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/RN0000003"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/canRoute">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>List of nodes to which this node is able to route information</rdfs:comment>
+    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/isRoutedBy"/>
+    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -97,15 +63,72 @@
     <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
     <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/Strategy">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/CoordinatorNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N715dfe19c9e04e15af26fe081f8d3717">
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/wsn-mas-ontology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionInfo>1.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/triggers">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>SensorAgents that can be triggered by this TriggerAgent</rdfs:comment>
+    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
+    <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/isHostedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>WSN Node that hosts this Agent Container</rdfs:comment>
+    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/hostsAgentContainer"/>
+    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RouterNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/EdgeDevice"/>
+    <rdfs:comment>Router node of the wireless sensor network</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/collectMetricsFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Sensor Agents from which the DBManager Agent collects the detected data</rdfs:comment>
+    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/#SensorAgent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Neff43ffcf8384e3d8a272bdbaccd0ef6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <rdfs:comment>Strategy implemented by a TriggerAgent to trigger a SensorAgent</rdfs:comment>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Bit"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasOutput"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TriggerStrategy">
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/Strategy"/>
+    <rdfs:subClassOf rdf:nodeID="Neff43ffcf8384e3d8a272bdbaccd0ef6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RN0000004">
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/RN0000002"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/RN0000003"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na2b31a456f0145a5ac01c08a4b9f08c6">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxCardinality>
     <owl:onProperty rdf:resource="https://wsn-ffd-owl.org/#metricsCollectedBy"/>
   </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RN0000002">
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/RN0000004"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/RN0000003"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/Strategy">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RN0000003">
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/RN0000002"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/RN0000004"/>
+  </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-rdf.org/SensorAgent">
-    <rdfs:subClassOf rdf:nodeID="N715dfe19c9e04e15af26fe081f8d3717"/>
+    <rdfs:subClassOf rdf:nodeID="Na2b31a456f0145a5ac01c08a4b9f08c6"/>
   </rdf:Description>
 </rdf:RDF>
