@@ -1,5 +1,6 @@
 from rdflib import Graph
 from rdflib.term import URIRef, Literal, BNode
+from rdflib.container import BNode
 from rdflib.namespace import Namespace, RDF, RDFS
 import os
 
@@ -172,7 +173,7 @@ if __name__ == '__main__':
 
     router2_node_instance = URIRef(value='RN0000002', base=base_owl_ontology)
     wsd_ffd_owl.add((router2_node_instance, RDF.type, OWL.RouterNode))
-    wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI67800001')))
+    wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI67800001')))   
 
     router3_node_instance = URIRef(value='RN0000003', base=base_owl_ontology)
     wsd_ffd_owl.add((router3_node_instance, RDF.type, OWL.RouterNode))
@@ -216,11 +217,17 @@ if __name__ == '__main__':
                      URIRef(value='#RN0000003', base=base_owl_ontology)))
     wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000004', base=base_owl_ontology)))
+    wsd_ffd_owl.add((router2_node_instance, can_route, Bag(wsd_ffd_owl, BNode(),
+                        [coordinator, router3_node_instance, edge2_node_instance, edge3_node_instance, edge4_node_instance]).uri
+                    ))
 
     wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000002', base=base_owl_ontology)))
     wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000004', base=base_owl_ontology)))
+    wsd_ffd_owl.add((router3_node_instance, can_route, Bag(wsd_ffd_owl, BNode(),
+                        [coordinator, router3_node_instance, edge2_node_instance, edge3_node_instance, edge4_node_instance]).uri
+                    ))
 
     wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000002', base=base_owl_ontology)))
