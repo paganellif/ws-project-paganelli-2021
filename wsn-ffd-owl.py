@@ -227,6 +227,28 @@ if __name__ == '__main__':
     wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000003', base=base_owl_ontology)))
 
+    wsd_ffd_owl.add((edge2_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000002', base=base_owl_ontology)))  
+
+    wsd_ffd_owl.add((edge3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000002', base=base_owl_ontology)))
+
+    wsd_ffd_owl.add((edge4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000002', base=base_owl_ontology)))
+    wsd_ffd_owl.add((edge4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000004', base=base_owl_ontology)))              
+
+    wsd_ffd_owl.add((edge5_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000003', base=base_owl_ontology)))
+    wsd_ffd_owl.add((edge5_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000004', base=base_owl_ontology)))
+
+    wsd_ffd_owl.add((edge6_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000003', base=base_owl_ontology)))  
+
+    wsd_ffd_owl.add((edge7_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000003', base=base_owl_ontology)))
+
     ##############################
     # RDF Serialization
     ##############################
