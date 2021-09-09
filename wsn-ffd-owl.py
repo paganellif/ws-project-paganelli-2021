@@ -1,6 +1,6 @@
 from rdflib import Graph
 from rdflib.term import URIRef, Literal, BNode
-from rdflib.container import BNode
+from rdflib.container import Bag
 from rdflib.namespace import Namespace, RDF, RDFS
 import os
 
@@ -212,46 +212,52 @@ if __name__ == '__main__':
                      URIRef(value='#RN0000002', base=base_owl_ontology)))
     wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000003', base=base_owl_ontology)))
+    wsd_ffd_owl.add((coordinator_node_instance, can_route, Bag(wsd_ffd_owl, BNode(),
+                        [router2_node_instance, router3_node_instance]).uri))
 
     wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
-                     URIRef(value='#RN0000003', base=base_owl_ontology)))
+                     URIRef(value='#CN0000001', base=base_owl_ontology)))
     wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000004', base=base_owl_ontology)))
     wsd_ffd_owl.add((router2_node_instance, can_route, Bag(wsd_ffd_owl, BNode(),
-                        [coordinator, router3_node_instance, edge2_node_instance, edge3_node_instance, edge4_node_instance]).uri
-                    ))
+                        [coordinator_node_instance, router4_node_instance,
+                         edge2_node_instance, edge3_node_instance]).uri))
 
     wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
-                     URIRef(value='#RN0000002', base=base_owl_ontology)))
+                     URIRef(value='#CN0000001', base=base_owl_ontology)))
     wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000004', base=base_owl_ontology)))
     wsd_ffd_owl.add((router3_node_instance, can_route, Bag(wsd_ffd_owl, BNode(),
-                        [coordinator, router3_node_instance, edge2_node_instance, edge3_node_instance, edge4_node_instance]).uri
-                    ))
+                        [coordinator_node_instance, router4_node_instance,
+                         edge6_node_instance, edge7_node_instance]).uri))
 
     wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000002', base=base_owl_ontology)))
     wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000003', base=base_owl_ontology)))
+    wsd_ffd_owl.add((router4_node_instance, can_route, Bag(wsd_ffd_owl, BNode(),
+                        [router2_node_instance, router3_node_instance,
+                         edge3_node_instance, edge4_node_instance,
+                         edge5_node_instance, edge6_node_instance]).uri))
 
     wsd_ffd_owl.add((edge2_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000002', base=base_owl_ontology)))  
 
     wsd_ffd_owl.add((edge3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000002', base=base_owl_ontology)))
+    wsd_ffd_owl.add((edge3_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000004', base=base_owl_ontology)))
 
     wsd_ffd_owl.add((edge4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
-                     URIRef(value='#RN0000002', base=base_owl_ontology)))
-    wsd_ffd_owl.add((edge4_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
-                     URIRef(value='#RN0000004', base=base_owl_ontology)))              
+                     URIRef(value='#RN0000004', base=base_owl_ontology)))
 
-    wsd_ffd_owl.add((edge5_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
-                     URIRef(value='#RN0000003', base=base_owl_ontology)))
     wsd_ffd_owl.add((edge5_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000004', base=base_owl_ontology)))
 
     wsd_ffd_owl.add((edge6_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
-                     URIRef(value='#RN0000003', base=base_owl_ontology)))  
+                     URIRef(value='#RN0000003', base=base_owl_ontology)))
+    wsd_ffd_owl.add((edge6_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
+                     URIRef(value='#RN0000004', base=base_owl_ontology)))
 
     wsd_ffd_owl.add((edge7_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
                      URIRef(value='#RN0000003', base=base_owl_ontology)))
