@@ -34,6 +34,9 @@ if __name__ == '__main__':
     QUDT_UNIT: Namespace = Namespace('http://qudt.org/1.1/vocab/unit#')
     wsd_ffd_owl.bind('qudt-unit-1-1', QUDT_UNIT)
 
+    GEO: Namespace = Namespace('http://www.w3.org/2003/01/geo/wgs84_pos#')
+    wsd_ffd_owl.bind('geo', GEO)
+
     ontology = URIRef(value='wsn-mas-ontology', base=base_owl_ontology)
     wsd_ffd_owl.add((ontology, RDF.type, OWL.Ontology))
     wsd_ffd_owl.add((ontology, OWL.versionInfo, Literal('1.0')))
@@ -170,42 +173,62 @@ if __name__ == '__main__':
     coordinator_node_instance = URIRef(value='CN0000001', base=base_owl_ontology)
     wsd_ffd_owl.add((coordinator_node_instance, RDF.type, OWL.CoordinatorNode))
     wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT234GJ55500001')))
+    wsd_ffd_owl.add((coordinator_node_instance, GEO.lat, Literal(55.701)))
+    wsd_ffd_owl.add((coordinator_node_instance, GEO.long, Literal(12.552)))
 
     router2_node_instance = URIRef(value='RN0000002', base=base_owl_ontology)
     wsd_ffd_owl.add((router2_node_instance, RDF.type, OWL.RouterNode))
-    wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI67800001')))   
+    wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI67800001')))
+    wsd_ffd_owl.add((router2_node_instance, GEO.lat, Literal(55.895)))
+    wsd_ffd_owl.add((router2_node_instance, GEO.long, Literal(12.437)))
 
     router3_node_instance = URIRef(value='RN0000003', base=base_owl_ontology)
     wsd_ffd_owl.add((router3_node_instance, RDF.type, OWL.RouterNode))
     wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI67900001')))
+    wsd_ffd_owl.add((router3_node_instance, GEO.lat, Literal(55.634)))
+    wsd_ffd_owl.add((router3_node_instance, GEO.long, Literal(12.606)))
 
     router4_node_instance = URIRef(value='RN0000004', base=base_owl_ontology)
     wsd_ffd_owl.add((router4_node_instance, RDF.type, OWL.RouterNode))
     wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI68000001')))
+    wsd_ffd_owl.add((router4_node_instance, GEO.lat, Literal(56.030)))
+    wsd_ffd_owl.add((router4_node_instance, GEO.long, Literal(12.112)))
 
     edge2_node_instance = URIRef(value='ED0000002', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge2_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge2_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1100001')))
+    wsd_ffd_owl.add((edge2_node_instance, GEO.lat, Literal(56.120)))
+    wsd_ffd_owl.add((edge2_node_instance, GEO.long, Literal(11.969)))
 
     edge3_node_instance = URIRef(value='ED0000003', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge3_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge3_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1200001')))
+    wsd_ffd_owl.add((edge3_node_instance, GEO.lat, Literal(56.330)))
+    wsd_ffd_owl.add((edge3_node_instance, GEO.long, Literal(11.969)))
 
     edge4_node_instance = URIRef(value='ED0000004', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge4_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge4_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1300001')))
+    wsd_ffd_owl.add((edge4_node_instance, GEO.lat, Literal(56.444)))
+    wsd_ffd_owl.add((edge4_node_instance, GEO.long, Literal(11.969)))
 
     edge5_node_instance = URIRef(value='ED0000005', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge5_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge5_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1400001')))
+    wsd_ffd_owl.add((edge5_node_instance, GEO.lat, Literal(56.454)))
+    wsd_ffd_owl.add((edge5_node_instance, GEO.long, Literal(11.888)))
 
     edge6_node_instance = URIRef(value='ED0000006', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge6_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge6_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1500001')))
+    wsd_ffd_owl.add((edge6_node_instance, GEO.lat, Literal(56.342)))
+    wsd_ffd_owl.add((edge6_node_instance, GEO.long, Literal(11.765)))
 
     edge7_node_instance = URIRef(value='ED0000007', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge7_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge7_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1600001')))
+    wsd_ffd_owl.add((edge7_node_instance, GEO.lat, Literal(56.323)))
+    wsd_ffd_owl.add((edge7_node_instance, GEO.long, Literal(11.721)))
 
     # WSN TOPOLOGY
     wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
