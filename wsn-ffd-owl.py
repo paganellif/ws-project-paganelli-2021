@@ -172,12 +172,107 @@ if __name__ == '__main__':
     router3_node_instance = URIRef(value='RN0000003', base=base_owl_ontology)
     router4_node_instance = URIRef(value='RN0000004', base=base_owl_ontology)
 
-    edge2_node_instance = URIRef(value='ED0000002', base=base_rdf_ontology)
-    edge3_node_instance = URIRef(value='ED0000003', base=base_rdf_ontology)
-    edge4_node_instance = URIRef(value='ED0000004', base=base_rdf_ontology)
-    edge5_node_instance = URIRef(value='ED0000005', base=base_rdf_ontology)
-    edge6_node_instance = URIRef(value='ED0000006', base=base_rdf_ontology)
-    edge7_node_instance = URIRef(value='ED0000007', base=base_rdf_ontology)
+    edge2_node_instance = URIRef(value='ED0000002', base=base_owl_ontology)
+    edge3_node_instance = URIRef(value='ED0000003', base=base_owl_ontology)
+    edge4_node_instance = URIRef(value='ED0000004', base=base_owl_ontology)
+    edge5_node_instance = URIRef(value='ED0000005', base=base_owl_ontology)
+    edge6_node_instance = URIRef(value='ED0000006', base=base_owl_ontology)
+    edge7_node_instance = URIRef(value='ED0000007', base=base_owl_ontology)
+
+    agent_container_edge2 = URIRef(value='AC0000002', base=base_owl_ontology)
+    wsd_ffd_owl.add((agent_container_edge2, RDF.type, URIRef(value="AgentContainer", base=base_rdf_ontology)))
+    agent_container_edge3 = URIRef(value='AC0000003', base=base_owl_ontology)
+    wsd_ffd_owl.add((agent_container_edge3, RDF.type, URIRef(value="AgentContainer", base=base_rdf_ontology)))
+    agent_container_edge4 = URIRef(value='AC0000004', base=base_owl_ontology)
+    wsd_ffd_owl.add((agent_container_edge4, RDF.type, URIRef(value="AgentContainer", base=base_rdf_ontology)))
+    agent_container_edge5 = URIRef(value='AC0000005', base=base_owl_ontology)
+    wsd_ffd_owl.add((agent_container_edge5, RDF.type, URIRef(value="AgentContainer", base=base_rdf_ontology)))
+    agent_container_edge6 = URIRef(value='AC0000006', base=base_owl_ontology)
+    wsd_ffd_owl.add((agent_container_edge6, RDF.type, URIRef(value="AgentContainer", base=base_rdf_ontology)))
+    agent_container_edge7 = URIRef(value='AC0000007', base=base_owl_ontology)
+    wsd_ffd_owl.add((agent_container_edge7, RDF.type, URIRef(value="AgentContainer", base=base_rdf_ontology)))
+
+    sensor_agent_edge2 = URIRef(value='SA0000002', base=base_owl_ontology)
+    wsd_ffd_owl.add((sensor_agent_edge2, RDF.type, URIRef(value="SensorAgent", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((sensor_agent_edge2, MY_RDF_ONTOLOGY.hasJID, Literal("sensoragent.edge2@wsn-mas.org")))
+    sensor_agent_edge3 = URIRef(value='SA0000003', base=base_owl_ontology)
+    wsd_ffd_owl.add((sensor_agent_edge3, RDF.type, URIRef(value="SensorAgent", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((sensor_agent_edge3, MY_RDF_ONTOLOGY.hasJID, Literal("sensoragent.edge3@wsn-mas.org")))
+    sensor_agent_edge4 = URIRef(value='SA0000004', base=base_owl_ontology)
+    wsd_ffd_owl.add((sensor_agent_edge4, RDF.type, URIRef(value="SensorAgent", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((sensor_agent_edge4, MY_RDF_ONTOLOGY.hasJID, Literal("sensoragent.edge4@wsn-mas.org")))
+    sensor_agent_edge5 = URIRef(value='SA0000005', base=base_owl_ontology)
+    wsd_ffd_owl.add((sensor_agent_edge5, RDF.type, URIRef(value="SensorAgent", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((sensor_agent_edge5, MY_RDF_ONTOLOGY.hasJID, Literal("sensoragent.edge5@wsn-mas.org")))
+    sensor_agent_edge6 = URIRef(value='SA0000006', base=base_owl_ontology)
+    wsd_ffd_owl.add((sensor_agent_edge6, RDF.type, URIRef(value="SensorAgent", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((sensor_agent_edge6, MY_RDF_ONTOLOGY.hasJID, Literal("sensoragent.edge6@wsn-mas.org")))
+    sensor_agent_edge7 = URIRef(value='SA0000007', base=base_owl_ontology)
+    wsd_ffd_owl.add((sensor_agent_edge7, RDF.type, URIRef(value="SensorAgent", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((sensor_agent_edge7, MY_RDF_ONTOLOGY.hasJID, Literal("sensoragent.edge7@wsn-mas.org")))
+
+    trigger_agent_edge2 = URIRef(value='TA0000002', base=base_owl_ontology)
+    wsd_ffd_owl.add((trigger_agent_edge2, RDF.type, URIRef(value="TriggerAgent", base=base_rdf_ontology)))
+    trigger_agent_edge3 = URIRef(value='TA0000003', base=base_owl_ontology)
+    wsd_ffd_owl.add((trigger_agent_edge3, RDF.type, URIRef(value="TriggerAgent", base=base_rdf_ontology)))
+    trigger_agent_edge4 = URIRef(value='TA0000004', base=base_owl_ontology)
+    wsd_ffd_owl.add((trigger_agent_edge4, RDF.type, URIRef(value="TriggerAgent", base=base_rdf_ontology)))
+    trigger_agent_edge5 = URIRef(value='TA0000005', base=base_owl_ontology)
+    wsd_ffd_owl.add((trigger_agent_edge5, RDF.type, URIRef(value="TriggerAgent", base=base_rdf_ontology)))
+    trigger_agent_edge6 = URIRef(value='TA0000006', base=base_owl_ontology)
+    wsd_ffd_owl.add((trigger_agent_edge6, RDF.type, URIRef(value="TriggerAgent", base=base_rdf_ontology)))
+    trigger_agent_edge7 = URIRef(value='TA0000007', base=base_owl_ontology)
+    wsd_ffd_owl.add((trigger_agent_edge7, RDF.type, URIRef(value="TriggerAgent", base=base_rdf_ontology)))
+
+    dbmanager_agent_edge2 = URIRef(value='DBMA0000002', base=base_owl_ontology)
+    wsd_ffd_owl.add((dbmanager_agent_edge2, RDF.type, URIRef(value="DBManagerAgent", base=base_owl_ontology)))
+    dbmanager_agent_edge3 = URIRef(value='DBMA0000003', base=base_owl_ontology)
+    wsd_ffd_owl.add((dbmanager_agent_edge3, RDF.type, URIRef(value="DBManagerAgent", base=base_owl_ontology)))
+    dbmanager_agent_edge4 = URIRef(value='DBMA0000004', base=base_owl_ontology)
+    wsd_ffd_owl.add((dbmanager_agent_edge4, RDF.type, URIRef(value="DBManagerAgent", base=base_owl_ontology)))
+    dbmanager_agent_edge5 = URIRef(value='DBMA0000005', base=base_owl_ontology)
+    wsd_ffd_owl.add((dbmanager_agent_edge5, RDF.type, URIRef(value="DBManagerAgent", base=base_owl_ontology)))
+    dbmanager_agent_edge6 = URIRef(value='DBMA0000006', base=base_owl_ontology)
+    wsd_ffd_owl.add((dbmanager_agent_edge6, RDF.type, URIRef(value="DBManagerAgent", base=base_owl_ontology)))
+    dbmanager_agent_edge7 = URIRef(value='DBMA0000007', base=base_owl_ontology)
+    wsd_ffd_owl.add((dbmanager_agent_edge7, RDF.type, URIRef(value="DBManagerAgent", base=base_owl_ontology)))
+
+    wsd_ffd_owl.add((agent_container_edge2, MY_RDF_ONTOLOGY.contains,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [sensor_agent_edge2, trigger_agent_edge2, dbmanager_agent_edge2]).uri
+                     ))
+
+    wsd_ffd_owl.add((agent_container_edge3, MY_RDF_ONTOLOGY.contains,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [sensor_agent_edge3, trigger_agent_edge3, dbmanager_agent_edge3]).uri
+                     ))
+
+    wsd_ffd_owl.add((agent_container_edge4, MY_RDF_ONTOLOGY.contains,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [sensor_agent_edge4, trigger_agent_edge4, dbmanager_agent_edge4]).uri
+                     ))
+
+    wsd_ffd_owl.add((agent_container_edge5, MY_RDF_ONTOLOGY.contains,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [sensor_agent_edge5, trigger_agent_edge5, dbmanager_agent_edge5]).uri
+                     ))
+
+    wsd_ffd_owl.add((agent_container_edge6, MY_RDF_ONTOLOGY.contains,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [sensor_agent_edge6, trigger_agent_edge6, dbmanager_agent_edge6]).uri
+                     ))
+
+    wsd_ffd_owl.add((agent_container_edge7, MY_RDF_ONTOLOGY.contains,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [sensor_agent_edge7, trigger_agent_edge7, dbmanager_agent_edge7]).uri
+                     ))
+
+    wsd_ffd_owl.add((edge2_node_instance, MY_RDF_ONTOLOGY.hostsAgentContainer, agent_container_edge2))
+    wsd_ffd_owl.add((edge3_node_instance, MY_RDF_ONTOLOGY.hostsAgentContainer, agent_container_edge3))
+    wsd_ffd_owl.add((edge4_node_instance, MY_RDF_ONTOLOGY.hostsAgentContainer, agent_container_edge4))
+    wsd_ffd_owl.add((edge5_node_instance, MY_RDF_ONTOLOGY.hostsAgentContainer, agent_container_edge5))
+    wsd_ffd_owl.add((edge6_node_instance, MY_RDF_ONTOLOGY.hostsAgentContainer, agent_container_edge6))
+    wsd_ffd_owl.add((edge7_node_instance, MY_RDF_ONTOLOGY.hostsAgentContainer, agent_container_edge7))
 
     # Sensors edge2
     dht11_edge2 = URIRef(value='DHT110000002', base=base_owl_ontology)
