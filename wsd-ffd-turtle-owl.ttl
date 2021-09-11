@@ -94,17 +94,35 @@ ns1:AC0000007 a ns2:AgentContainer ;
             rdf:_2 ns1:TA0000007 ;
             rdf:_3 ns1:DBMA0000007 ] .
 
-ns1:DBMA0000002 a ns1:DBManagerAgent .
+ns1:DBMA0000002 a ns1:DBManagerAgent ;
+    wsn-ffd-rdf:hasJID "dbmanageragent.edge2@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:collectMetricsFrom ns1:SA0000002 .
 
-ns1:DBMA0000003 a ns1:DBManagerAgent .
+ns1:DBMA0000003 a ns1:DBManagerAgent ;
+    wsn-ffd-rdf:hasJID "dbmanageragent.edge3@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:collectMetricsFrom ns1:SA0000003 .
 
-ns1:DBMA0000004 a ns1:DBManagerAgent .
+ns1:DBMA0000004 a ns1:DBManagerAgent ;
+    wsn-ffd-rdf:hasJID "dbmanageragent.edge4@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:collectMetricsFrom ns1:SA0000004 .
 
-ns1:DBMA0000005 a ns1:DBManagerAgent .
+ns1:DBMA0000005 a ns1:DBManagerAgent ;
+    wsn-ffd-rdf:hasJID "dbmanageragent.edge5@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:collectMetricsFrom ns1:SA0000005 .
 
-ns1:DBMA0000006 a ns1:DBManagerAgent .
+ns1:DBMA0000006 a ns1:DBManagerAgent ;
+    wsn-ffd-rdf:hasJID "dbmanageragent.edge6@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:collectMetricsFrom ns1:SA0000006 .
 
-ns1:DBMA0000007 a ns1:DBManagerAgent .
+ns1:DBMA0000007 a ns1:DBManagerAgent ;
+    wsn-ffd-rdf:hasJID "dbmanageragent.edge7@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:collectMetricsFrom ns1:SA0000007 .
 
 ns1:DHT110000002 a ns2:DHT11 ;
     sosa:isHostedBy ns1:ED0000002 .
@@ -154,24 +172,6 @@ ns1:MQ20000006 a ns2:MQ2 ;
 ns1:MQ20000007 a ns2:MQ2 ;
     sosa:isHostedBy ns1:ED0000007 .
 
-ns1:SA0000002 a ns2:SensorAgent ;
-    wsn-ffd-rdf:hasJID "sensoragent.edge2@wsn-mas.org" .
-
-ns1:SA0000003 a ns2:SensorAgent ;
-    wsn-ffd-rdf:hasJID "sensoragent.edge3@wsn-mas.org" .
-
-ns1:SA0000004 a ns2:SensorAgent ;
-    wsn-ffd-rdf:hasJID "sensoragent.edge4@wsn-mas.org" .
-
-ns1:SA0000005 a ns2:SensorAgent ;
-    wsn-ffd-rdf:hasJID "sensoragent.edge5@wsn-mas.org" .
-
-ns1:SA0000006 a ns2:SensorAgent ;
-    wsn-ffd-rdf:hasJID "sensoragent.edge6@wsn-mas.org" .
-
-ns1:SA0000007 a ns2:SensorAgent ;
-    wsn-ffd-rdf:hasJID "sensoragent.edge7@wsn-mas.org" .
-
 ns1:SFM270000002 a ns2:SFM27 ;
     sosa:isHostedBy ns1:ED0000002 .
 
@@ -190,17 +190,35 @@ ns1:SFM270000006 a ns2:SFM27 ;
 ns1:SFM270000007 a ns2:SFM27 ;
     sosa:isHostedBy ns1:ED0000007 .
 
-ns1:TA0000002 a ns2:TriggerAgent .
+ns1:TA0000002 a ns2:TriggerAgent ;
+    wsn-ffd-rdf:hasJID "triggeragent.edge2@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:triggers ns1:SA0000002 .
 
-ns1:TA0000003 a ns2:TriggerAgent .
+ns1:TA0000003 a ns2:TriggerAgent ;
+    wsn-ffd-rdf:hasJID "triggeragent.edge3@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:triggers ns1:SA0000003 .
 
-ns1:TA0000004 a ns2:TriggerAgent .
+ns1:TA0000004 a ns2:TriggerAgent ;
+    wsn-ffd-rdf:hasJID "triggeragent.edge4@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:triggers ns1:SA0000004 .
 
-ns1:TA0000005 a ns2:TriggerAgent .
+ns1:TA0000005 a ns2:TriggerAgent ;
+    wsn-ffd-rdf:hasJID "triggeragent.edge5@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:triggers ns1:SA0000005 .
 
-ns1:TA0000006 a ns2:TriggerAgent .
+ns1:TA0000006 a ns2:TriggerAgent ;
+    wsn-ffd-rdf:hasJID "triggeragent.edge6@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:triggers ns1:SA0000006 .
 
-ns1:TA0000007 a ns2:TriggerAgent .
+ns1:TA0000007 a ns2:TriggerAgent ;
+    wsn-ffd-rdf:hasJID "triggeragent.edge7@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 ;
+    ns1:triggers ns1:SA0000007 .
 
 ns1:CN0000001 a owl:CoordinatorNode ;
     geo:lat 5.5701e+01 ;
@@ -276,6 +294,30 @@ ns1:StatisticsAgent a owl:Class ;
         ns2:SensorAgent .
 
 ns1:Strategy rdfs:subClassOf sosa:Procedure .
+
+ns1:SA0000002 a ns2:SensorAgent ;
+    wsn-ffd-rdf:hasJID "sensoragent.edge2@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 .
+
+ns1:SA0000003 a ns2:SensorAgent ;
+    wsn-ffd-rdf:hasJID "sensoragent.edge3@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 .
+
+ns1:SA0000004 a ns2:SensorAgent ;
+    wsn-ffd-rdf:hasJID "sensoragent.edge4@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 .
+
+ns1:SA0000005 a ns2:SensorAgent ;
+    wsn-ffd-rdf:hasJID "sensoragent.edge5@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 .
+
+ns1:SA0000006 a ns2:SensorAgent ;
+    wsn-ffd-rdf:hasJID "sensoragent.edge6@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 .
+
+ns1:SA0000007 a ns2:SensorAgent ;
+    wsn-ffd-rdf:hasJID "sensoragent.edge7@wsn-mas.org" ;
+    wsn-ffd-rdf:isAlive 1 .
 
 ns1:ED0000002 a owl:EdgeDevice ;
     geo:lat 5.612e+01 ;
