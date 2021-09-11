@@ -1,5 +1,6 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix ns1: <https://wsn-ffd-owl.org/> .
+@prefix ns2: <https://wsn-ffd-rdf.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix qudt-unit-1-1: <http://qudt.org/1.1/vocab/unit#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -24,7 +25,7 @@ ns1:canRoute a owl:ObjectProperty ;
     rdfs:comment "List of nodes to which this node is able to route information" ;
     rdfs:domain ns1:RouterNode ;
     rdfs:range sosa:Platform ;
-    owl:inverseOf <https://wsn-ffd-rdf.org/isRoutedBy> .
+    owl:inverseOf ns2:isRoutedBy .
 
 ns1:collectMetricsFrom a owl:ObjectProperty ;
     rdfs:comment "Sensor Agents from which the DBManager Agent collects the detected data" ;
@@ -33,14 +34,14 @@ ns1:collectMetricsFrom a owl:ObjectProperty ;
 
 ns1:implementsStrategy a owl:ObjectProperty ;
     rdfs:domain ns1:Strategy ;
-    rdfs:range <https://wsn-ffd-rdf.org/Agent> ;
+    rdfs:range ns2:Agent ;
     rdfs:subPropertyOf ssn:implements .
 
 ns1:isHostedBy a owl:ObjectProperty ;
     rdfs:comment "WSN Node that hosts this Agent Container" ;
-    rdfs:domain <https://wsn-ffd-rdf.org/AgentContainer> ;
+    rdfs:domain ns2:AgentContainer ;
     rdfs:range sosa:Platform ;
-    owl:inverseOf <https://wsn-ffd-rdf.org/hostsAgentContainer> .
+    owl:inverseOf ns2:hostsAgentContainer .
 
 ns1:metricsCollectedBy a owl:ObjectProperty ;
     rdfs:comment "DBManager Agent that collects the data detected from this Sensor Agent" ;
@@ -50,36 +51,78 @@ ns1:metricsCollectedBy a owl:ObjectProperty ;
 
 ns1:triggers a owl:ObjectProperty ;
     rdfs:comment "SensorAgents that can be triggered by this TriggerAgent" ;
-    rdfs:domain <https://wsn-ffd-rdf.org/TriggerAgent> ;
-    rdfs:range <https://wsn-ffd-rdf.org/SensorAgent> .
+    rdfs:domain ns2:TriggerAgent ;
+    rdfs:range ns2:SensorAgent .
 
 ns1:wsn-mas-ontology a owl:Ontology ;
     owl:imports wsn-ffd-rdf: ;
     owl:versionInfo "1.0" .
 
-<https://wsn-ffd-rdf.org/ED0000002> a owl:EdgeDevice ;
-    geo:lat 5.612e+01 ;
-    geo:long 1.1969e+01 ;
-    wsn-ffd-rdf:SerialNum "IT833ZK1100001" ;
-    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000002> .
+ns1:DHT110000002 a ns2:DHT11 ;
+    sosa:isHostedBy ns2:ED0000002 .
 
-<https://wsn-ffd-rdf.org/ED0000004> a owl:EdgeDevice ;
-    geo:lat 5.6444e+01 ;
-    geo:long 1.1969e+01 ;
-    wsn-ffd-rdf:SerialNum "IT833ZK1300001" ;
-    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000004> .
+ns1:DHT110000003 a ns2:DHT11 ;
+    sosa:isHostedBy ns2:ED0000003 .
 
-<https://wsn-ffd-rdf.org/ED0000005> a owl:EdgeDevice ;
-    geo:lat 5.6454e+01 ;
-    geo:long 1.1888e+01 ;
-    wsn-ffd-rdf:SerialNum "IT833ZK1400001" ;
-    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000004> .
+ns1:DHT110000004 a ns2:DHT11 ;
+    sosa:isHostedBy ns2:ED0000004 .
 
-<https://wsn-ffd-rdf.org/ED0000007> a owl:EdgeDevice ;
-    geo:lat 5.6323e+01 ;
-    geo:long 1.1721e+01 ;
-    wsn-ffd-rdf:SerialNum "IT833ZK1600001" ;
-    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000003> .
+ns1:DHT110000005 a ns2:DHT11 ;
+    sosa:isHostedBy ns2:ED0000005 .
+
+ns1:DHT110000006 a ns2:DHT11 ;
+    sosa:isHostedBy ns2:ED0000006 .
+
+ns1:DHT110000007 a ns2:DHT11 ;
+    sosa:isHostedBy ns2:ED0000007 .
+
+ns1:KY0260000003 a ns2:KY026 ;
+    sosa:isHostedBy ns2:ED0000003 .
+
+ns1:KY0260000004 a ns2:KY026 ;
+    sosa:isHostedBy ns2:ED0000004 .
+
+ns1:KY0260000006 a ns2:KY026 ;
+    sosa:isHostedBy ns2:ED0000006 .
+
+ns1:KY0260000007 a ns2:KY026 ;
+    sosa:isHostedBy ns2:ED0000007 .
+
+ns1:MQ20000002 a ns2:MQ2 ;
+    sosa:isHostedBy ns2:ED0000002 .
+
+ns1:MQ20000003 a ns2:MQ2 ;
+    sosa:isHostedBy ns2:ED0000003 .
+
+ns1:MQ20000004 a ns2:MQ2 ;
+    sosa:isHostedBy ns2:ED0000004 .
+
+ns1:MQ20000005 a ns2:MQ2 ;
+    sosa:isHostedBy ns2:ED0000005 .
+
+ns1:MQ20000006 a ns2:MQ2 ;
+    sosa:isHostedBy ns2:ED0000006 .
+
+ns1:MQ20000007 a ns2:MQ2 ;
+    sosa:isHostedBy ns2:ED0000007 .
+
+ns1:SFM270000002 a ns2:SFM27 ;
+    sosa:isHostedBy ns2:ED0000002 .
+
+ns1:SFM270000003 a ns2:SFM27 ;
+    sosa:isHostedBy ns2:ED0000003 .
+
+ns1:SFM270000004 a ns2:SFM27 ;
+    sosa:isHostedBy ns2:ED0000004 .
+
+ns1:SFM270000005 a ns2:SFM27 ;
+    sosa:isHostedBy ns2:ED0000005 .
+
+ns1:SFM270000006 a ns2:SFM27 ;
+    sosa:isHostedBy ns2:ED0000006 .
+
+ns1:SFM270000007 a ns2:SFM27 ;
+    sosa:isHostedBy ns2:ED0000007 .
 
 ns1:CN0000001 a owl:CoordinatorNode ;
     geo:lat 5.5701e+01 ;
@@ -94,10 +137,14 @@ ns1:CN0000001 a owl:CoordinatorNode ;
 ns1:FrontEndAgent a owl:Class ;
     rdfs:comment "MAS FrontEnd Agent" ;
     rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/frontendagent.py> ;
-    rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> ;
+    rdfs:subClassOf ns2:Agent ;
     owl:disjointWith ns1:DBManagerAgent,
         ns1:StatisticsAgent,
-        <https://wsn-ffd-rdf.org/SensorAgent> .
+        ns2:SensorAgent .
+
+ns1:KY0260000002 a ns2:KY026 ;
+    sosa:isHostedBy ns2:ED0000002,
+        ns2:ED0000005 .
 
 ns1:RN0000002 a owl:RouterNode ;
     geo:lat 5.5895e+01 ;
@@ -108,8 +155,8 @@ ns1:RN0000002 a owl:RouterNode ;
     ns1:canRoute [ a rdf:Bag ;
             rdf:_1 ns1:CN0000001 ;
             rdf:_2 ns1:RN0000004 ;
-            rdf:_3 <https://wsn-ffd-rdf.org/ED0000002> ;
-            rdf:_4 <https://wsn-ffd-rdf.org/ED0000003> ] .
+            rdf:_3 ns2:ED0000002 ;
+            rdf:_4 ns2:ED0000003 ] .
 
 ns1:RN0000003 a owl:RouterNode ;
     geo:lat 5.5634e+01 ;
@@ -120,8 +167,8 @@ ns1:RN0000003 a owl:RouterNode ;
     ns1:canRoute [ a rdf:Bag ;
             rdf:_1 ns1:CN0000001 ;
             rdf:_2 ns1:RN0000004 ;
-            rdf:_3 <https://wsn-ffd-rdf.org/ED0000006> ;
-            rdf:_4 <https://wsn-ffd-rdf.org/ED0000007> ] .
+            rdf:_3 ns2:ED0000006 ;
+            rdf:_4 ns2:ED0000007 ] .
 
 ns1:RN0000004 a owl:RouterNode ;
     geo:lat 5.603e+01 ;
@@ -132,49 +179,103 @@ ns1:RN0000004 a owl:RouterNode ;
     ns1:canRoute [ a rdf:Bag ;
             rdf:_1 ns1:RN0000002 ;
             rdf:_2 ns1:RN0000003 ;
-            rdf:_3 <https://wsn-ffd-rdf.org/ED0000003> ;
-            rdf:_4 <https://wsn-ffd-rdf.org/ED0000004> ;
-            rdf:_5 <https://wsn-ffd-rdf.org/ED0000005> ;
-            rdf:_6 <https://wsn-ffd-rdf.org/ED0000006> ] .
+            rdf:_3 ns2:ED0000003 ;
+            rdf:_4 ns2:ED0000004 ;
+            rdf:_5 ns2:ED0000005 ;
+            rdf:_6 ns2:ED0000006 ] .
 
 ns1:RouterNode a owl:Class ;
     rdfs:comment "Router node of the wireless sensor network" ;
     rdfs:subClassOf sosa:Platform ;
-    owl:disjointWith <https://wsn-ffd-rdf.org/EdgeDevice> .
+    owl:disjointWith ns2:EdgeDevice .
 
 ns1:StatisticsAgent a owl:Class ;
     rdfs:comment "MAS Statistics Agent" ;
     rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py> ;
-    rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> ;
+    rdfs:subClassOf ns2:Agent ;
     owl:disjointWith ns1:DBManagerAgent,
         ns1:FrontEndAgent,
-        <https://wsn-ffd-rdf.org/SensorAgent> .
+        ns2:SensorAgent .
 
 ns1:Strategy rdfs:subClassOf sosa:Procedure .
-
-<https://wsn-ffd-rdf.org/ED0000003> a owl:EdgeDevice ;
-    geo:lat 5.633e+01 ;
-    geo:long 1.1969e+01 ;
-    wsn-ffd-rdf:SerialNum "IT833ZK1200001" ;
-    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000002>,
-        <https://wsn-ffd-owl.org/#RN0000004> .
-
-<https://wsn-ffd-rdf.org/ED0000006> a owl:EdgeDevice ;
-    geo:lat 5.6342e+01 ;
-    geo:long 1.1765e+01 ;
-    wsn-ffd-rdf:SerialNum "IT833ZK1500001" ;
-    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000003>,
-        <https://wsn-ffd-owl.org/#RN0000004> .
 
 ns1:DBManagerAgent a owl:Class ;
     rdfs:comment "MAS DBManager Agent" ;
     rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py> ;
-    rdfs:subClassOf <https://wsn-ffd-rdf.org/Agent> ;
+    rdfs:subClassOf ns2:Agent ;
     owl:disjointWith ns1:FrontEndAgent,
         ns1:StatisticsAgent,
-        <https://wsn-ffd-rdf.org/SensorAgent> .
+        ns2:SensorAgent .
 
-<https://wsn-ffd-rdf.org/SensorAgent> rdfs:subClassOf [ a owl:Restriction ;
+ns2:SensorAgent rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://wsn-ffd-owl.org/#metricsCollectedBy> ] .
+
+ns2:ED0000002 a owl:EdgeDevice ;
+    geo:lat 5.612e+01 ;
+    geo:long 1.1969e+01 ;
+    sosa:hosts [ a rdf:Bag ;
+            rdf:_1 ns1:DHT110000002 ;
+            rdf:_2 ns1:MQ20000002 ;
+            rdf:_3 ns1:KY0260000002 ;
+            rdf:_4 ns1:SFM270000002 ] ;
+    wsn-ffd-rdf:SerialNum "IT833ZK1100001" ;
+    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000002> .
+
+ns2:ED0000004 a owl:EdgeDevice ;
+    geo:lat 5.6444e+01 ;
+    geo:long 1.1969e+01 ;
+    sosa:hosts [ a rdf:Bag ;
+            rdf:_1 ns1:DHT110000004 ;
+            rdf:_2 ns1:MQ20000004 ;
+            rdf:_3 ns1:KY0260000004 ;
+            rdf:_4 ns1:SFM270000004 ] ;
+    wsn-ffd-rdf:SerialNum "IT833ZK1300001" ;
+    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000004> .
+
+ns2:ED0000005 a owl:EdgeDevice ;
+    geo:lat 5.6454e+01 ;
+    geo:long 1.1888e+01 ;
+    sosa:hosts [ a rdf:Bag ;
+            rdf:_1 ns1:DHT110000005 ;
+            rdf:_2 ns1:MQ20000005 ;
+            rdf:_3 ns1:KY0260000002 ;
+            rdf:_4 ns1:SFM270000005 ] ;
+    wsn-ffd-rdf:SerialNum "IT833ZK1400001" ;
+    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000004> .
+
+ns2:ED0000007 a owl:EdgeDevice ;
+    geo:lat 5.6323e+01 ;
+    geo:long 1.1721e+01 ;
+    sosa:hosts [ a rdf:Bag ;
+            rdf:_1 ns1:DHT110000007 ;
+            rdf:_2 ns1:MQ20000007 ;
+            rdf:_3 ns1:KY0260000007 ;
+            rdf:_4 ns1:SFM270000007 ] ;
+    wsn-ffd-rdf:SerialNum "IT833ZK1600001" ;
+    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000003> .
+
+ns2:ED0000003 a owl:EdgeDevice ;
+    geo:lat 5.633e+01 ;
+    geo:long 1.1969e+01 ;
+    sosa:hosts [ a rdf:Bag ;
+            rdf:_1 ns1:DHT110000003 ;
+            rdf:_2 ns1:MQ20000003 ;
+            rdf:_3 ns1:KY0260000003 ;
+            rdf:_4 ns1:SFM270000003 ] ;
+    wsn-ffd-rdf:SerialNum "IT833ZK1200001" ;
+    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000002>,
+        <https://wsn-ffd-owl.org/#RN0000004> .
+
+ns2:ED0000006 a owl:EdgeDevice ;
+    geo:lat 5.6342e+01 ;
+    geo:long 1.1765e+01 ;
+    sosa:hosts [ a rdf:Bag ;
+            rdf:_1 ns1:DHT110000006 ;
+            rdf:_2 ns1:MQ20000006 ;
+            rdf:_3 ns1:KY0260000006 ;
+            rdf:_4 ns1:SFM270000006 ] ;
+    wsn-ffd-rdf:SerialNum "IT833ZK1500001" ;
+    wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000003>,
+        <https://wsn-ffd-owl.org/#RN0000004> .
 

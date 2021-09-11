@@ -166,6 +166,18 @@ if __name__ == '__main__':
     ##############################
     # Instance Definition
     ##############################
+    coordinator_node_instance = URIRef(value='CN0000001', base=base_owl_ontology)
+
+    router2_node_instance = URIRef(value='RN0000002', base=base_owl_ontology)
+    router3_node_instance = URIRef(value='RN0000003', base=base_owl_ontology)
+    router4_node_instance = URIRef(value='RN0000004', base=base_owl_ontology)
+
+    edge2_node_instance = URIRef(value='ED0000002', base=base_rdf_ontology)
+    edge3_node_instance = URIRef(value='ED0000003', base=base_rdf_ontology)
+    edge4_node_instance = URIRef(value='ED0000004', base=base_rdf_ontology)
+    edge5_node_instance = URIRef(value='ED0000005', base=base_rdf_ontology)
+    edge6_node_instance = URIRef(value='ED0000006', base=base_rdf_ontology)
+    edge7_node_instance = URIRef(value='ED0000007', base=base_rdf_ontology)
 
     # Sensors edge2
     dht11_edge2 = URIRef(value='DHT110000002', base=base_owl_ontology)
@@ -261,86 +273,96 @@ if __name__ == '__main__':
 
 
     wsd_ffd_owl.add((mq2_edge2, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
-    wsd_ffd_owl.add((sfm27_edge2, SOSA.isHostedBy, edge2_node_instance))
+    wsd_ffd_owl.add((mq2_edge2, SOSA.isHostedBy, edge2_node_instance))
 
-    wsd_ffd_owl.add((sfm27_edge3, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
-    wsd_ffd_owl.add((sfm27_edge3, SOSA.isHostedBy, edge3_node_instance))
+    wsd_ffd_owl.add((mq2_edge3, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((mq2_edge3, SOSA.isHostedBy, edge3_node_instance))
 
-    wsd_ffd_owl.add((sfm27_edge4, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
-    wsd_ffd_owl.add((sfm27_edge4, SOSA.isHostedBy, edge4_node_instance))
+    wsd_ffd_owl.add((mq2_edge4, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((mq2_edge4, SOSA.isHostedBy, edge4_node_instance))
 
-    wsd_ffd_owl.add((sfm27_edge5, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
-    wsd_ffd_owl.add((sfm27_edge5, SOSA.isHostedBy, edge5_node_instance))
+    wsd_ffd_owl.add((mq2_edge5, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((mq2_edge5, SOSA.isHostedBy, edge5_node_instance))
 
-    wsd_ffd_owl.add((sfm27_edge6, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
-    wsd_ffd_owl.add((sfm27_edge6, SOSA.isHostedBy, edge6_node_instance))
+    wsd_ffd_owl.add((mq2_edge6, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((mq2_edge6, SOSA.isHostedBy, edge6_node_instance))
 
-    wsd_ffd_owl.add((sfm27_edge7, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
-    wsd_ffd_owl.add((sfm27_edge7, SOSA.isHostedBy, edge7_node_instance))
+    wsd_ffd_owl.add((mq2_edge7, RDF.type, URIRef(value="MQ2", base=base_rdf_ontology)))
+    wsd_ffd_owl.add((mq2_edge7, SOSA.isHostedBy, edge7_node_instance))
 
-    coordinator_node_instance = URIRef(value='CN0000001', base=base_owl_ontology)
     wsd_ffd_owl.add((coordinator_node_instance, RDF.type, OWL.CoordinatorNode))
     wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT234GJ55500001')))
     wsd_ffd_owl.add((coordinator_node_instance, GEO.lat, Literal(55.701)))
     wsd_ffd_owl.add((coordinator_node_instance, GEO.long, Literal(12.552)))
 
-    router2_node_instance = URIRef(value='RN0000002', base=base_owl_ontology)
     wsd_ffd_owl.add((router2_node_instance, RDF.type, OWL.RouterNode))
     wsd_ffd_owl.add((router2_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI67800001')))
     wsd_ffd_owl.add((router2_node_instance, GEO.lat, Literal(55.895)))
     wsd_ffd_owl.add((router2_node_instance, GEO.long, Literal(12.437)))
 
-    router3_node_instance = URIRef(value='RN0000003', base=base_owl_ontology)
     wsd_ffd_owl.add((router3_node_instance, RDF.type, OWL.RouterNode))
     wsd_ffd_owl.add((router3_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI67900001')))
     wsd_ffd_owl.add((router3_node_instance, GEO.lat, Literal(55.634)))
     wsd_ffd_owl.add((router3_node_instance, GEO.long, Literal(12.606)))
 
-    router4_node_instance = URIRef(value='RN0000004', base=base_owl_ontology)
     wsd_ffd_owl.add((router4_node_instance, RDF.type, OWL.RouterNode))
     wsd_ffd_owl.add((router4_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT456UI68000001')))
     wsd_ffd_owl.add((router4_node_instance, GEO.lat, Literal(56.030)))
     wsd_ffd_owl.add((router4_node_instance, GEO.long, Literal(12.112)))
 
-    edge2_node_instance = URIRef(value='ED0000002', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge2_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge2_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1100001')))
     wsd_ffd_owl.add((edge2_node_instance, GEO.lat, Literal(56.120)))
     wsd_ffd_owl.add((edge2_node_instance, GEO.long, Literal(11.969)))
     wsd_ffd_owl.add((edge2_node_instance, SOSA.hosts,
                      Bag(wsd_ffd_owl, BNode(),
-                         [dht11_instance, mq2_instance, ky026_instance, sfm27_instance]).uri
+                         [dht11_edge2, mq2_edge2, ky026_edge2, sfm27_edge2]).uri
                      ))
 
-    edge3_node_instance = URIRef(value='ED0000003', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge3_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge3_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1200001')))
     wsd_ffd_owl.add((edge3_node_instance, GEO.lat, Literal(56.330)))
     wsd_ffd_owl.add((edge3_node_instance, GEO.long, Literal(11.969)))
+    wsd_ffd_owl.add((edge3_node_instance, SOSA.hosts,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [dht11_edge3, mq2_edge3, ky026_edge3, sfm27_edge3]).uri
+                     ))
 
-    edge4_node_instance = URIRef(value='ED0000004', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge4_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge4_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1300001')))
     wsd_ffd_owl.add((edge4_node_instance, GEO.lat, Literal(56.444)))
     wsd_ffd_owl.add((edge4_node_instance, GEO.long, Literal(11.969)))
+    wsd_ffd_owl.add((edge4_node_instance, SOSA.hosts,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [dht11_edge4, mq2_edge4, ky026_edge4, sfm27_edge4]).uri
+                     ))
 
-    edge5_node_instance = URIRef(value='ED0000005', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge5_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge5_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1400001')))
     wsd_ffd_owl.add((edge5_node_instance, GEO.lat, Literal(56.454)))
     wsd_ffd_owl.add((edge5_node_instance, GEO.long, Literal(11.888)))
+    wsd_ffd_owl.add((edge5_node_instance, SOSA.hosts,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [dht11_edge5, mq2_edge5, ky026_edge5, sfm27_edge5]).uri
+                     ))
 
-    edge6_node_instance = URIRef(value='ED0000006', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge6_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge6_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1500001')))
     wsd_ffd_owl.add((edge6_node_instance, GEO.lat, Literal(56.342)))
     wsd_ffd_owl.add((edge6_node_instance, GEO.long, Literal(11.765)))
+    wsd_ffd_owl.add((edge6_node_instance, SOSA.hosts,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [dht11_edge6, mq2_edge6, ky026_edge6, sfm27_edge6]).uri
+                     ))
 
-    edge7_node_instance = URIRef(value='ED0000007', base=base_rdf_ontology)
     wsd_ffd_owl.add((edge7_node_instance, RDF.type, OWL.EdgeDevice))
     wsd_ffd_owl.add((edge7_node_instance, MY_RDF_ONTOLOGY.SerialNum, Literal('IT833ZK1600001')))
     wsd_ffd_owl.add((edge7_node_instance, GEO.lat, Literal(56.323)))
     wsd_ffd_owl.add((edge7_node_instance, GEO.long, Literal(11.721)))
+    wsd_ffd_owl.add((edge7_node_instance, SOSA.hosts,
+                     Bag(wsd_ffd_owl, BNode(),
+                         [dht11_edge7, mq2_edge7, ky026_edge7, sfm27_edge7]).uri
+                     ))
 
     # WSN TOPOLOGY
     wsd_ffd_owl.add((coordinator_node_instance, MY_RDF_ONTOLOGY.isRoutedBy,
