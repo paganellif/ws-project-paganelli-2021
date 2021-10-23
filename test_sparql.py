@@ -20,7 +20,7 @@ if __name__ == '__main__':
     # Print the number of "triples" in the Graph
     print(f"Graph g has {len(g)} statements.")
 
-    query = prepareQuery("""
+    prefix = """
     prefix sosa: <http://www.w3.org/ns/sosa/>
     prefix ssn: <http://www.w3.org/ns/ssn/>
     prefix ssn-system: <http://www.w3.org/ns/ssn/systems/>
@@ -30,6 +30,9 @@ if __name__ == '__main__':
     prefix schema: <http://schema.org/>
     prefix wsn-ffd-rdf: <https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf>
     
+    """
+
+    query = prepareQuery(prefix+"""
     select *
     where {
         { ?n rdf:type <http://www.w3.org/2002/07/owl#EdgeDevice>} 
@@ -46,3 +49,14 @@ if __name__ == '__main__':
     print("------WSN nodes position------")
     for row in g.query(query):
         print(f"[node]{row.n}\t-\t[serial num]{row.serial_num}\t-\t[lat]{row.lat}\t-\t[long]{row.long}")
+
+    query = prepareQuery(prefix+"""
+    select *
+    where {
+        ?n wsn-ffd-rdf:isRoutedBy ?is_routed_by .
+    }
+    """)
+
+    print("\n------WSN nodes routing table------")
+    for row in g.query(query):
+        print(f"[node]{row.n}\t-\t[is routed by]{row.is_routed_by}")
