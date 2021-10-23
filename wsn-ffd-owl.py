@@ -10,7 +10,11 @@ if __name__ == '__main__':
     # Graph Definition
     ##############################
     wsd_ffd_owl: Graph = Graph()
-    gitlab_repo_base_uri: str = 'https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/'
+
+    # Real import of assignment 2 ontology
+    wsd_ffd_owl.load(os.getcwd()+'/wsd-ffd-xml.rdf')
+
+    gitlab_repo_base_uri: str = 'https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/'
     # owl:imports 'https://wsn-ffd-rdf.org/' --> in realtà metto il link alla ontologia sul repo gitlab
     base_rdf_ontology_uri: str = gitlab_repo_base_uri + 'raw/develop/wsd-ffd-pretty-xml.rdf'
     base_rdf_ontology: str = 'https://wsn-ffd-rdf.org/'

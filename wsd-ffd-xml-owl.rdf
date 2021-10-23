@@ -1,272 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF
    xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
-   xmlns:ns1="https://wsn-ffd-owl.org/"
+   xmlns:ns1="http://wsn-ffd.org/"
+   xmlns:ns2="https://wsn-ffd-owl.org/"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:schema="http://schema.org/"
    xmlns:sosa="http://www.w3.org/ns/sosa/"
-   xmlns:wsn-ffd-rdf="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"
+   xmlns:ssn-system="http://www.w3.org/ns/ssn/systems/"
+   xmlns:wsn-ffd-rdf="https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"
 >
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000002">
-    <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
-    <wsn-ffd-rdf:hasJID>dbmanageragent.edge2@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000002"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N12d049b86d8748bdbb6ee9dfec4174b6">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000006"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000006"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000006"/>
-    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000006"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/KY0260000006">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/KY026"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000006"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/StatisticsAgent"/>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/frontendagent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N428d55cf60f64756b6a7ce0396a17410">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000005"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000005"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000002"/>
-    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000005"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/CN0000001">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#CoordinatorNode"/>
-    <wsn-ffd-rdf:SerialNum>IT234GJ55500001</wsn-ffd-rdf:SerialNum>
-    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55.701</geo:lat>
-    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.552</geo:long>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000002"/>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000003"/>
-    <ns1:canRoute rdf:nodeID="Ncccb9173269441b6a7a734b20904e421"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N52288047f7744f19a4854b1bc7fc73f3">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000004"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000004"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000004"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/KY0260000002">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/KY026"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000002"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000005"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RN0000004">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#RouterNode"/>
-    <wsn-ffd-rdf:SerialNum>IT456UI68000001</wsn-ffd-rdf:SerialNum>
-    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.03</geo:lat>
-    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.112</geo:long>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000002"/>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000003"/>
-    <ns1:canRoute rdf:nodeID="Naec29d3837fb481b8b318ea4b1472ec4"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RouterNode">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/EdgeDevice"/>
-    <rdfs:comment>Router node of the wireless sensor network</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/ED0000003">
-    <wsn-ffd-rdf:hostsAgentContainer rdf:resource="https://wsn-ffd-owl.org/AC0000003"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#EdgeDevice"/>
-    <wsn-ffd-rdf:SerialNum>IT833ZK1200001</wsn-ffd-rdf:SerialNum>
-    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.33</geo:lat>
-    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.969</geo:long>
-    <sosa:hosts rdf:nodeID="N78c7c289b39c47efaafa0287d95ce4b1"/>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000002"/>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000003">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000003"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/isHostedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>WSN Node that hosts this Agent Container</rdfs:comment>
-    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/hostsAgentContainer"/>
-    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
-    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000007">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000007"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000004">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000004"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000005">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
-    <wsn-ffd-rdf:hasJID>sensoragent.edge5@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000007">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
-    <wsn-ffd-rdf:hasJID>sensoragent.edge7@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N78c7c289b39c47efaafa0287d95ce4b1">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000003"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000003"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000003"/>
-    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000003"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/implementsStrategy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/implements"/>
-    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/Strategy"/>
-    <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N4f82b936ebd54a758fabda033f71a0ce">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000007"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000007"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000007"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS Statistics Agent</rdfs:comment>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/FrontEndAgent"/>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nac7687b782154ee6a7765ba8835f96f4">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000002"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000002"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000002"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/CoordinatorNode">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000002">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000002"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncccb9173269441b6a7a734b20904e421">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/RN0000002"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/RN0000003"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000006">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
-    <wsn-ffd-rdf:contains rdf:nodeID="N53668c32671842e4839b2ef11e3dd914"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000007">
-    <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
-    <wsn-ffd-rdf:hasJID>dbmanageragent.edge7@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000007"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nafe5fcb75b2248409d4a2ab52e017a2b">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000002"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000002"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000002"/>
-    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000002"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000004">
     <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
     <wsn-ffd-rdf:hasJID>sensoragent.edge4@wsn-mas.org</wsn-ffd-rdf:hasJID>
     <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000005">
-    <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
-    <wsn-ffd-rdf:hasJID>dbmanageragent.edge5@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000005"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncd19fd9437c44d5fb2f35f30cef85cb7">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000005"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000005"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000005"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000002">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
-    <wsn-ffd-rdf:hasJID>sensoragent.edge2@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-rdf.org/SensorAgent">
-    <rdfs:subClassOf rdf:nodeID="Ne72f89667aad4daf9b1f7304f8cd98dc"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000003">
-    <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
-    <wsn-ffd-rdf:hasJID>dbmanageragent.edge3@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000003"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N92319e53025e4cc1b3ff5aae8986ec0e">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/CN0000001"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/RN0000004"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/ED0000002"/>
-    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/ED0000003"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000005">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
-    <wsn-ffd-rdf:contains rdf:nodeID="Ncd19fd9437c44d5fb2f35f30cef85cb7"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000004">
-    <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
-    <wsn-ffd-rdf:hasJID>dbmanageragent.edge4@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000004"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/ED0000004">
-    <wsn-ffd-rdf:hostsAgentContainer rdf:resource="https://wsn-ffd-owl.org/AC0000004"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#EdgeDevice"/>
-    <wsn-ffd-rdf:SerialNum>IT833ZK1300001</wsn-ffd-rdf:SerialNum>
-    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.444</geo:lat>
-    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.969</geo:long>
-    <sosa:hosts rdf:nodeID="N5c6db5eb197e4877be7f1d199966d00b"/>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000006">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000006">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
     <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000006"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Naec29d3837fb481b8b318ea4b1472ec4">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/RN0000002"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/RN0000003"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/ED0000003"/>
-    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/ED0000004"/>
-    <rdf:_5 rdf:resource="https://wsn-ffd-owl.org/ED0000005"/>
-    <rdf:_6 rdf:resource="https://wsn-ffd-owl.org/ED0000006"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/ED0000005">
-    <wsn-ffd-rdf:hostsAgentContainer rdf:resource="https://wsn-ffd-owl.org/AC0000005"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#EdgeDevice"/>
-    <wsn-ffd-rdf:SerialNum>IT833ZK1400001</wsn-ffd-rdf:SerialNum>
-    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.454</geo:lat>
-    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.888</geo:long>
-    <sosa:hosts rdf:nodeID="N428d55cf60f64756b6a7ce0396a17410"/>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TriggerStrategy">
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/Strategy"/>
-    <rdfs:subClassOf rdf:nodeID="Nb57a4fa30cf24a07a629252cf1d9de70"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000002">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
-    <wsn-ffd-rdf:contains rdf:nodeID="Nac7687b782154ee6a7765ba8835f96f4"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/ED0000002">
     <wsn-ffd-rdf:hostsAgentContainer rdf:resource="https://wsn-ffd-owl.org/AC0000002"/>
@@ -274,105 +26,41 @@
     <wsn-ffd-rdf:SerialNum>IT833ZK1100001</wsn-ffd-rdf:SerialNum>
     <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.12</geo:lat>
     <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.969</geo:long>
-    <sosa:hosts rdf:nodeID="Nafe5fcb75b2248409d4a2ab52e017a2b"/>
+    <sosa:hosts rdf:nodeID="N9954c19f5af1406a876acbec8375f721"/>
     <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000002"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne72f89667aad4daf9b1f7304f8cd98dc">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxCardinality>
-    <owl:onProperty rdf:resource="https://wsn-ffd-owl.org/#metricsCollectedBy"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000004">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
-    <wsn-ffd-rdf:contains rdf:nodeID="N52288047f7744f19a4854b1bc7fc73f3"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/canRoute">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>List of nodes to which this node is able to route information</rdfs:comment>
-    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/isRoutedBy"/>
-    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
-    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000007">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
-    <wsn-ffd-rdf:contains rdf:nodeID="N4f82b936ebd54a758fabda033f71a0ce"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/KY0260000004">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/KY026"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000004"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>MAS DBManager Agent</rdfs:comment>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/FrontEndAgent"/>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/StatisticsAgent"/>
-    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
-    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
-    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/ED0000006">
-    <wsn-ffd-rdf:hostsAgentContainer rdf:resource="https://wsn-ffd-owl.org/AC0000006"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#EdgeDevice"/>
-    <wsn-ffd-rdf:SerialNum>IT833ZK1500001</wsn-ffd-rdf:SerialNum>
-    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.342</geo:lat>
-    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.765</geo:long>
-    <sosa:hosts rdf:nodeID="N12d049b86d8748bdbb6ee9dfec4174b6"/>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000003"/>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000006">
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000007">
     <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
-    <wsn-ffd-rdf:hasJID>dbmanageragent.edge6@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:hasJID>dbmanageragent.edge7@wsn-mas.org</wsn-ffd-rdf:hasJID>
     <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000006"/>
+    <ns2:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000007"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N2359bc8e62c14218b298c6679a29115d">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/CN0000001"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/RN0000004"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/ED0000006"/>
-    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/ED0000007"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000003">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
+    <wsn-ffd-rdf:contains rdf:nodeID="N6dda5bf8f6d044e9ad95802c34a3606e"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RN0000002">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#RouterNode"/>
-    <wsn-ffd-rdf:SerialNum>IT456UI67800001</wsn-ffd-rdf:SerialNum>
-    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55.895</geo:lat>
-    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.437</geo:long>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#CN0000001"/>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
-    <ns1:canRoute rdf:nodeID="N92319e53025e4cc1b3ff5aae8986ec0e"/>
+  <rdf:Description rdf:about="http://wsn-ffd.org/ED0000001">
+    <rdf:type rdf:resource="http://wsn-ffd.org/EdgeDevice"/>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55.701</geo:lat>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.552</geo:long>
+    <sosa:hosts rdf:nodeID="N6b8517b41bb44677a76ca05df478dc66"/>
+    <ns1:isRoutedBy rdf:nodeID="Nf72ebdc87f7a41cd881dbef5397d31fe"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000005">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000005"/>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SensorAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>MAS Sensor Agent</rdfs:comment>
+    <rdfs:seeAlso>https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/WSN/sensoragent.py</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://wsn-ffd.org/Agent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000003">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
-    <wsn-ffd-rdf:hasJID>sensoragent.edge3@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N5c6db5eb197e4877be7f1d199966d00b">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000004"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000004"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000004"/>
-    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000004"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000007">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000007"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TA0000003">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
-    <wsn-ffd-rdf:hasJID>triggeragent.edge3@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000003"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TA0000005">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
-    <wsn-ffd-rdf:hasJID>triggeragent.edge5@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000005"/>
+  <rdf:Description rdf:about="http://wsn-ffd.org/DHT110000001">
+    <rdf:type rdf:resource="http://wsn-ffd.org/DHT11"/>
+    <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
+    <ssn-system:OperatingPowerRange rdf:nodeID="N32d3b59f923e4785903d48c071f92c1d"/>
+    <ssn-system:Frequency rdf:nodeID="N2e2801d190dc416288fa9e848e79a7c5"/>
+    <ns1:TempAccuracy rdf:nodeID="Na5587a7ff7ea4c9084e8842b7e8e59b8"/>
+    <ns1:TempCondition rdf:nodeID="N827326a5079f4415bf439a7c603b97d7"/>
+    <ns1:HumAccuracy rdf:nodeID="N337a20c782394e6a9237c4f45694876d"/>
+    <ns1:HumCondition rdf:nodeID="N8f1d0d8c1c7948709ef75fde4a49d0c3"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/ED0000007">
     <wsn-ffd-rdf:hostsAgentContainer rdf:resource="https://wsn-ffd-owl.org/AC0000007"/>
@@ -380,14 +68,46 @@
     <wsn-ffd-rdf:SerialNum>IT833ZK1600001</wsn-ffd-rdf:SerialNum>
     <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.323</geo:lat>
     <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.721</geo:long>
-    <sosa:hosts rdf:nodeID="N88a975cf05294bf7bcb223e4b9bf2d18"/>
+    <sosa:hosts rdf:nodeID="N286c02a9766d4d6e98f60bf68313f101"/>
     <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000003"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/triggers">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>SensorAgents that can be triggered by this TriggerAgent</rdfs:comment>
-    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
-    <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000006">
+    <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <wsn-ffd-rdf:hasJID>dbmanageragent.edge6@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+    <ns2:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000006"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne7a6a819907d42daa68c0b261d2672c9">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/hasNeighbour">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Neighbour Agent</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/Agent"/>
+    <rdfs:range rdf:resource="http://wsn-ffd.org/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000002">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000002"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/OxygenCondition">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Sensor/Actuator operating oxygen condition</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/MQ2"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Condition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/ED0000003">
+    <wsn-ffd-rdf:hostsAgentContainer rdf:resource="https://wsn-ffd-owl.org/AC0000003"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#EdgeDevice"/>
+    <wsn-ffd-rdf:SerialNum>IT833ZK1200001</wsn-ffd-rdf:SerialNum>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.33</geo:lat>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.969</geo:long>
+    <sosa:hosts rdf:nodeID="N276de4f001dc46c494effdce6451abac"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000002"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/metricsCollectedBy">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -396,76 +116,209 @@
     <rdfs:range rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
     <owl:inverseOf rdf:resource="https://wsn-ffd-owl.org/#collectMetricsFrom"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RN0000003">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#RouterNode"/>
-    <wsn-ffd-rdf:SerialNum>IT456UI67900001</wsn-ffd-rdf:SerialNum>
-    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55.634</geo:lat>
-    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.606</geo:long>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#CN0000001"/>
-    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
-    <ns1:canRoute rdf:nodeID="N2359bc8e62c14218b298c6679a29115d"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N53668c32671842e4839b2ef11e3dd914">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000006"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000006"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000006"/>
+  <rdf:Description rdf:nodeID="N68268abaebef414d8720f90f7acb6f22">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000005"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000005"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000005"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000004">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000004"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RouterNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/EdgeDevice"/>
+    <rdfs:comment>Router node of the wireless sensor network</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000005">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000005"/>
+  <rdf:Description rdf:about="http://wsn-ffd.org/HumAccuracy">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Humidity accuracy</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/DHT11"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Accuracy"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000003">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000003"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/StatisticsAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>MAS Statistics Agent</rdfs:comment>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/FrontEndAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/blob/master/processing/statisticsagent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000002">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000002"/>
+  <rdf:Description rdf:nodeID="N3d00031c571e4212a409c4e932e7dae6">
+    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</schema:value>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DEG"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb57a4fa30cf24a07a629252cf1d9de70">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <rdfs:comment>Strategy implemented by a TriggerAgent to trigger a SensorAgent</rdfs:comment>
-    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Bit"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasOutput"/>
+  <rdf:Description rdf:nodeID="N827326a5079f4415bf439a7c603b97d7">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DegreeCelsius"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000004">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000004"/>
+  <rdf:Description rdf:nodeID="N94514e7da71f4653b468e7762c3591c7">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000002"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000002"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000002"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000005">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000005"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000006">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
-    <wsn-ffd-rdf:hasJID>sensoragent.edge6@wsn-mas.org</wsn-ffd-rdf:hasJID>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000005">
+    <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <wsn-ffd-rdf:hasJID>dbmanageragent.edge5@wsn-mas.org</wsn-ffd-rdf:hasJID>
     <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N88a975cf05294bf7bcb223e4b9bf2d18">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000007"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000007"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000007"/>
-    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000007"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000006">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000006"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000002">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000002"/>
+    <ns2:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000005"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/TA0000004">
     <rdf:type rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
     <wsn-ffd-rdf:hasJID>triggeragent.edge4@wsn-mas.org</wsn-ffd-rdf:hasJID>
     <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000004"/>
+    <ns2:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000004"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SFM27">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>SFM-27 active buzzer</rdfs:comment>
+    <rdfs:seeAlso>https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Actuator"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6dda5bf8f6d044e9ad95802c34a3606e">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000003"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000003"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000003"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N276de4f001dc46c494effdce6451abac">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000003"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000003"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000003"/>
+    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000003"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000007">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
+    <wsn-ffd-rdf:contains rdf:nodeID="N6ca67b82086b45fc971b1b62f0bd665a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/CN0000001">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#CoordinatorNode"/>
+    <wsn-ffd-rdf:SerialNum>IT234GJ55500001</wsn-ffd-rdf:SerialNum>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55.701</geo:lat>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.552</geo:long>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000002"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000003"/>
+    <ns2:canRoute rdf:nodeID="N927e536e971e4f4eb079372716c8a382"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/AngleOperatingRange">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Sensor Detection Angle</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/KY026"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/OperatingRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/HumCondition">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Sensor/Actuator operating humidity condition</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Condition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBManagerAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>MAS DBManager Agent</rdfs:comment>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/FrontEndAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/StatisticsAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/ED0000006">
+    <wsn-ffd-rdf:hostsAgentContainer rdf:resource="https://wsn-ffd-owl.org/AC0000006"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#EdgeDevice"/>
+    <wsn-ffd-rdf:SerialNum>IT833ZK1500001</wsn-ffd-rdf:SerialNum>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.342</geo:lat>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.765</geo:long>
+    <sosa:hosts rdf:nodeID="N935160f82c20425cb1e1b75de91a451b"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000003"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/TriggerAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>MAS Trigger Agent</rdfs:comment>
+    <rdfs:seeAlso>https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/triggeragent.py</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://wsn-ffd.org/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/UVMeasurement">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Infrared Wavelength Detection</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/KY026"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/MeasurementRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000003">
+    <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <wsn-ffd-rdf:hasJID>dbmanageragent.edge3@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+    <ns2:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000003"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9954c19f5af1406a876acbec8375f721">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000002"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000002"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000002"/>
+    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000002"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/isAlive">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Checks if the agent is alive</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/Agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000004">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
+    <wsn-ffd-rdf:contains rdf:nodeID="N33b2421473d941d99bb7f3525288b083"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/contains">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>List of agents contained by the container</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/AgentContainer"/>
+    <rdfs:range rdf:resource="http://wsn-ffd.org/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2e2801d190dc416288fa9e848e79a7c5">
+    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:value>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Second"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SFM270000001">
+    <rdf:type rdf:resource="http://wsn-ffd.org/MQ2"/>
+    <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
+    <ssn-system:OperatingPowerRange rdf:nodeID="Ndd828c2a935b497c92584e804d9df357"/>
+    <ns1:SoundOutput rdf:nodeID="Nce3b40eb02a24c748f5c9b4f587c4b26"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6b8517b41bb44677a76ca05df478dc66">
+    <rdf:_1 rdf:resource="http://wsn-ffd.org/DHT110000001"/>
+    <rdf:_2 rdf:resource="http://wsn-ffd.org/MQ20000001"/>
+    <rdf:_3 rdf:resource="http://wsn-ffd.org/KY0260000001"/>
+    <rdf:_4 rdf:resource="http://wsn-ffd.org/SFM270000001"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/CoordinatorNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Coordinator/Gateway node of the wireless sensor network</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4a9f4de7bdce4133b867e4fcde95ab2a">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/RN0000002"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/RN0000003"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/ED0000003"/>
+    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/ED0000004"/>
+    <rdf:_5 rdf:resource="https://wsn-ffd-owl.org/ED0000005"/>
+    <rdf:_6 rdf:resource="https://wsn-ffd-owl.org/ED0000006"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000003">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <wsn-ffd-rdf:hasJID>sensoragent.edge3@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/KY026">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>KY-026 Flame Sensor Module</rdfs:comment>
+    <rdfs:seeAlso>https://datasheetspdf.com/pdf/1402037/Joy-IT/KY-026/1</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/collectMetricsFrom">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -473,57 +326,490 @@
     <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
     <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/#SensorAgent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/Strategy">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+  <rdf:Description rdf:nodeID="N21cdba3879534896b3bd73aa76fccee2">
+    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:value>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Second"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TA0000007">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
-    <wsn-ffd-rdf:hasJID>triggeragent.edge7@wsn-mas.org</wsn-ffd-rdf:hasJID>
-    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000007"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/KY0260000002">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/KY026"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000002"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000005"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TA0000006">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
-    <wsn-ffd-rdf:hasJID>triggeragent.edge6@wsn-mas.org</wsn-ffd-rdf:hasJID>
+  <rdf:Description rdf:nodeID="Ne6780d245ade48e98f527ecffceaaaea">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000005"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000005"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000002"/>
+    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000005"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000005">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <wsn-ffd-rdf:hasJID>sensoragent.edge5@wsn-mas.org</wsn-ffd-rdf:hasJID>
     <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000006"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/ED0000004">
+    <wsn-ffd-rdf:hostsAgentContainer rdf:resource="https://wsn-ffd-owl.org/AC0000004"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#EdgeDevice"/>
+    <wsn-ffd-rdf:SerialNum>IT833ZK1300001</wsn-ffd-rdf:SerialNum>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.444</geo:lat>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.969</geo:long>
+    <sosa:hosts rdf:nodeID="N5942a13f59ce4a72a6e8f78408f7acae"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TA0000005">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
+    <wsn-ffd-rdf:hasJID>triggeragent.edge5@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+    <ns2:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000005"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/DHT11">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>DHT11 sensor contains a humidity and a temperature sensor</rdfs:comment>
+    <rdfs:seeAlso>https://www.adafruit.com/product/386</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/AgentContainer">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/isRoutedBy">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Router node that can route data to another node</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000006">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000006"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9ea028953cca4d6490f10d6c11658bf0">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/CN0000001"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/RN0000004"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/ED0000002"/>
+    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/ED0000003"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/FrontEndAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>MAS FrontEnd Agent</rdfs:comment>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-owl.org/StatisticsAgent"/>
+    <owl:disjointWith rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <rdfs:seeAlso rdf:resource="https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/blob/master/processing/frontendagent.py"/>
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SoundOutput">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Sensor Sound Output</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/SFM27"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/ActuableProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000004">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000004"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N32d3b59f923e4785903d48c071f92c1d">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000006">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000006"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/MQ20000001">
+    <rdf:type rdf:resource="http://wsn-ffd.org/MQ2"/>
+    <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
+    <ssn-system:OperatingPowerRange rdf:nodeID="Nbc48a59fd0bf483ebf4bd4fdf2bca45d"/>
+    <ssn-system:Frequency rdf:nodeID="N21cdba3879534896b3bd73aa76fccee2"/>
+    <ns1:GasMeasurement rdf:nodeID="Nd62f163392b44c78bddc1fb089f2654e"/>
+    <ns1:OxygenCondition rdf:nodeID="N9e6b010b9c03497ea696994ed7f79d26"/>
+    <ns1:TempCondition rdf:nodeID="Nb9257a19df5848f4b9591d094cf2c505"/>
+    <ns1:HumCondition rdf:nodeID="Ne7a6a819907d42daa68c0b261d2672c9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb9257a19df5848f4b9591d094cf2c505">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DegreeCelsius"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000007">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <wsn-ffd-rdf:hasJID>sensoragent.edge7@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N286c02a9766d4d6e98f60bf68313f101">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000007"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000007"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000007"/>
+    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000007"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/hostsAgentContainer">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Agent container hosted by a WSN Node</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+    <rdfs:range rdf:resource="http://wsn-ffd.org/AgentContainer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/implementsStrategy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/implements"/>
+    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/Strategy"/>
+    <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000007">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000007"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000002">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000002"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RN0000004">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#RouterNode"/>
+    <wsn-ffd-rdf:SerialNum>IT456UI68000001</wsn-ffd-rdf:SerialNum>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.03</geo:lat>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.112</geo:long>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000002"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000003"/>
+    <ns2:canRoute rdf:nodeID="N4a9f4de7bdce4133b867e4fcde95ab2a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000004">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000004"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N935160f82c20425cb1e1b75de91a451b">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000006"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000006"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000006"/>
+    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000006"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000006">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
+    <wsn-ffd-rdf:contains rdf:nodeID="N65f38356e90b4b60b4567acaba235674"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf72ebdc87f7a41cd881dbef5397d31fe">
+    <rdf:_1 rdf:resource="http://wsn-ffd.org/RN0000001"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd62f163392b44c78bddc1fb089f2654e">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10000</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#PPM"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5b14219a800347f88d56d753895605dc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <rdfs:comment>Strategy implemented by a TriggerAgent to trigger a SensorAgent</rdfs:comment>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Bit"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasOutput"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000002">
+    <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <wsn-ffd-rdf:hasJID>dbmanageragent.edge2@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+    <ns2:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000002"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000005">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000005"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/isHostedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>WSN Node that hosts this Agent Container</rdfs:comment>
+    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/hostsAgentContainer"/>
+    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000005">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000005"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/hasJID">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Identifier of the agent in the form username@server</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/Agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/GasMeasurement">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Parts-per-million is the ratio of one gas to another</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/MQ2"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/MeasurementRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8f1d0d8c1c7948709ef75fde4a49d0c3">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na5587a7ff7ea4c9084e8842b7e8e59b8">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DegreeCelsius"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd7a76a6ee1b64cc2a53b9349b707ae52">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/CN0000001"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/RN0000004"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/ED0000006"/>
+    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/ED0000007"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000002">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <wsn-ffd-rdf:hasJID>sensoragent.edge2@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2fb2afa15afa4d24a13e0d045c109c4c">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/TempCondition">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Sensor/Actuator operating temperature condition</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Condition"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/TA0000002">
     <rdf:type rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
     <wsn-ffd-rdf:hasJID>triggeragent.edge2@wsn-mas.org</wsn-ffd-rdf:hasJID>
     <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
-    <ns1:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000002"/>
+    <ns2:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000002"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000007">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000007"/>
+  <rdf:Description rdf:about="http://wsn-ffd.org/TempAccuracy">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Temperature accuracy</rdfs:comment>
+    <rdfs:domain rdf:resource="http://wsn-ffd.org/DHT11"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/systems/Accuracy"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N30792639011f46fa8cbf68b96aedc0a8">
-    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000003"/>
-    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000003"/>
-    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000003"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/ED0000005">
+    <wsn-ffd-rdf:hostsAgentContainer rdf:resource="https://wsn-ffd-owl.org/AC0000005"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#EdgeDevice"/>
+    <wsn-ffd-rdf:SerialNum>IT833ZK1400001</wsn-ffd-rdf:SerialNum>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.454</geo:lat>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.888</geo:long>
+    <sosa:hosts rdf:nodeID="Ne6780d245ade48e98f527ecffceaaaea"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N927e536e971e4f4eb079372716c8a382">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/RN0000002"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/RN0000003"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000003">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000003"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N33b2421473d941d99bb7f3525288b083">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000004"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000004"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000004"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/canRoute">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>List of nodes to which this node is able to route information</rdfs:comment>
+    <owl:inverseOf rdf:resource="https://wsn-ffd-rdf.org/isRoutedBy"/>
+    <rdfs:domain rdf:resource="https://wsn-ffd-owl.org/RouterNode"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5942a13f59ce4a72a6e8f78408f7acae">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/DHT110000004"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/MQ20000004"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/KY0260000004"/>
+    <rdf:_4 rdf:resource="https://wsn-ffd-owl.org/SFM270000004"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/MQ2">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide</rdfs:comment>
+    <rdfs:seeAlso>https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf</rdfs:seeAlso>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/KY0260000001">
+    <rdf:type rdf:resource="http://wsn-ffd.org/MQ2"/>
+    <sosa:isHostedBy rdf:resource="http://wsn-ffd.org/ED0000001"/>
+    <ssn-system:OperatingPowerRange rdf:nodeID="N2fb2afa15afa4d24a13e0d045c109c4c"/>
+    <ns1:UVMeasurement rdf:nodeID="N3a85787a06614272bfaa5d19923ea0fc"/>
+    <ns1:AngleOperatingRange rdf:nodeID="N3d00031c571e4212a409c4e932e7dae6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/EdgeDevice">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>Edge device node of the wireless sensor network</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N65f38356e90b4b60b4567acaba235674">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000006"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000006"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000006"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/Agent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment>MAS Base Agent</rdfs:comment>
+    <rdfs:comment>Agent Execution Environment</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/KY0260000003">
     <rdf:type rdf:resource="https://wsn-ffd-rdf.org/KY026"/>
     <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000003"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/KY0260000007">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/KY026"/>
-    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000007"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TA0000007">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
+    <wsn-ffd-rdf:hasJID>triggeragent.edge7@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+    <ns2:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000007"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000003">
-    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
-    <wsn-ffd-rdf:contains rdf:nodeID="N30792639011f46fa8cbf68b96aedc0a8"/>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DHT110000007">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/DHT11"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000007"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/wsn-mas-ontology">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:versionInfo>1.0</owl:versionInfo>
-    <owl:imports rdf:resource="https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
+    <owl:imports rdf:resource="https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000006">
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/DBMA0000004">
+    <rdf:type rdf:resource="https://wsn-ffd-owl.org/DBManagerAgent"/>
+    <wsn-ffd-rdf:hasJID>dbmanageragent.edge4@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+    <ns2:collectMetricsFrom rdf:resource="https://wsn-ffd-owl.org/SA0000004"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8fbbd97b61314c1faad8930e279d6fc3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxCardinality>
+    <owl:onProperty rdf:resource="https://wsn-ffd-owl.org/#metricsCollectedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://wsn-ffd.org/SerialNum">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment>Node Serial Number Identifier</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/KY0260000004">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/KY026"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000004"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9e6b010b9c03497ea696994ed7f79d26">
+    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</schema:value>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RN0000003">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#RouterNode"/>
+    <wsn-ffd-rdf:SerialNum>IT456UI67900001</wsn-ffd-rdf:SerialNum>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55.634</geo:lat>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.606</geo:long>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#CN0000001"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
+    <ns2:canRoute rdf:nodeID="Nd7a76a6ee1b64cc2a53b9349b707ae52"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000004">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000004"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TA0000003">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
+    <wsn-ffd-rdf:hasJID>triggeragent.edge3@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+    <ns2:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000003"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/RN0000002">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#RouterNode"/>
+    <wsn-ffd-rdf:SerialNum>IT456UI67800001</wsn-ffd-rdf:SerialNum>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55.895</geo:lat>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.437</geo:long>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#CN0000001"/>
+    <wsn-ffd-rdf:isRoutedBy rdf:resource="https://wsn-ffd-owl.org/#RN0000004"/>
+    <ns2:canRoute rdf:nodeID="N9ea028953cca4d6490f10d6c11658bf0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000002">
     <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000002"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/Strategy">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000007">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000007"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000005">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000005"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/KY0260000006">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/KY026"/>
     <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000006"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SFM270000003">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SFM27"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000003"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nce3b40eb02a24c748f5c9b4f587c4b26">
+    <schema:greaterOrEqual rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</schema:greaterOrEqual>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#DeciB"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/triggers">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>SensorAgents that can be triggered by this TriggerAgent</rdfs:comment>
+    <rdfs:domain rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
+    <rdfs:range rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000002">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
+    <wsn-ffd-rdf:contains rdf:nodeID="N94514e7da71f4653b468e7762c3591c7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TA0000006">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/TriggerAgent"/>
+    <wsn-ffd-rdf:hasJID>triggeragent.edge6@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+    <ns2:triggers rdf:resource="https://wsn-ffd-owl.org/SA0000006"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6ca67b82086b45fc971b1b62f0bd665a">
+    <rdf:_1 rdf:resource="https://wsn-ffd-owl.org/SA0000007"/>
+    <rdf:_2 rdf:resource="https://wsn-ffd-owl.org/TA0000007"/>
+    <rdf:_3 rdf:resource="https://wsn-ffd-owl.org/DBMA0000007"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/KY0260000007">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/KY026"/>
+    <sosa:isHostedBy rdf:resource="https://wsn-ffd-owl.org/ED0000007"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbc48a59fd0bf483ebf4bd4fdf2bca45d">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/AC0000005">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/AgentContainer"/>
+    <wsn-ffd-rdf:contains rdf:nodeID="N68268abaebef414d8720f90f7acb6f22"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-rdf.org/SensorAgent">
+    <rdfs:subClassOf rdf:nodeID="N8fbbd97b61314c1faad8930e279d6fc3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndd828c2a935b497c92584e804d9df357">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#V"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/SA0000006">
+    <rdf:type rdf:resource="https://wsn-ffd-rdf.org/SensorAgent"/>
+    <wsn-ffd-rdf:hasJID>sensoragent.edge6@wsn-mas.org</wsn-ffd-rdf:hasJID>
+    <wsn-ffd-rdf:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</wsn-ffd-rdf:isAlive>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://wsn-ffd-owl.org/TriggerStrategy">
+    <rdfs:subClassOf rdf:resource="https://wsn-ffd-owl.org/Strategy"/>
+    <rdfs:subClassOf rdf:nodeID="N5b14219a800347f88d56d753895605dc"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3a85787a06614272bfaa5d19923ea0fc">
+    <schema:minValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">760</schema:minValue>
+    <schema:maxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1100</schema:maxValue>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#NanoM"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N337a20c782394e6a9237c4f45694876d">
+    <schema:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:value>
+    <schema:unitCode rdf:resource="http://qudt.org/1.1/vocab/unit#Percent"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://wsn-ffd-owl.org/MQ20000003">
     <rdf:type rdf:resource="https://wsn-ffd-rdf.org/MQ2"/>

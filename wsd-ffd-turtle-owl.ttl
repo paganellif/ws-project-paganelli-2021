@@ -1,6 +1,7 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix ns1: <https://wsn-ffd-owl.org/> .
-@prefix ns2: <https://wsn-ffd-rdf.org/> .
+@prefix ns1: <http://wsn-ffd.org/> .
+@prefix ns2: <https://wsn-ffd-owl.org/> .
+@prefix ns3: <https://wsn-ffd-rdf.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix qudt-unit-1-1: <http://qudt.org/1.1/vocab/unit#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -8,400 +9,598 @@
 @prefix schema: <http://schema.org/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
-@prefix wsn-ffd-rdf: <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix wsn-ffd-rdf: <https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/raw/develop/wsd-ffd-pretty-xml.rdf> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ns1:CoordinatorNode a owl:Class ;
-    rdfs:comment "Coordinator/Gateway node of the wireless sensor network" ;
-    rdfs:subClassOf ns1:RouterNode .
+ns1:Agent a rdfs:Class ;
+    rdfs:comment "Agent Execution Environment",
+        "MAS Base Agent" .
 
-ns1:TriggerStrategy rdfs:subClassOf [ a owl:Restriction ;
+ns1:AgentContainer a rdfs:Class .
+
+ns1:DHT11 a rdfs:Class ;
+    rdfs:comment "DHT11 sensor contains a humidity and a temperature sensor" ;
+    rdfs:seeAlso "https://www.adafruit.com/product/386" ;
+    rdfs:subClassOf ssn:Sensor .
+
+ns1:EdgeDevice a rdfs:Class ;
+    rdfs:comment "Edge device node of the wireless sensor network" ;
+    rdfs:subClassOf sosa:Platform .
+
+ns1:KY026 a rdfs:Class ;
+    rdfs:comment "KY-026 Flame Sensor Module" ;
+    rdfs:seeAlso "https://datasheetspdf.com/pdf/1402037/Joy-IT/KY-026/1" ;
+    rdfs:subClassOf ssn:Sensor .
+
+ns1:MQ2 a rdfs:Class ;
+    rdfs:comment "MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide" ;
+    rdfs:seeAlso "https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf" ;
+    rdfs:subClassOf ssn:Sensor .
+
+ns1:SFM27 a rdfs:Class ;
+    rdfs:comment "SFM-27 active buzzer" ;
+    rdfs:seeAlso "https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf" ;
+    rdfs:subClassOf ssn:Actuator .
+
+ns1:SensorAgent a rdfs:Class ;
+    rdfs:comment "MAS Sensor Agent" ;
+    rdfs:seeAlso "https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/WSN/sensoragent.py" ;
+    rdfs:subClassOf ns1:Agent .
+
+ns1:TriggerAgent a rdfs:Class ;
+    rdfs:comment "MAS Trigger Agent" ;
+    rdfs:seeAlso "https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/triggeragent.py" ;
+    rdfs:subClassOf ns1:Agent .
+
+ns1:AngleOperatingRange a rdf:Property ;
+    rdfs:comment "Sensor Detection Angle" ;
+    rdfs:domain ns1:KY026 ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf ssn-system:OperatingRange .
+
+ns1:GasMeasurement a rdf:Property ;
+    rdfs:comment "Parts-per-million is the ratio of one gas to another" ;
+    rdfs:domain ns1:MQ2 ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf ssn-system:MeasurementRange .
+
+ns1:HumAccuracy a rdf:Property ;
+    rdfs:comment "Humidity accuracy" ;
+    rdfs:domain ns1:DHT11 ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf ssn-system:Accuracy .
+
+ns1:HumCondition a rdf:Property ;
+    rdfs:comment "Sensor/Actuator operating humidity condition" ;
+    rdfs:domain ssn:System ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf ssn-system:Condition .
+
+ns1:OxygenCondition a rdf:Property ;
+    rdfs:comment "Sensor/Actuator operating oxygen condition" ;
+    rdfs:domain ns1:MQ2 ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf ssn-system:Condition .
+
+ns1:SerialNum a rdf:Property ;
+    rdfs:comment "Node Serial Number Identifier" ;
+    rdfs:domain ssn:System ;
+    rdfs:range rdfs:Literal .
+
+ns1:SoundOutput a rdf:Property ;
+    rdfs:comment "Sensor Sound Output" ;
+    rdfs:domain ns1:SFM27 ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf sosa:ActuableProperty .
+
+ns1:TempAccuracy a rdf:Property ;
+    rdfs:comment "Temperature accuracy" ;
+    rdfs:domain ns1:DHT11 ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf ssn-system:Accuracy .
+
+ns1:TempCondition a rdf:Property ;
+    rdfs:comment "Sensor/Actuator operating temperature condition" ;
+    rdfs:domain ssn:System ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf ssn-system:Condition .
+
+ns1:UVMeasurement a rdf:Property ;
+    rdfs:comment "Infrared Wavelength Detection" ;
+    rdfs:domain ns1:KY026 ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf ssn-system:MeasurementRange .
+
+ns1:contains a rdf:Property ;
+    rdfs:comment "List of agents contained by the container" ;
+    rdfs:domain ns1:AgentContainer ;
+    rdfs:range ns1:Agent .
+
+ns1:hasJID a rdf:Property ;
+    rdfs:comment "Identifier of the agent in the form username@server" ;
+    rdfs:domain ns1:Agent ;
+    rdfs:range rdfs:Literal .
+
+ns1:hasNeighbour a rdf:Property ;
+    rdfs:comment "Neighbour Agent" ;
+    rdfs:domain ns1:Agent ;
+    rdfs:range ns1:Agent .
+
+ns1:hostsAgentContainer a rdf:Property ;
+    rdfs:comment "Agent container hosted by a WSN Node" ;
+    rdfs:domain sosa:Platform ;
+    rdfs:range ns1:AgentContainer .
+
+ns1:isAlive a rdf:Property ;
+    rdfs:comment "Checks if the agent is alive" ;
+    rdfs:domain ns1:Agent ;
+    rdfs:range rdfs:Literal .
+
+ns1:isRoutedBy a rdf:Property ;
+    rdfs:comment "Router node that can route data to another node" ;
+    rdfs:domain ssn:System ;
+    rdfs:range sosa:Platform .
+
+ns2:CoordinatorNode a owl:Class ;
+    rdfs:comment "Coordinator/Gateway node of the wireless sensor network" ;
+    rdfs:subClassOf ns2:RouterNode .
+
+ns2:TriggerStrategy rdfs:subClassOf [ a owl:Restriction ;
             schema:unitCode qudt-unit-1-1:Bit ;
             rdfs:comment "Strategy implemented by a TriggerAgent to trigger a SensorAgent" ;
             owl:onProperty ssn:hasOutput ],
-        ns1:Strategy .
+        ns2:Strategy .
 
-ns1:canRoute a owl:ObjectProperty ;
+ns2:canRoute a owl:ObjectProperty ;
     rdfs:comment "List of nodes to which this node is able to route information" ;
-    rdfs:domain ns1:RouterNode ;
+    rdfs:domain ns2:RouterNode ;
     rdfs:range sosa:Platform ;
-    owl:inverseOf ns2:isRoutedBy .
+    owl:inverseOf ns3:isRoutedBy .
 
-ns1:collectMetricsFrom a owl:ObjectProperty ;
+ns2:collectMetricsFrom a owl:ObjectProperty ;
     rdfs:comment "Sensor Agents from which the DBManager Agent collects the detected data" ;
-    rdfs:domain ns1:DBManagerAgent ;
+    rdfs:domain ns2:DBManagerAgent ;
     rdfs:range <https://wsn-ffd-rdf.org/#SensorAgent> .
 
-ns1:implementsStrategy a owl:ObjectProperty ;
-    rdfs:domain ns1:Strategy ;
-    rdfs:range ns2:Agent ;
+ns2:implementsStrategy a owl:ObjectProperty ;
+    rdfs:domain ns2:Strategy ;
+    rdfs:range ns3:Agent ;
     rdfs:subPropertyOf ssn:implements .
 
-ns1:isHostedBy a owl:ObjectProperty ;
+ns2:isHostedBy a owl:ObjectProperty ;
     rdfs:comment "WSN Node that hosts this Agent Container" ;
-    rdfs:domain ns2:AgentContainer ;
+    rdfs:domain ns3:AgentContainer ;
     rdfs:range sosa:Platform ;
-    owl:inverseOf ns2:hostsAgentContainer .
+    owl:inverseOf ns3:hostsAgentContainer .
 
-ns1:metricsCollectedBy a owl:ObjectProperty ;
+ns2:metricsCollectedBy a owl:ObjectProperty ;
     rdfs:comment "DBManager Agent that collects the data detected from this Sensor Agent" ;
     rdfs:domain <https://wsn-ffd-rdf.org/#SensorAgent> ;
-    rdfs:range ns1:DBManagerAgent ;
+    rdfs:range ns2:DBManagerAgent ;
     owl:inverseOf <https://wsn-ffd-owl.org/#collectMetricsFrom> .
 
-ns1:triggers a owl:ObjectProperty ;
+ns2:triggers a owl:ObjectProperty ;
     rdfs:comment "SensorAgents that can be triggered by this TriggerAgent" ;
-    rdfs:domain ns2:TriggerAgent ;
-    rdfs:range ns2:SensorAgent .
+    rdfs:domain ns3:TriggerAgent ;
+    rdfs:range ns3:SensorAgent .
 
-ns1:wsn-mas-ontology a owl:Ontology ;
+ns2:wsn-mas-ontology a owl:Ontology ;
     owl:imports wsn-ffd-rdf: ;
     owl:versionInfo "1.0" .
 
-ns1:AC0000002 a ns2:AgentContainer ;
-    wsn-ffd-rdf:contains [ a rdf:Bag ;
-            rdf:_1 ns1:SA0000002 ;
-            rdf:_2 ns1:TA0000002 ;
-            rdf:_3 ns1:DBMA0000002 ] .
+ns1:DHT110000001 a ns1:DHT11 ;
+    ns1:HumAccuracy [ schema:unitCode qudt-unit-1-1:Percent ;
+            schema:value 5 ] ;
+    ns1:HumCondition [ schema:maxValue 80 ;
+            schema:minValue 20 ;
+            schema:unitCode qudt-unit-1-1:Percent ] ;
+    ns1:TempAccuracy [ schema:maxValue -2 ;
+            schema:minValue 2 ;
+            schema:unitCode qudt-unit-1-1:DegreeCelsius ] ;
+    ns1:TempCondition [ schema:maxValue 50 ;
+            schema:minValue 0 ;
+            schema:unitCode qudt-unit-1-1:DegreeCelsius ] ;
+    sosa:isHostedBy ns1:ED0000001 ;
+    ssn-system:Frequency [ schema:unitCode qudt-unit-1-1:Second ;
+            schema:value 1 ] ;
+    ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
+            schema:minValue 3 ;
+            schema:unitCode qudt-unit-1-1:V ] .
 
-ns1:AC0000003 a ns2:AgentContainer ;
-    wsn-ffd-rdf:contains [ a rdf:Bag ;
-            rdf:_1 ns1:SA0000003 ;
-            rdf:_2 ns1:TA0000003 ;
-            rdf:_3 ns1:DBMA0000003 ] .
+ns1:KY0260000001 a ns1:MQ2 ;
+    ns1:AngleOperatingRange [ schema:unitCode qudt-unit-1-1:DEG ;
+            schema:value 60 ] ;
+    ns1:UVMeasurement [ schema:maxValue 1100 ;
+            schema:minValue 760 ;
+            schema:unitCode qudt-unit-1-1:NanoM ] ;
+    sosa:isHostedBy ns1:ED0000001 ;
+    ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
+            schema:minValue 3 ;
+            schema:unitCode qudt-unit-1-1:V ] .
 
-ns1:AC0000004 a ns2:AgentContainer ;
-    wsn-ffd-rdf:contains [ a rdf:Bag ;
-            rdf:_1 ns1:SA0000004 ;
-            rdf:_2 ns1:TA0000004 ;
-            rdf:_3 ns1:DBMA0000004 ] .
+ns1:MQ20000001 a ns1:MQ2 ;
+    ns1:GasMeasurement [ schema:maxValue 10000 ;
+            schema:minValue 200 ;
+            schema:unitCode qudt-unit-1-1:PPM ] ;
+    ns1:HumCondition [ schema:maxValue 70 ;
+            schema:minValue 60 ;
+            schema:unitCode qudt-unit-1-1:Percent ] ;
+    ns1:OxygenCondition [ schema:unitCode qudt-unit-1-1:Percent ;
+            schema:value 21 ] ;
+    ns1:TempCondition [ schema:maxValue 22 ;
+            schema:minValue 18 ;
+            schema:unitCode qudt-unit-1-1:DegreeCelsius ] ;
+    sosa:isHostedBy ns1:ED0000001 ;
+    ssn-system:Frequency [ schema:unitCode qudt-unit-1-1:Second ;
+            schema:value 1 ] ;
+    ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
+            schema:minValue 5 ;
+            schema:unitCode qudt-unit-1-1:V ] .
 
-ns1:AC0000005 a ns2:AgentContainer ;
-    wsn-ffd-rdf:contains [ a rdf:Bag ;
-            rdf:_1 ns1:SA0000005 ;
-            rdf:_2 ns1:TA0000005 ;
-            rdf:_3 ns1:DBMA0000005 ] .
+ns1:SFM270000001 a ns1:MQ2 ;
+    ns1:SoundOutput [ schema:greaterOrEqual 95 ;
+            schema:unitCode qudt-unit-1-1:DeciB ] ;
+    sosa:isHostedBy ns1:ED0000001 ;
+    ssn-system:OperatingPowerRange [ schema:maxValue 24 ;
+            schema:minValue 3 ;
+            schema:unitCode qudt-unit-1-1:V ] .
 
-ns1:AC0000006 a ns2:AgentContainer ;
+ns2:AC0000002 a ns3:AgentContainer ;
     wsn-ffd-rdf:contains [ a rdf:Bag ;
-            rdf:_1 ns1:SA0000006 ;
-            rdf:_2 ns1:TA0000006 ;
-            rdf:_3 ns1:DBMA0000006 ] .
+            rdf:_1 ns2:SA0000002 ;
+            rdf:_2 ns2:TA0000002 ;
+            rdf:_3 ns2:DBMA0000002 ] .
 
-ns1:AC0000007 a ns2:AgentContainer ;
+ns2:AC0000003 a ns3:AgentContainer ;
     wsn-ffd-rdf:contains [ a rdf:Bag ;
-            rdf:_1 ns1:SA0000007 ;
-            rdf:_2 ns1:TA0000007 ;
-            rdf:_3 ns1:DBMA0000007 ] .
+            rdf:_1 ns2:SA0000003 ;
+            rdf:_2 ns2:TA0000003 ;
+            rdf:_3 ns2:DBMA0000003 ] .
 
-ns1:DBMA0000002 a ns1:DBManagerAgent ;
+ns2:AC0000004 a ns3:AgentContainer ;
+    wsn-ffd-rdf:contains [ a rdf:Bag ;
+            rdf:_1 ns2:SA0000004 ;
+            rdf:_2 ns2:TA0000004 ;
+            rdf:_3 ns2:DBMA0000004 ] .
+
+ns2:AC0000005 a ns3:AgentContainer ;
+    wsn-ffd-rdf:contains [ a rdf:Bag ;
+            rdf:_1 ns2:SA0000005 ;
+            rdf:_2 ns2:TA0000005 ;
+            rdf:_3 ns2:DBMA0000005 ] .
+
+ns2:AC0000006 a ns3:AgentContainer ;
+    wsn-ffd-rdf:contains [ a rdf:Bag ;
+            rdf:_1 ns2:SA0000006 ;
+            rdf:_2 ns2:TA0000006 ;
+            rdf:_3 ns2:DBMA0000006 ] .
+
+ns2:AC0000007 a ns3:AgentContainer ;
+    wsn-ffd-rdf:contains [ a rdf:Bag ;
+            rdf:_1 ns2:SA0000007 ;
+            rdf:_2 ns2:TA0000007 ;
+            rdf:_3 ns2:DBMA0000007 ] .
+
+ns2:DBMA0000002 a ns2:DBManagerAgent ;
     wsn-ffd-rdf:hasJID "dbmanageragent.edge2@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:collectMetricsFrom ns1:SA0000002 .
+    ns2:collectMetricsFrom ns2:SA0000002 .
 
-ns1:DBMA0000003 a ns1:DBManagerAgent ;
+ns2:DBMA0000003 a ns2:DBManagerAgent ;
     wsn-ffd-rdf:hasJID "dbmanageragent.edge3@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:collectMetricsFrom ns1:SA0000003 .
+    ns2:collectMetricsFrom ns2:SA0000003 .
 
-ns1:DBMA0000004 a ns1:DBManagerAgent ;
+ns2:DBMA0000004 a ns2:DBManagerAgent ;
     wsn-ffd-rdf:hasJID "dbmanageragent.edge4@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:collectMetricsFrom ns1:SA0000004 .
+    ns2:collectMetricsFrom ns2:SA0000004 .
 
-ns1:DBMA0000005 a ns1:DBManagerAgent ;
+ns2:DBMA0000005 a ns2:DBManagerAgent ;
     wsn-ffd-rdf:hasJID "dbmanageragent.edge5@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:collectMetricsFrom ns1:SA0000005 .
+    ns2:collectMetricsFrom ns2:SA0000005 .
 
-ns1:DBMA0000006 a ns1:DBManagerAgent ;
+ns2:DBMA0000006 a ns2:DBManagerAgent ;
     wsn-ffd-rdf:hasJID "dbmanageragent.edge6@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:collectMetricsFrom ns1:SA0000006 .
+    ns2:collectMetricsFrom ns2:SA0000006 .
 
-ns1:DBMA0000007 a ns1:DBManagerAgent ;
+ns2:DBMA0000007 a ns2:DBManagerAgent ;
     wsn-ffd-rdf:hasJID "dbmanageragent.edge7@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:collectMetricsFrom ns1:SA0000007 .
+    ns2:collectMetricsFrom ns2:SA0000007 .
 
-ns1:DHT110000002 a ns2:DHT11 ;
-    sosa:isHostedBy ns1:ED0000002 .
+ns2:DHT110000002 a ns3:DHT11 ;
+    sosa:isHostedBy ns2:ED0000002 .
 
-ns1:DHT110000003 a ns2:DHT11 ;
-    sosa:isHostedBy ns1:ED0000003 .
+ns2:DHT110000003 a ns3:DHT11 ;
+    sosa:isHostedBy ns2:ED0000003 .
 
-ns1:DHT110000004 a ns2:DHT11 ;
-    sosa:isHostedBy ns1:ED0000004 .
+ns2:DHT110000004 a ns3:DHT11 ;
+    sosa:isHostedBy ns2:ED0000004 .
 
-ns1:DHT110000005 a ns2:DHT11 ;
-    sosa:isHostedBy ns1:ED0000005 .
+ns2:DHT110000005 a ns3:DHT11 ;
+    sosa:isHostedBy ns2:ED0000005 .
 
-ns1:DHT110000006 a ns2:DHT11 ;
-    sosa:isHostedBy ns1:ED0000006 .
+ns2:DHT110000006 a ns3:DHT11 ;
+    sosa:isHostedBy ns2:ED0000006 .
 
-ns1:DHT110000007 a ns2:DHT11 ;
-    sosa:isHostedBy ns1:ED0000007 .
+ns2:DHT110000007 a ns3:DHT11 ;
+    sosa:isHostedBy ns2:ED0000007 .
 
-ns1:KY0260000003 a ns2:KY026 ;
-    sosa:isHostedBy ns1:ED0000003 .
+ns2:KY0260000003 a ns3:KY026 ;
+    sosa:isHostedBy ns2:ED0000003 .
 
-ns1:KY0260000004 a ns2:KY026 ;
-    sosa:isHostedBy ns1:ED0000004 .
+ns2:KY0260000004 a ns3:KY026 ;
+    sosa:isHostedBy ns2:ED0000004 .
 
-ns1:KY0260000006 a ns2:KY026 ;
-    sosa:isHostedBy ns1:ED0000006 .
+ns2:KY0260000006 a ns3:KY026 ;
+    sosa:isHostedBy ns2:ED0000006 .
 
-ns1:KY0260000007 a ns2:KY026 ;
-    sosa:isHostedBy ns1:ED0000007 .
+ns2:KY0260000007 a ns3:KY026 ;
+    sosa:isHostedBy ns2:ED0000007 .
 
-ns1:MQ20000002 a ns2:MQ2 ;
-    sosa:isHostedBy ns1:ED0000002 .
+ns2:MQ20000002 a ns3:MQ2 ;
+    sosa:isHostedBy ns2:ED0000002 .
 
-ns1:MQ20000003 a ns2:MQ2 ;
-    sosa:isHostedBy ns1:ED0000003 .
+ns2:MQ20000003 a ns3:MQ2 ;
+    sosa:isHostedBy ns2:ED0000003 .
 
-ns1:MQ20000004 a ns2:MQ2 ;
-    sosa:isHostedBy ns1:ED0000004 .
+ns2:MQ20000004 a ns3:MQ2 ;
+    sosa:isHostedBy ns2:ED0000004 .
 
-ns1:MQ20000005 a ns2:MQ2 ;
-    sosa:isHostedBy ns1:ED0000005 .
+ns2:MQ20000005 a ns3:MQ2 ;
+    sosa:isHostedBy ns2:ED0000005 .
 
-ns1:MQ20000006 a ns2:MQ2 ;
-    sosa:isHostedBy ns1:ED0000006 .
+ns2:MQ20000006 a ns3:MQ2 ;
+    sosa:isHostedBy ns2:ED0000006 .
 
-ns1:MQ20000007 a ns2:MQ2 ;
-    sosa:isHostedBy ns1:ED0000007 .
+ns2:MQ20000007 a ns3:MQ2 ;
+    sosa:isHostedBy ns2:ED0000007 .
 
-ns1:SFM270000002 a ns2:SFM27 ;
-    sosa:isHostedBy ns1:ED0000002 .
+ns2:SFM270000002 a ns3:SFM27 ;
+    sosa:isHostedBy ns2:ED0000002 .
 
-ns1:SFM270000003 a ns2:SFM27 ;
-    sosa:isHostedBy ns1:ED0000003 .
+ns2:SFM270000003 a ns3:SFM27 ;
+    sosa:isHostedBy ns2:ED0000003 .
 
-ns1:SFM270000004 a ns2:SFM27 ;
-    sosa:isHostedBy ns1:ED0000004 .
+ns2:SFM270000004 a ns3:SFM27 ;
+    sosa:isHostedBy ns2:ED0000004 .
 
-ns1:SFM270000005 a ns2:SFM27 ;
-    sosa:isHostedBy ns1:ED0000005 .
+ns2:SFM270000005 a ns3:SFM27 ;
+    sosa:isHostedBy ns2:ED0000005 .
 
-ns1:SFM270000006 a ns2:SFM27 ;
-    sosa:isHostedBy ns1:ED0000006 .
+ns2:SFM270000006 a ns3:SFM27 ;
+    sosa:isHostedBy ns2:ED0000006 .
 
-ns1:SFM270000007 a ns2:SFM27 ;
-    sosa:isHostedBy ns1:ED0000007 .
+ns2:SFM270000007 a ns3:SFM27 ;
+    sosa:isHostedBy ns2:ED0000007 .
 
-ns1:TA0000002 a ns2:TriggerAgent ;
+ns2:TA0000002 a ns3:TriggerAgent ;
     wsn-ffd-rdf:hasJID "triggeragent.edge2@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:triggers ns1:SA0000002 .
+    ns2:triggers ns2:SA0000002 .
 
-ns1:TA0000003 a ns2:TriggerAgent ;
+ns2:TA0000003 a ns3:TriggerAgent ;
     wsn-ffd-rdf:hasJID "triggeragent.edge3@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:triggers ns1:SA0000003 .
+    ns2:triggers ns2:SA0000003 .
 
-ns1:TA0000004 a ns2:TriggerAgent ;
+ns2:TA0000004 a ns3:TriggerAgent ;
     wsn-ffd-rdf:hasJID "triggeragent.edge4@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:triggers ns1:SA0000004 .
+    ns2:triggers ns2:SA0000004 .
 
-ns1:TA0000005 a ns2:TriggerAgent ;
+ns2:TA0000005 a ns3:TriggerAgent ;
     wsn-ffd-rdf:hasJID "triggeragent.edge5@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:triggers ns1:SA0000005 .
+    ns2:triggers ns2:SA0000005 .
 
-ns1:TA0000006 a ns2:TriggerAgent ;
+ns2:TA0000006 a ns3:TriggerAgent ;
     wsn-ffd-rdf:hasJID "triggeragent.edge6@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:triggers ns1:SA0000006 .
+    ns2:triggers ns2:SA0000006 .
 
-ns1:TA0000007 a ns2:TriggerAgent ;
+ns2:TA0000007 a ns3:TriggerAgent ;
     wsn-ffd-rdf:hasJID "triggeragent.edge7@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 ;
-    ns1:triggers ns1:SA0000007 .
+    ns2:triggers ns2:SA0000007 .
 
-ns1:CN0000001 a owl:CoordinatorNode ;
+ns2:CN0000001 a owl:CoordinatorNode ;
     geo:lat 5.5701e+01 ;
     geo:long 1.2552e+01 ;
     wsn-ffd-rdf:SerialNum "IT234GJ55500001" ;
     wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000002>,
         <https://wsn-ffd-owl.org/#RN0000003> ;
-    ns1:canRoute [ a rdf:Bag ;
-            rdf:_1 ns1:RN0000002 ;
-            rdf:_2 ns1:RN0000003 ] .
+    ns2:canRoute [ a rdf:Bag ;
+            rdf:_1 ns2:RN0000002 ;
+            rdf:_2 ns2:RN0000003 ] .
 
-ns1:FrontEndAgent a owl:Class ;
+ns2:FrontEndAgent a owl:Class ;
     rdfs:comment "MAS FrontEnd Agent" ;
-    rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/frontendagent.py> ;
-    rdfs:subClassOf ns2:Agent ;
-    owl:disjointWith ns1:DBManagerAgent,
-        ns1:StatisticsAgent,
-        ns2:SensorAgent .
+    rdfs:seeAlso <https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/blob/master/processing/frontendagent.py> ;
+    rdfs:subClassOf ns3:Agent ;
+    owl:disjointWith ns2:DBManagerAgent,
+        ns2:StatisticsAgent,
+        ns3:SensorAgent .
 
-ns1:KY0260000002 a ns2:KY026 ;
-    sosa:isHostedBy ns1:ED0000002,
-        ns1:ED0000005 .
+ns2:KY0260000002 a ns3:KY026 ;
+    sosa:isHostedBy ns2:ED0000002,
+        ns2:ED0000005 .
 
-ns1:RN0000002 a owl:RouterNode ;
+ns2:RN0000002 a owl:RouterNode ;
     geo:lat 5.5895e+01 ;
     geo:long 1.2437e+01 ;
     wsn-ffd-rdf:SerialNum "IT456UI67800001" ;
     wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#CN0000001>,
         <https://wsn-ffd-owl.org/#RN0000004> ;
-    ns1:canRoute [ a rdf:Bag ;
-            rdf:_1 ns1:CN0000001 ;
-            rdf:_2 ns1:RN0000004 ;
-            rdf:_3 ns1:ED0000002 ;
-            rdf:_4 ns1:ED0000003 ] .
+    ns2:canRoute [ a rdf:Bag ;
+            rdf:_1 ns2:CN0000001 ;
+            rdf:_2 ns2:RN0000004 ;
+            rdf:_3 ns2:ED0000002 ;
+            rdf:_4 ns2:ED0000003 ] .
 
-ns1:RN0000003 a owl:RouterNode ;
+ns2:RN0000003 a owl:RouterNode ;
     geo:lat 5.5634e+01 ;
     geo:long 1.2606e+01 ;
     wsn-ffd-rdf:SerialNum "IT456UI67900001" ;
     wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#CN0000001>,
         <https://wsn-ffd-owl.org/#RN0000004> ;
-    ns1:canRoute [ a rdf:Bag ;
-            rdf:_1 ns1:CN0000001 ;
-            rdf:_2 ns1:RN0000004 ;
-            rdf:_3 ns1:ED0000006 ;
-            rdf:_4 ns1:ED0000007 ] .
+    ns2:canRoute [ a rdf:Bag ;
+            rdf:_1 ns2:CN0000001 ;
+            rdf:_2 ns2:RN0000004 ;
+            rdf:_3 ns2:ED0000006 ;
+            rdf:_4 ns2:ED0000007 ] .
 
-ns1:RN0000004 a owl:RouterNode ;
+ns2:RN0000004 a owl:RouterNode ;
     geo:lat 5.603e+01 ;
     geo:long 1.2112e+01 ;
     wsn-ffd-rdf:SerialNum "IT456UI68000001" ;
     wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000002>,
         <https://wsn-ffd-owl.org/#RN0000003> ;
-    ns1:canRoute [ a rdf:Bag ;
-            rdf:_1 ns1:RN0000002 ;
-            rdf:_2 ns1:RN0000003 ;
-            rdf:_3 ns1:ED0000003 ;
-            rdf:_4 ns1:ED0000004 ;
-            rdf:_5 ns1:ED0000005 ;
-            rdf:_6 ns1:ED0000006 ] .
+    ns2:canRoute [ a rdf:Bag ;
+            rdf:_1 ns2:RN0000002 ;
+            rdf:_2 ns2:RN0000003 ;
+            rdf:_3 ns2:ED0000003 ;
+            rdf:_4 ns2:ED0000004 ;
+            rdf:_5 ns2:ED0000005 ;
+            rdf:_6 ns2:ED0000006 ] .
 
-ns1:RouterNode a owl:Class ;
+ns2:RouterNode a owl:Class ;
     rdfs:comment "Router node of the wireless sensor network" ;
     rdfs:subClassOf sosa:Platform ;
-    owl:disjointWith ns2:EdgeDevice .
+    owl:disjointWith ns3:EdgeDevice .
 
-ns1:StatisticsAgent a owl:Class ;
+ns2:StatisticsAgent a owl:Class ;
     rdfs:comment "MAS Statistics Agent" ;
-    rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/statisticsagent.py> ;
-    rdfs:subClassOf ns2:Agent ;
-    owl:disjointWith ns1:DBManagerAgent,
-        ns1:FrontEndAgent,
-        ns2:SensorAgent .
+    rdfs:seeAlso <https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/blob/master/processing/statisticsagent.py> ;
+    rdfs:subClassOf ns3:Agent ;
+    owl:disjointWith ns2:DBManagerAgent,
+        ns2:FrontEndAgent,
+        ns3:SensorAgent .
 
-ns1:Strategy rdfs:subClassOf sosa:Procedure .
+ns2:Strategy rdfs:subClassOf sosa:Procedure .
 
-ns1:SA0000002 a ns2:SensorAgent ;
+ns2:SA0000002 a ns3:SensorAgent ;
     wsn-ffd-rdf:hasJID "sensoragent.edge2@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 .
 
-ns1:SA0000003 a ns2:SensorAgent ;
+ns2:SA0000003 a ns3:SensorAgent ;
     wsn-ffd-rdf:hasJID "sensoragent.edge3@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 .
 
-ns1:SA0000004 a ns2:SensorAgent ;
+ns2:SA0000004 a ns3:SensorAgent ;
     wsn-ffd-rdf:hasJID "sensoragent.edge4@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 .
 
-ns1:SA0000005 a ns2:SensorAgent ;
+ns2:SA0000005 a ns3:SensorAgent ;
     wsn-ffd-rdf:hasJID "sensoragent.edge5@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 .
 
-ns1:SA0000006 a ns2:SensorAgent ;
+ns2:SA0000006 a ns3:SensorAgent ;
     wsn-ffd-rdf:hasJID "sensoragent.edge6@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 .
 
-ns1:SA0000007 a ns2:SensorAgent ;
+ns2:SA0000007 a ns3:SensorAgent ;
     wsn-ffd-rdf:hasJID "sensoragent.edge7@wsn-mas.org" ;
     wsn-ffd-rdf:isAlive 1 .
 
-ns1:ED0000002 a owl:EdgeDevice ;
+ns1:ED0000001 a ns1:EdgeDevice ;
+    ns1:isRoutedBy [ a rdf:Bag ;
+            rdf:_1 ns1:RN0000001 ] ;
+    geo:lat 5.5701e+01 ;
+    geo:long 1.2552e+01 ;
+    sosa:hosts [ a rdf:Bag ;
+            rdf:_1 ns1:DHT110000001 ;
+            rdf:_2 ns1:MQ20000001 ;
+            rdf:_3 ns1:KY0260000001 ;
+            rdf:_4 ns1:SFM270000001 ] .
+
+ns2:ED0000002 a owl:EdgeDevice ;
     geo:lat 5.612e+01 ;
     geo:long 1.1969e+01 ;
     sosa:hosts [ a rdf:Bag ;
-            rdf:_1 ns1:DHT110000002 ;
-            rdf:_2 ns1:MQ20000002 ;
-            rdf:_3 ns1:KY0260000002 ;
-            rdf:_4 ns1:SFM270000002 ] ;
+            rdf:_1 ns2:DHT110000002 ;
+            rdf:_2 ns2:MQ20000002 ;
+            rdf:_3 ns2:KY0260000002 ;
+            rdf:_4 ns2:SFM270000002 ] ;
     wsn-ffd-rdf:SerialNum "IT833ZK1100001" ;
-    wsn-ffd-rdf:hostsAgentContainer ns1:AC0000002 ;
+    wsn-ffd-rdf:hostsAgentContainer ns2:AC0000002 ;
     wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000002> .
 
-ns1:ED0000004 a owl:EdgeDevice ;
+ns2:ED0000004 a owl:EdgeDevice ;
     geo:lat 5.6444e+01 ;
     geo:long 1.1969e+01 ;
     sosa:hosts [ a rdf:Bag ;
-            rdf:_1 ns1:DHT110000004 ;
-            rdf:_2 ns1:MQ20000004 ;
-            rdf:_3 ns1:KY0260000004 ;
-            rdf:_4 ns1:SFM270000004 ] ;
+            rdf:_1 ns2:DHT110000004 ;
+            rdf:_2 ns2:MQ20000004 ;
+            rdf:_3 ns2:KY0260000004 ;
+            rdf:_4 ns2:SFM270000004 ] ;
     wsn-ffd-rdf:SerialNum "IT833ZK1300001" ;
-    wsn-ffd-rdf:hostsAgentContainer ns1:AC0000004 ;
+    wsn-ffd-rdf:hostsAgentContainer ns2:AC0000004 ;
     wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000004> .
 
-ns1:ED0000005 a owl:EdgeDevice ;
+ns2:ED0000005 a owl:EdgeDevice ;
     geo:lat 5.6454e+01 ;
     geo:long 1.1888e+01 ;
     sosa:hosts [ a rdf:Bag ;
-            rdf:_1 ns1:DHT110000005 ;
-            rdf:_2 ns1:MQ20000005 ;
-            rdf:_3 ns1:KY0260000002 ;
-            rdf:_4 ns1:SFM270000005 ] ;
+            rdf:_1 ns2:DHT110000005 ;
+            rdf:_2 ns2:MQ20000005 ;
+            rdf:_3 ns2:KY0260000002 ;
+            rdf:_4 ns2:SFM270000005 ] ;
     wsn-ffd-rdf:SerialNum "IT833ZK1400001" ;
-    wsn-ffd-rdf:hostsAgentContainer ns1:AC0000005 ;
+    wsn-ffd-rdf:hostsAgentContainer ns2:AC0000005 ;
     wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000004> .
 
-ns1:ED0000007 a owl:EdgeDevice ;
+ns2:ED0000007 a owl:EdgeDevice ;
     geo:lat 5.6323e+01 ;
     geo:long 1.1721e+01 ;
     sosa:hosts [ a rdf:Bag ;
-            rdf:_1 ns1:DHT110000007 ;
-            rdf:_2 ns1:MQ20000007 ;
-            rdf:_3 ns1:KY0260000007 ;
-            rdf:_4 ns1:SFM270000007 ] ;
+            rdf:_1 ns2:DHT110000007 ;
+            rdf:_2 ns2:MQ20000007 ;
+            rdf:_3 ns2:KY0260000007 ;
+            rdf:_4 ns2:SFM270000007 ] ;
     wsn-ffd-rdf:SerialNum "IT833ZK1600001" ;
-    wsn-ffd-rdf:hostsAgentContainer ns1:AC0000007 ;
+    wsn-ffd-rdf:hostsAgentContainer ns2:AC0000007 ;
     wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000003> .
 
-ns1:ED0000003 a owl:EdgeDevice ;
+ns2:ED0000003 a owl:EdgeDevice ;
     geo:lat 5.633e+01 ;
     geo:long 1.1969e+01 ;
     sosa:hosts [ a rdf:Bag ;
-            rdf:_1 ns1:DHT110000003 ;
-            rdf:_2 ns1:MQ20000003 ;
-            rdf:_3 ns1:KY0260000003 ;
-            rdf:_4 ns1:SFM270000003 ] ;
+            rdf:_1 ns2:DHT110000003 ;
+            rdf:_2 ns2:MQ20000003 ;
+            rdf:_3 ns2:KY0260000003 ;
+            rdf:_4 ns2:SFM270000003 ] ;
     wsn-ffd-rdf:SerialNum "IT833ZK1200001" ;
-    wsn-ffd-rdf:hostsAgentContainer ns1:AC0000003 ;
+    wsn-ffd-rdf:hostsAgentContainer ns2:AC0000003 ;
     wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000002>,
         <https://wsn-ffd-owl.org/#RN0000004> .
 
-ns1:ED0000006 a owl:EdgeDevice ;
+ns2:ED0000006 a owl:EdgeDevice ;
     geo:lat 5.6342e+01 ;
     geo:long 1.1765e+01 ;
     sosa:hosts [ a rdf:Bag ;
-            rdf:_1 ns1:DHT110000006 ;
-            rdf:_2 ns1:MQ20000006 ;
-            rdf:_3 ns1:KY0260000006 ;
-            rdf:_4 ns1:SFM270000006 ] ;
+            rdf:_1 ns2:DHT110000006 ;
+            rdf:_2 ns2:MQ20000006 ;
+            rdf:_3 ns2:KY0260000006 ;
+            rdf:_4 ns2:SFM270000006 ] ;
     wsn-ffd-rdf:SerialNum "IT833ZK1500001" ;
-    wsn-ffd-rdf:hostsAgentContainer ns1:AC0000006 ;
+    wsn-ffd-rdf:hostsAgentContainer ns2:AC0000006 ;
     wsn-ffd-rdf:isRoutedBy <https://wsn-ffd-owl.org/#RN0000003>,
         <https://wsn-ffd-owl.org/#RN0000004> .
 
-ns1:DBManagerAgent a owl:Class ;
+ns2:DBManagerAgent a owl:Class ;
     rdfs:comment "MAS DBManager Agent" ;
-    rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py> ;
-    rdfs:subClassOf ns2:Agent ;
-    owl:disjointWith ns1:FrontEndAgent,
-        ns1:StatisticsAgent,
-        ns2:SensorAgent .
+    rdfs:seeAlso <https://gitlab.com/paganelli.f/ws-project-paganelli-1920/-/blob/master/processing/dbmanageragent.py> ;
+    rdfs:subClassOf ns3:Agent ;
+    owl:disjointWith ns2:FrontEndAgent,
+        ns2:StatisticsAgent,
+        ns3:SensorAgent .
 
-ns2:SensorAgent rdfs:subClassOf [ a owl:Restriction ;
+ns3:SensorAgent rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://wsn-ffd-owl.org/#metricsCollectedBy> ] .
 
