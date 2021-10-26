@@ -1,5 +1,5 @@
 .DS_Store
-
+*.gslides
 venv*
 
 # Byte-compiled / optimized / DLL files
