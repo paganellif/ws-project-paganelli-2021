@@ -16,7 +16,7 @@ stages:
     RDF_FILE_NAME: to_be_extended
     OWL_FILE_NAME: to_be_extended
   before_script:
-    - pip3 install -−r requirements.txt
+    - pip install -r requirements.txt
 
 # TEST SERIALIZE
 test-serialize:
