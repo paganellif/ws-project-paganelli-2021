@@ -3,6 +3,7 @@ from rdflib.container import Bag
 from rdflib.term import BNode, URIRef, Literal
 from rdflib.namespace import Namespace, RDFS, RDF
 import os
+import sys
 
 if __name__ == '__main__':
 
@@ -349,13 +350,11 @@ if __name__ == '__main__':
     ##############################
     # RDF Serialization
     ##############################
-    wsd_ffd_rdf.serialize(destination=os.getcwd()+'/wsd-ffd-xml.rdf', format='xml')
-    wsd_ffd_rdf.serialize(destination=os.getcwd()+'/wsd-ffd-pretty-xml.rdf', format='pretty-xml')
-    wsd_ffd_rdf.serialize(destination=os.getcwd()+'/wsd-ffd-turtle.ttl', format='turtle')
-
-    ##############################
-    # SPARQL Query
-    ##############################
-
-    # TODO sparql query definition over wsd_ffd_rdf graph
-    # TODO sparql query execution over wsd_ffd_rdf graph
+    if len(sys.argv) > 1:
+        wsd_ffd_rdf.serialize(destination=os.getcwd()+'/'+sys.argv[1]+'-xml.rdf', format='xml')
+        wsd_ffd_rdf.serialize(destination=os.getcwd()+'/'+sys.argv[1]+'-pretty-xml.rdf', format='pretty-xml')
+        wsd_ffd_rdf.serialize(destination=os.getcwd()+'/'+sys.argv[1]+'-turtle.ttl', format='turtle')
+    else:
+        wsd_ffd_rdf.serialize(destination=os.getcwd()+'/wsd-ffd-xml.rdf', format='xml')
+        wsd_ffd_rdf.serialize(destination=os.getcwd()+'/wsd-ffd-pretty-xml.rdf', format='pretty-xml')
+        wsd_ffd_rdf.serialize(destination=os.getcwd()+'/wsd-ffd-turtle.ttl', format='turtle')

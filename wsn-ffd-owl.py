@@ -3,6 +3,7 @@ from rdflib.term import URIRef, Literal, BNode
 from rdflib.container import Bag
 from rdflib.namespace import Namespace, RDF, RDFS
 import os
+import sys
 
 if __name__ == '__main__':
 
@@ -563,6 +564,11 @@ if __name__ == '__main__':
     ##############################
     # RDF Serialization
     ##############################
-    wsd_ffd_owl.serialize(destination=os.getcwd()+'/wsd-ffd-xml-owl.rdf', format='xml')
-    wsd_ffd_owl.serialize(destination=os.getcwd()+'/wsd-ffd-pretty-xml-owl.rdf', format='pretty-xml')
-    wsd_ffd_owl.serialize(destination=os.getcwd()+'/wsd-ffd-turtle-owl.ttl', format='turtle')
+    if len(sys.argv) > 1:
+        wsd_ffd_owl.serialize(destination=os.getcwd()+'/'+sys.argv[1]+'-xml.rdf', format='xml')
+        wsd_ffd_owl.serialize(destination=os.getcwd()+'/'+sys.argv[1]+'-pretty-xml.rdf', format='pretty-xml')
+        wsd_ffd_owl.serialize(destination=os.getcwd()+'/'+sys.argv[1]+'-turtle.ttl', format='turtle')
+    else:
+        wsd_ffd_owl.serialize(destination=os.getcwd()+'/wsd-ffd-xml-owl.rdf', format='xml')
+        wsd_ffd_owl.serialize(destination=os.getcwd()+'/wsd-ffd-pretty-xml-owl.rdf', format='pretty-xml')
+        wsd_ffd_owl.serialize(destination=os.getcwd()+'/wsd-ffd-turtle-owl.ttl', format='turtle')
