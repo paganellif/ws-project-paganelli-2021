@@ -1,3 +1,4 @@
+[![pipeline status](https://gitlab.com/paganelli.f/ws-project-paganelli-2021/badges/develop/pipeline.svg)](https://gitlab.com/paganelli.f/ws-project-paganelli-2021/-/commits/develop)
 ## RDFLIB
 Repo \
 https://github.com/RDFLib/rdflib
