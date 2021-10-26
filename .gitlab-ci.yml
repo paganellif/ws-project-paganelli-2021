@@ -13,8 +13,8 @@ stages:
 .base:
   image: python:3.8.12
   variables:
-    RDF_FILE_NAME: to_be_extended
-    OWL_FILE_NAME: to_be_extended
+    RDF_FILE_NAME: test-serialize-rdf
+    OWL_FILE_NAME: test-serialize-owl
   before_script:
     - pip install -r requirements.txt
 
@@ -22,9 +22,6 @@ stages:
 test-serialize:
   extends: .base
   stage: test:serialize
-  variables:
-    RDF_FILE_NAME: test-serialize-rdf
-    OWL_FILE_NAME: test-serialize-owl
   script:
     - python wsn-ffd-rdf.py $RDF_FILE_NAME
     - python wsn-ffd-owl.py $OWL_FILE_NAME
