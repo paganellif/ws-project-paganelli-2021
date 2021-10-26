@@ -27,6 +27,7 @@ test-serialize:
     OWL_FILE_NAME: test-serialize-owl
   script:
     - python wsn-ffd-rdf.py $RDF_FILE_NAME
+    - python wsn-ffd-owl.py $OWL_FILE_NAME
   artifacts:
     paths:
       - "${RDF_FILE_NAME}-xml.rdf"
