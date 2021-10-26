@@ -42,3 +42,4 @@ test-sparql:
   script:
     - python test_sparql.py "${OWL_FILE_NAME}-xml.rdf" "${OWL_FILE_NAME}-pretty-xml.rdf"
     - python test_sparql.py "${OWL_FILE_NAME}-pretty-xml.rdf" "${OWL_FILE_NAME}-turtle.ttl"
+    - python test_sparql.py "${OWL_FILE_NAME}-xml.rdf" "${OWL_FILE_NAME}-turtle.ttl"
