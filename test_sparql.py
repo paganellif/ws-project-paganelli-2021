@@ -7,7 +7,7 @@ import os
 
 if __name__ == '__main__':
     g = Graph()
-    g.load(os.getcwd()+'/wsd-ffd-xml-owl.rdf')
+    g.parse(os.getcwd()+'/wsd-ffd-turtle-owl.ttl')
 
     # Loop through each triple in the graph (subj, pred, obj)
     for subj, pred, obj in g:
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     """
 
     query = prepareQuery(prefix+"""
-    select *
+    select ?n ?serial_num ?lat ?long
     where {
         { ?n rdf:type <http://www.w3.org/2002/07/owl#EdgeDevice>} 
             union { ?n rdf:type <http://wsn-ffd.org/EdgeDevice>} 
@@ -46,14 +46,16 @@ if __name__ == '__main__':
     order by asc(?serial_num)
     """)
 
-    print("------WSN nodes position------")
+    print("------WSN nodes spatial position------")
     for row in g.query(query):
         print(f"[node]{row.n}\t-\t[serial num]{row.serial_num}\t-\t[lat]{row.lat}\t-\t[long]{row.long}")
 
     query = prepareQuery(prefix+"""
-    select *
+    select ?n ?is_routed_by ?serial_num
     where {
         ?n wsn-ffd-rdf:isRoutedBy ?is_routed_by .
+        ?n wsn-ffd-rdf:SerialNum ?serial_num .
+        filter (?serial_num != 'IT234GJ55500001') .
     }
     """)
 
