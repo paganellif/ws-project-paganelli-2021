@@ -339,6 +339,7 @@ if __name__ == '__main__':
     wsd_ffd_rdf.add((edge_device_instance, RDF.type, edge_device))
     wsd_ffd_rdf.add((edge_device_instance, GEO.lat, Literal(55.701)))
     wsd_ffd_rdf.add((edge_device_instance, GEO.long, Literal(12.552)))
+
     wsd_ffd_rdf.add((edge_device_instance, SOSA.hosts,
                      Bag(wsd_ffd_rdf, BNode(),
                          [dht11_instance, mq2_instance, ky026_instance, sfm27_instance]).uri
