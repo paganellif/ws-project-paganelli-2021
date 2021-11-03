@@ -1,5 +1,5 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix ns1: <http://wsn-ffd.org/> .
+@prefix ns1: <https://wsn-ffd-rdf.org/> .
 @prefix qudt-unit-1-1: <http://qudt.org/1.1/vocab/unit#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -17,7 +17,7 @@ ns1:AgentContainer a rdfs:Class .
 
 ns1:DHT11 a rdfs:Class ;
     rdfs:comment "DHT11 sensor contains a humidity and a temperature sensor" ;
-    rdfs:seeAlso "https://www.adafruit.com/product/386" ;
+    rdfs:seeAlso <https://www.adafruit.com/product/386> ;
     rdfs:subClassOf ssn:Sensor .
 
 ns1:EdgeDevice a rdfs:Class ;
@@ -26,27 +26,27 @@ ns1:EdgeDevice a rdfs:Class ;
 
 ns1:KY026 a rdfs:Class ;
     rdfs:comment "KY-026 Flame Sensor Module" ;
-    rdfs:seeAlso "https://datasheetspdf.com/pdf/1402037/Joy-IT/KY-026/1" ;
+    rdfs:seeAlso <https://datasheetspdf.com/pdf/1402037/Joy-IT/KY-026/1> ;
     rdfs:subClassOf ssn:Sensor .
 
 ns1:MQ2 a rdfs:Class ;
     rdfs:comment "MQ2 Gas sensor for sensing LPG, Smoke, Alcohol, Propane, Hydrogen, Methane and Carbon Monoxide" ;
-    rdfs:seeAlso "https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf" ;
+    rdfs:seeAlso <https://www.mouser.com/datasheet/2/321/605-00008-MQ-2-Datasheet-370464.pdf> ;
     rdfs:subClassOf ssn:Sensor .
 
 ns1:SFM27 a rdfs:Class ;
     rdfs:comment "SFM-27 active buzzer" ;
-    rdfs:seeAlso "https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf" ;
+    rdfs:seeAlso <https://opencircuit.shop/resources/file/7379f0193d4549c771f0d61bd31d06b316cd4706466/SFM27-Datasheet.pdf> ;
     rdfs:subClassOf ssn:Actuator .
 
 ns1:SensorAgent a rdfs:Class ;
     rdfs:comment "MAS Sensor Agent" ;
-    rdfs:seeAlso "https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/WSN/sensoragent.py" ;
+    rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/WSN/sensoragent.py> ;
     rdfs:subClassOf ns1:Agent .
 
 ns1:TriggerAgent a rdfs:Class ;
     rdfs:comment "MAS Trigger Agent" ;
-    rdfs:seeAlso "https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/triggeragent.py" ;
+    rdfs:seeAlso <https://gitlab.com/paganelli.f/sd-project-paganelli-1920/-/blob/master/processing/triggeragent.py> ;
     rdfs:subClassOf ns1:Agent .
 
 ns1:AngleOperatingRange a rdf:Property ;
@@ -129,16 +129,22 @@ ns1:hostsAgentContainer a rdf:Property ;
     rdfs:range ns1:AgentContainer .
 
 ns1:isAlive a rdf:Property ;
-    rdfs:comment "Checks if the agent is alive" ;
+    rdfs:comment "Indicates whether the agent is alive" ;
     rdfs:domain ns1:Agent ;
     rdfs:range rdfs:Literal .
 
 ns1:isRoutedBy a rdf:Property ;
-    rdfs:comment "Router node that can route data to another node" ;
+    rdfs:comment "Router node able to route information to this node" ;
     rdfs:domain ssn:System ;
     rdfs:range sosa:Platform .
 
 ns1:DHT110000001 a ns1:DHT11 ;
+    sosa:isHostedBy ns1:ED0000001 ;
+    ssn-system:Frequency [ schema:unitCode qudt-unit-1-1:Second ;
+            schema:value 1 ] ;
+    ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
+            schema:minValue 3 ;
+            schema:unitCode qudt-unit-1-1:V ] ;
     ns1:HumAccuracy [ schema:unitCode qudt-unit-1-1:Percent ;
             schema:value 5 ] ;
     ns1:HumCondition [ schema:maxValue 80 ;
@@ -149,26 +155,26 @@ ns1:DHT110000001 a ns1:DHT11 ;
             schema:unitCode qudt-unit-1-1:DegreeCelsius ] ;
     ns1:TempCondition [ schema:maxValue 50 ;
             schema:minValue 0 ;
-            schema:unitCode qudt-unit-1-1:DegreeCelsius ] ;
+            schema:unitCode qudt-unit-1-1:DegreeCelsius ] .
+
+ns1:KY0260000001 a ns1:KY026 ;
     sosa:isHostedBy ns1:ED0000001 ;
-    ssn-system:Frequency [ schema:unitCode qudt-unit-1-1:Second ;
-            schema:value 1 ] ;
     ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
             schema:minValue 3 ;
-            schema:unitCode qudt-unit-1-1:V ] .
-
-ns1:KY0260000001 a ns1:MQ2 ;
+            schema:unitCode qudt-unit-1-1:V ] ;
     ns1:AngleOperatingRange [ schema:unitCode qudt-unit-1-1:DEG ;
             schema:value 60 ] ;
     ns1:UVMeasurement [ schema:maxValue 1100 ;
             schema:minValue 760 ;
-            schema:unitCode qudt-unit-1-1:NanoM ] ;
-    sosa:isHostedBy ns1:ED0000001 ;
-    ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
-            schema:minValue 3 ;
-            schema:unitCode qudt-unit-1-1:V ] .
+            schema:unitCode qudt-unit-1-1:NanoM ] .
 
 ns1:MQ20000001 a ns1:MQ2 ;
+    sosa:isHostedBy ns1:ED0000001 ;
+    ssn-system:Frequency [ schema:unitCode qudt-unit-1-1:Second ;
+            schema:value 1 ] ;
+    ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
+            schema:minValue 5 ;
+            schema:unitCode qudt-unit-1-1:V ] ;
     ns1:GasMeasurement [ schema:maxValue 10000 ;
             schema:minValue 200 ;
             schema:unitCode qudt-unit-1-1:PPM ] ;
@@ -179,30 +185,24 @@ ns1:MQ20000001 a ns1:MQ2 ;
             schema:value 21 ] ;
     ns1:TempCondition [ schema:maxValue 22 ;
             schema:minValue 18 ;
-            schema:unitCode qudt-unit-1-1:DegreeCelsius ] ;
-    sosa:isHostedBy ns1:ED0000001 ;
-    ssn-system:Frequency [ schema:unitCode qudt-unit-1-1:Second ;
-            schema:value 1 ] ;
-    ssn-system:OperatingPowerRange [ schema:maxValue 5 ;
-            schema:minValue 5 ;
-            schema:unitCode qudt-unit-1-1:V ] .
+            schema:unitCode qudt-unit-1-1:DegreeCelsius ] .
 
-ns1:SFM270000001 a ns1:MQ2 ;
-    ns1:SoundOutput [ schema:greaterOrEqual 95 ;
-            schema:unitCode qudt-unit-1-1:DeciB ] ;
+ns1:SFM270000001 a ns1:SFM27 ;
     sosa:isHostedBy ns1:ED0000001 ;
     ssn-system:OperatingPowerRange [ schema:maxValue 24 ;
             schema:minValue 3 ;
-            schema:unitCode qudt-unit-1-1:V ] .
+            schema:unitCode qudt-unit-1-1:V ] ;
+    ns1:SoundOutput [ schema:greaterOrEqual 95 ;
+            schema:unitCode qudt-unit-1-1:DeciB ] .
 
 ns1:ED0000001 a ns1:EdgeDevice ;
-    ns1:isRoutedBy [ a rdf:Bag ;
-            rdf:_1 ns1:RN0000001 ] ;
     geo:lat 5.5701e+01 ;
     geo:long 1.2552e+01 ;
     sosa:hosts [ a rdf:Bag ;
             rdf:_1 ns1:DHT110000001 ;
             rdf:_2 ns1:MQ20000001 ;
             rdf:_3 ns1:KY0260000001 ;
-            rdf:_4 ns1:SFM270000001 ] .
+            rdf:_4 ns1:SFM270000001 ] ;
+    ns1:isRoutedBy [ a rdf:Bag ;
+            rdf:_1 ns1:RN0000001 ] .
 

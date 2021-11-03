@@ -11,13 +11,14 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         f.parse(sys.argv[2])
 
-    # Print the number of "triples" in the Graph
-    print(f"Graph {sys.argv[1]} has {len(g)} statements.")
-
     if len(sys.argv) > 1:
-        print(f"Graph {sys.argv[2]}  has {len(g)} statements.")
+        print(f"Graph {sys.argv[1]}  has {len(g)} statements.")
+        print(f"Graph {sys.argv[2]}  has {len(f)} statements.")
         if len(g) != len(f):
             exit(1)
+    else:
+        # Print the number of "triples" in the Graph
+        print(f"Graph g has {len(g)} statements.")
 
     prefix = """
     prefix sosa: <http://www.w3.org/ns/sosa/>
